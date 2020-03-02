@@ -1,0 +1,41 @@
+/*This css exists to adapt my boostrap theme to customers'desires */
+h1, h2, h3, h4{
+	font-family: "Open Sans", sans-serif;
+}
+p{
+	font-family: "Scope One", sans-serif;
+}
+#mainNav {
+	box-shadow: none;
+	opacity: 0.6;
+}
+	.img-fluid-logo {
+		width : 75px;
+		height: auto;
+opacity : 1;
+	}
+	.navbar-nav .nav-item .nav-link{
+		color : white;
+	}
+#colette{
+	width: 100px;
+	height: auto;
+}
+#remi{
+	width: 289px;
+	height: auto;
+}
+
+footer{
+	background-color: #345a61 !important; 
+}
+
+.mastheadfc{ /*according to clients desires*/	
+	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/fond.jpg");
+	padding-top: 10rem;
+	padding-bottom: calc(10rem - 72px);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: cover;
+}

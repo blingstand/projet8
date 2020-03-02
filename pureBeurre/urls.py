@@ -18,12 +18,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-<<<<<<< HEAD
+
 	url(r'^coach/', include('coach.urls')),
-=======
+
 	url(r'^', include(('coach.urls', 'coach'), namespace='coach')),
 
->>>>>>> us2
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -1,9 +1,6 @@
 /*This css exists to adapt my boostrap theme to customers'desires */
-<<<<<<< HEAD
-h1, h2, h3, h4{
-=======
 html{
->>>>>>> us2
+
 	font-family: "Open Sans", sans-serif;
 }
 p{
@@ -31,11 +28,8 @@ opacity : 1;
 }
 
 footer{
-<<<<<<< HEAD
-	background-color: #345a61 !important; 
-=======
 	background-color: #de9440 !important; 
->>>>>>> us2
+
 }
 
 .mastheadfc{ /*according to clients desires*/	
@@ -46,8 +40,7 @@ footer{
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-size: cover;
-<<<<<<< HEAD
-=======
+
 }
 
 .contact-us{
@@ -68,5 +61,5 @@ footer a{
 
 footer a:hover{
 	color : #86ebe6;
->>>>>>> us2
+
 }

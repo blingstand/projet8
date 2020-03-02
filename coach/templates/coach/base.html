@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bienvenu sur PureBeurre =)</title>
+  {% load static %}
+  <!-- Font Awesome Icons -->
+  <link href="{% static 'coach/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+  <!-- Google Fonts -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link href="{% static 'coach/vendor/magnific-popup/magnific-popup.css'%}" rel="stylesheet">
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="{% static 'coach/css/creative.min.css'%}" rel="stylesheet">
+  <link href="{% static 'coach/css/change_creative.css'%}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <img class="img-fluid-logo" src="{% static 'coach/img/logo_pur_beurre.jpg'%}" alt="">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Recherche</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'coach:monCompte'%}">Mon Compte</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'coach:favoris'%}">Mes Aliments</a>
+          </li>
+          <li class="nav-item">
+            {% if connected %}
+              <a class="nav-link js-scroll-trigger" href="#contact">Déconnexion</a>
+            {% else %}
+              <a class="nav-link js-scroll-trigger" href="#contact">Connexion</a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mr-auto text-center">
+          <a class="d-block" href="{% url 'coach:legalMentions'%}">Mentions légales</a>
+        </div>
+        <div class="col-lg-6 mr-auto text-center">
+          <a class="d-block" href="{% url 'coach:contacts'%}">Contacts</a>
+        </div>
+      </div>
+      
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'coach/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'coach/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'coach/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+  <script src="{% static 'coach/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'coach/js/creative.min.js'%}"></script>
+
+</body>
+
+</html>

@@ -9,3 +9,9 @@ def index(request):
     context = {
     	'connected' : True}
     return render(request, 'coach/index.html', context)
+
+def legalMentions(request):
+	return render(request, 'coach/legalMentions.html')
+
+def contacts(request):
+	return render(request, 'coach/contacts.html')

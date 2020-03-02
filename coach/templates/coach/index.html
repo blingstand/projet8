@@ -1,157 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'coach/base.html' %}
+{% load static %}
 
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Bienvenu sur PureBeurre =)</title>
-  {% load static %}
-  <!-- Font Awesome Icons -->
-  <link href="{% static 'coach/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-
-  <!-- Google Fonts -->
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
-
-  <!-- Plugin CSS -->
-  <link href="{% static 'coach/vendor/magnific-popup/magnific-popup.css'%}" rel="stylesheet">
-
-  <!-- Theme CSS - Includes Bootstrap -->
-  <link href="{% static 'coach/css/creative.min.css'%}" rel="stylesheet">
-  <link href="{% static 'coach/css/change_creative.css'%}" rel="stylesheet">
-
-</head>
-
-<body id="page-top">
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container">
-      <img class="img-fluid-logo" src="{% static 'coach/img/logo_pur_beurre.jpg'%}" alt="">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Recherche</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Mon Compte</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Mes Aliments</a>
-          </li>
-          <li class="nav-item">
-            {% if connected %}
-              <a class="nav-link js-scroll-trigger" href="#contact">Déconnexion</a>
-            {% else %}
-              <a class="nav-link js-scroll-trigger" href="#contact">Connexion</a>
-            {% endif %}
-          </li>
-        </ul>
+{% block content %}
+<!-- Mastheadfc -->
+<header class="mastheadfc">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center justify-content-center text-center">
+      <div class="col-lg-10 align-self-end">
+        <h1 class="text-uppercase text-white font-weight-bold">Du gras oui mais de bonne qualité ! </h1>
+        <hr class="divider my-4">
+      </div>
+      <div class="col-lg-8 align-self-baseline">
+        <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</p>
+        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Mettre barre de recherche ici </a>
       </div>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <!-- Mastheadfc -->
-  <header class="mastheadfc">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center justify-content-center text-center">
-        <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Du gras oui mais de bonne qualité ! </h1>
-          <hr class="divider my-4">
-        </div>
-        <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Mettre barre de recherche ici </a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- About Section -->
-  <section class="page-section bg-primary" id="about">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">Colette et Rémi </h2>
-          <hr class="divider light my-4">
-          <p class="text-white-50 mb-4">Colette Tatou : "Nous aimons tous manger, surtout en France ! Personnellement, une baguette fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent amplement. Comme tout le monde, je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais l'habitude d'acheter par de bons produits du terroir Et souvent pour le même prix !"
-          </p>
-          <p class="text-white-50 mb-4">Remy : "Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader, surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio (dont je raffole) ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait remplacer son Nutella matinal par un aliment plus sain, je savais tout de suite où le trouver. L'idée de Pur Beurre était née !"</p>
-          <div class="container">
-            <div class="row">
-              <div class="offset-2"></div>
-              <div class="col-lg-3">
-                <img id="colette" src="{% static 'coach/img/colette-tatou-full.jpg'%}" alt=""/>
-              </div>
-              <div class="offset-2"></div>
-              <div class="col-lg-3">
-                <img id="remi" src="{% static 'coach/img/ratatouille-portrait2.jpg'%}" alt=""/>
-              </div>
-              <div class="offset-2"></div>
-              
-              
+<!-- About Section -->
+<section class="page-section bg-primary" id="about">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="text-white mt-0">Colette et Rémi </h2>
+        <hr class="divider light my-4">
+        <p class="text-white-50 mb-4">Colette Tatou : "Nous aimons tous manger, surtout en France ! Personnellement, une baguette fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent amplement. Comme tout le monde, je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais l'habitude d'acheter par de bons produits du terroir Et souvent pour le même prix !"
+        </p>
+        <p class="text-white-50 mb-4">Remy : "Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader, surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio (dont je raffole) ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait remplacer son Nutella matinal par un aliment plus sain, je savais tout de suite où le trouver. L'idée de Pur Beurre était née !"</p>
+        <div class="container">
+          <div class="row">
+            <div class="offset-2"></div>
+            <div class="col-lg-3">
+              <img id="colette" src="{% static 'coach/img/colette-tatou-full.jpg'%}" alt=""/>
             </div>
+            <div class="offset-2"></div>
+            <div class="col-lg-3">
+              <img id="remi" src="{% static 'coach/img/ratatouille-portrait2.jpg'%}" alt=""/>
+            </div>
+            <div class="offset-2"></div>
           </div>
-
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contacts Section -->
-  <section class="page-section contact-us" id="services">
-    <div class="container">
-      <h2 class="text-center mt-0">Contactez-nous ! </h2>
-      <hr class="divider my-4">
-      <div class="row">
-        <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div>00.00.00.00.00</div>
-          <p class="text-muted mb-0">Même en travaillant on répond, alors n'hésitez pas!</p>
-        </div>
-        <div class="col-lg-4 mr-auto text-center">
-          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-          <!-- Make sure to change the email address in anchor text AND the link below! -->
-          <a class="d-block" href="mailto:mail@mail.com">mail@mail.com</a>
-          <p class="text-muted mb-0">Nous lisons nos mails chaque matin en déjeunant.</p>
-        </div>
+<!-- Contacts Section -->
+<section class="page-section contact-us" id="services">
+  <div class="container">
+    <h2 class="text-center mt-0">Contactez-nous ! </h2>
+    <hr class="divider my-4">
+    <div class="row">
+      <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+        <div>00.00.00.00.00</div>
+        <p class="text-muted mb-0">Même en travaillant on répond, alors n'hésitez pas!</p>
+      </div>
+      <div class="col-lg-4 mr-auto text-center">
+        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+        <!-- Make sure to change the email address in anchor text AND the link below! -->
+        <a class="d-block" href="mailto:mail@mail.com">mail@mail.com</a>
+        <p class="text-muted mb-0">Nous lisons nos mails chaque matin en déjeunant.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mr-auto text-center">
-          <a class="d-block" href="http://127.0.0.1:8000/coach/legalMentions">Mentions légales</a>
-        </div>
-        <div class="col-lg-6 mr-auto text-center">
-          <a class="d-block" href="http://127.0.0.1:8000/coach/contacts">Contacts</a>
-        </div>
-      </div>
-      
-    </div>
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'coach/vendor/jquery/jquery.min.js'%}"></script>
-  <script src="{% static 'coach/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="{% static 'coach/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
-  <script src="{% static 'coach/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="{% static 'coach/js/creative.min.js'%}"></script>
-
-</body>
-
-</html>
+  </div>
+</section>
+{% endblock %}

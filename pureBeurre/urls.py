@@ -18,7 +18,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-	url(r'^', include('coach.urls')),
+	url(r'^', include(('coach.urls', 'coach'), namespace='coach')),
+
     url(r'^admin/', admin.site.urls),
 ]
 

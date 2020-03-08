@@ -52,7 +52,7 @@
             {% if connected %}
               <a class="nav-link js-scroll-trigger" href="#contact">Déconnexion</a>
             {% else %}
-              <a class="nav-link js-scroll-trigger" href="#contact">Connexion</a>
+              <a class="nav-link js-scroll-trigger" href="{% url 'coach:login' %}">Connexion</a>
             {% endif %}
           </li>
         </ul>
@@ -63,7 +63,7 @@
   {% block content %}{% endblock %}
 
   <!-- Footer -->
-  <footer class="py-5">
+  <footer class="py-5 modal-footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mr-auto text-center">

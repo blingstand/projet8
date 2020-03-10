@@ -10,8 +10,8 @@ urlpatterns = [
     path(r'monCompte', views.monCompte, name="monCompte"),
     path(r'favoris', views.favoris, name="favoris"),
     path(r'logout', views.logoutUser, name="logout"),
-    path(r'connection', views.connection, name="connection"),
-    path(r'register', views.register, name="register"),
+    path(r'connection', views.ConnectionView.as_view(), name="connection"),
+    path(r'register', views.RegisterView.as_view(), name="register"),
 
 ]
 

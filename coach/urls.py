@@ -8,7 +8,8 @@ urlpatterns = [
     path(r'contacts', views.contacts, name="contacts"),
     path(r'monCompte', views.monCompte, name="monCompte"),
     path(r'favoris', views.favoris, name="favoris"),
-    path(r'login', views.login, name="login"),
+    path(r'logout', views.logout, name="logout"),
+    path(r'connection', views.connection, name="connection"),
     path(r'register', views.register, name="register"),
 
 ]

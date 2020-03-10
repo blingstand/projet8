@@ -4,10 +4,11 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
 
 from .form import UserForm
 from .models import Profile
-from .backend import MyBackend
+
 
 
 def register(request):
@@ -18,10 +19,15 @@ def register(request):
     if form.is_valid():
         username = form.cleaned_data.get('username')
         password =form.cleaned_data.get('password')
-        new_user = User.objects.create_user(username=username, password=password)
-        new_profile = Profile(user=new_user)
-
-        return HttpResponse('inscription réussie pour {}'.format(new_profile))
+        try:
+            new_user = User.objects.create_user(username=username, password=password)
+            new_profile = Profile(user=new_user)
+            messages.success(request, "Félicitation vous venez de créer : {} !".format(username))
+            return redirect('connection')
+        except IntegrityError:
+            messages.error(request, "Cet utilisateur existe déjà !")
+            return redirect('register')
+        
     context = {'form':form}
     return render(request, 'coach/register.html', context)
 
@@ -38,15 +44,16 @@ def connection(request):
             login(request, new_user)
             return redirect('index')
         else:
-            msg = Profile.objects.filter(username="adrien")[0]
-            return HttpResponse(msg.password)
             messages.info(request, 'pseudo ou mot de passe incorrect')
+            context = {'form' : form}
+            return render(request, 'coach/login.html', context)
+            
 
     context = {'form' : form}
     return render(request, 'coach/login.html', context)
 
 
-def logout(request):
+def logoutUser(request):
     logout(request)
     return redirect('index')
 

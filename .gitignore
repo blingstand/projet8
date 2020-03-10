@@ -1,4 +1,3 @@
-coach/__pycache__/
-coach/__init__.pyc
+*.pyc
 coach/models.pyc
 coach/migrations/__pycache__/

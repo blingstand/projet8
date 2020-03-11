@@ -29,11 +29,13 @@ class RegisterView(View):
         """ get the outcome from register's form and try to create a new user and profile"""
         form = UserForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password =form.cleaned_data.get('password')
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
             try:
                 new_user = User.objects.create_user(username=username, password=password)
+                new_user.save()
                 new_profile = Profile(user=new_user)
+                new_profile.save()
                 messages.success(request, "Félicitation vous venez de créer : {} !".format(username))
                 return redirect('connection')
             except IntegrityError:
@@ -59,7 +61,7 @@ class ConnectionView(View):
     
     def post(self, request):
         """ analyses datas in order to try to authenticate """
-        form = UserForm(request.POST or None)
+        form = UserForm(request.POST)
         if form.is_valid(): 
             username = form.cleaned_data.get('username')
             password =form.cleaned_data.get('password')
@@ -84,10 +86,8 @@ def logoutUser(request):
 
 def index(request):
     # message = "Bienvenu sur le site pureBeurre !"
-    context = {
-    	'connected' : False
-        }
-    return render(request, 'coach/index.html', context)
+
+    return render(request, 'coach/index.html')
 
 def legalMentions(request):
 	return render(request, 'coach/legalMentions.html')

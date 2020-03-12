@@ -11,18 +11,18 @@
   <title>Bienvenu sur PureBeurre =)</title>
   {% load static %}
   <!-- Font Awesome Icons -->
-  <link href="{% static 'coach/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'user/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
   <!-- Google Fonts -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
 
   <!-- Plugin CSS -->
-  <link href="{% static 'coach/vendor/magnific-popup/magnific-popup.css'%}" rel="stylesheet">
+  <link href="{% static 'user/vendor/magnific-popup/magnific-popup.css'%}" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="{% static 'coach/css/creative.min.css'%}" rel="stylesheet">
-  <link href="{% static 'coach/css/change_creative.css'%}" rel="stylesheet">
+  <link href="{% static 'user/css/creative.min.css'%}" rel="stylesheet">
+  <link href="{% static 'user/css/change_creative.css'%}" rel="stylesheet">
 
 </head>
 
@@ -31,8 +31,8 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
-      <a href="{% url 'coach:index' %}">
-        <img class="img-fluid-logo" id="biscuit" src="{% static 'coach/img/logo_pur_beurre.jpg'%}" alt="">
+      <a href="{% url 'user:index' %}">
+        <img class="img-fluid-logo" id="biscuit" src="{% static 'user/img/logo_pur_beurre.jpg'%}" alt="">
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,19 +40,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Recherche</a>
+            <a class="nav-link js-scroll-trigger" href="#about">Recherche Avancée</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'coach:monCompte'%}">Mon Compte</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'user:monCompte'%}">Mon Compte</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'coach:favoris'%}">Mes Aliments</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'user:favoris'%}">Mes Aliments</a>
           </li>
           <li class="nav-item">
             {% if user.is_authenticated  %}
-              <a class="nav-link js-scroll-trigger" href="{% url 'coach:logout' %}">Déconnecter {{user.username}}</a>
+              <a class="nav-link js-scroll-trigger" href="{% url 'user:logout' %}">Déconnecter {{user.username}}</a>
             {% else %}
-              <a class="nav-link js-scroll-trigger" href="{% url 'coach:connection' %}">Me connecter</a>
+              <a class="nav-link js-scroll-trigger" href="{% url 'user:connection' %}">Me Connecter</a>
             {% endif %}
           </li>
         </ul>
@@ -67,10 +67,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mr-auto text-center">
-          <a class="d-block" href="{% url 'coach:legalMentions'%}">Mentions légales</a>
+          <a class="d-block" href="{% url 'user:legalMentions'%}">Mentions légales</a>
         </div>
         <div class="col-lg-6 mr-auto text-center">
-          <a class="d-block" href="{% url 'coach:contacts'%}">Contacts</a>
+          <a class="d-block" href="{% url 'user:contacts'%}">Contacts</a>
         </div>
       </div>
       
@@ -78,15 +78,15 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'coach/vendor/jquery/jquery.min.js'%}"></script>
-  <script src="{% static 'coach/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'user/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'user/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="{% static 'coach/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
-  <script src="{% static 'coach/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{% static 'user/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+  <script src="{% static 'user/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="{% static 'coach/js/creative.min.js'%}"></script>
+  <script src="{% static 'user/js/creative.min.js'%}"></script>
 
 </body>
 

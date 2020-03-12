@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'coach.apps.CoachConfig', 
+    'user.apps.UserConfig', 
     'debug_toolbar',
 ]
 

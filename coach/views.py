@@ -20,7 +20,7 @@ class RegisterView(View):
     def get(self, request): 
         """ display html page with form in order to register a new user"""
         if request.user.is_authenticated:
-            return redirect('index') #if auth user comes to register page
+            return redirect('coach:index') #if auth user comes to register page
         form = UserForm()
         context = {'form':form}
         return render(request, 'coach/register.html', context)
@@ -37,12 +37,12 @@ class RegisterView(View):
                 new_profile = Profile(user=new_user)
                 new_profile.save()
                 messages.success(request, "Félicitation vous venez de créer : {} !".format(username))
-                return redirect('connection')
+                return redirect('coach:connection')
             except IntegrityError:
                 messages.error(request, "Cet utilisateur existe déjà !")
-                return redirect('register')
+                return redirect('coach:register')
         messages.error(request, "Problème dans le formulaire !")
-        return redirect('register')
+        return redirect('coach:register')
         
     
 
@@ -54,7 +54,7 @@ class ConnectionView(View):
     def get(self, request):
         """ loads a connection page """
         if request.user.is_authenticated:
-            return redirect('index')
+            return redirect('coach:index')
         form = UserForm()
         context = {'form' : form}
         return render(request, 'coach/login.html', context)
@@ -63,24 +63,24 @@ class ConnectionView(View):
         """ analyses datas in order to try to authenticate """
         form = UserForm(request.POST)
         if form.is_valid(): 
-            username = form.cleaned_data.get('username')
-            password =form.cleaned_data.get('password')
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
             new_user = authenticate(username=username, password=password)
 
             if new_user is not None:
                 login(request, new_user)
-                return redirect('index')
+                return redirect('coach:index')
             else:
-                messages.info(request, 'pseudo ou mot de passe incorrect')
-                return redirect('connection')
+                messages.info(request, 'Pseudo ou mot de passe incorrect')
+                return redirect('coach:connection')
         messages.error(request, "Problème dans le formulaire !")
-        return redirect('connection')
+        return redirect('coach:connection')
                 
 
 
 def logoutUser(request):
     logout(request)
-    return redirect('index')
+    return redirect('coach:index')
 
 
 

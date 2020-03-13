@@ -112,3 +112,29 @@ footer a:hover{
 	background-attachment: scroll;
 	background-size: cover;
 }
+/* account page */
+.masthead-account{ 	
+	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), 
+	url("../img/supermarket.png");
+	padding-top: 10rem;
+	padding-bottom: calc(10rem - 72px);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: cover;
+}
+.opac_white_background{
+	background-color: rgba(255, 255, 230, 0.3);
+	}
+
+.form_my_account{
+	display:flex;
+	justify-content : space-around;
+}
+.account_input{
+	display:flex;
+	justify-content : flex-end;
+}
+.account{
+	margin-bottom: 1em; 
+}

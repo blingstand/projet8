@@ -4,12 +4,8 @@ from django.db import models
 
 
 class Profile(models.Model):
-    
+    auto_increment_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    mail_confirm_sent = models.BooleanField(default=False)
+    mail_confirmed = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
-
-    """required pamameters for user : username, password
-    > more info : 
-    https://docs.djangoproject.com/en/3.0/ref/contrib/auth/#django.contrib.auth.models.User.is_authenticated
-    from user.models import Profile as p 
-    """

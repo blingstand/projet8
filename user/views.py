@@ -98,18 +98,22 @@ class myAccountView(View):
         print(profile_found.mail_confirmed, profile_found.mail_confirm_sent)
         return user, profile_found
 
-    def get(self, request, mail_confirm=0, get_mail=""):
+    def get(self, request, mail_confirm=0, get_mail="", new_mail=""):
         if request.user.is_authenticated:
             user, profile_found = self.get_user_and_profile(request.user)
             try:
                 user_mail = user.email
             except Exception as e:
-                HttpResponse(user.username, user.password, user.email)
-            user.email = None #to avoid error
+                user.email = None #to avoid error
             if mail_confirm == 1:
-                user.email = get_mail
-                user.save()
-                profile_found.mail_confirmed = True
+                print("---"*10, user.email)
+                if user.email == get_mail:
+                    profile_found.mail_confirmed = True
+                    profile_found.save()
+                else:
+                    messages.error(request, "le confirmation de l'adresse mail a échoué !")
+            if new_mail == "new_mail":
+                profile_found.mail_confirm_sent = False
                 profile_found.save()
             form = MoreUserDataForm()
             context={
@@ -119,8 +123,9 @@ class myAccountView(View):
                 'user_mail' : user_mail
             }
             return render(request, "user/myAccount.html", context)
+        return redirect('user:connection')
 
-    def post(self, request, email_confirm=0):
+    def post(self, request, new_mail=""):
         if request.user.is_authenticated:
             form = MoreUserDataForm(request.POST)
             if form.is_valid(): 
@@ -138,7 +143,7 @@ class myAccountView(View):
                 profile_found.save()
                 user.email = mail
                 user.save()
-                return HttpResponse(user.email)
+                return redirect('myAccount')
 
             context={
                 'form' : form

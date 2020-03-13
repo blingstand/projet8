@@ -12,8 +12,12 @@
 					{% if mail_confirmed %}
 					<p class="text-center"> Tu m'as communiqué ce mail : {{user_mail}}</p>
 					{% else %}
-					<h4 class="text-center mt-0 account">Il semblerait que je n'ai pas ton mail ... </h4>
+					<h4 class="text-center mt-0 account">Il semblerait que je n'ai pas encore reçu ta confirmation ... </h4>
+					{% for message in messages %}
+						<p class="text-center">{{message}}</p>
+					{% endfor %}
 					<p> Mail de confirmation envoyé à cette adresse {{ user_mail}}, j'attends ta réponse</p>
+					<a href="{% url 'user:myAccount'%}/new_mail">Fournir un nouveau mail</a >
 					{% endif%}
 				{% else %}
 				<h4 class="text-center mt-0 account">Il semblerait que je n'ai pas ton mail ... </h4>

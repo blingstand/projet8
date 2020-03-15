@@ -17,7 +17,7 @@
 						<p class="text-center">{{message}}</p>
 					{% endfor %}
 					<p> Mail de confirmation envoyé à cette adresse {{ user_mail}}, j'attends ta réponse</p>
-					<a href="{% url 'user:myAccount'%}/new_mail">Fournir un nouveau mail</a >
+					<a href="{% url 'user:myAccount'%}/2">Fournir un nouveau mail</a >
 					{% endif%}
 				{% else %}
 				<h4 class="text-center mt-0 account">Il semblerait que je n'ai pas ton mail ... </h4>

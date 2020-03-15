@@ -90,29 +90,32 @@ class ConnectionView(View):
 
 
 class myAccountView(View):
+    """ this class handles with myAccount view to display the myAccount.html
+
+        get() can load the same page but this one can change according to the context
+        context will depend on parameters in the request 
+    """
     
     def get_user_and_profile(self, user):
         user_found = user
         ufpk = user_found.pk #user_found_primary_key = ufpk
         profile_found = Profile.objects.filter(user=ufpk)[0]
-        print(profile_found.mail_confirmed, profile_found.mail_confirm_sent)
         return user, profile_found
 
-    def get(self, request, mail_confirm=0, get_mail="", new_mail=""):
+    def get(self, request, my_option="", my_chain=""):
         if request.user.is_authenticated:
             user, profile_found = self.get_user_and_profile(request.user)
             try:
                 user_mail = user.email
             except Exception as e:
                 user.email = None #to avoid error
-            if mail_confirm == 1:
-                print("---"*10, user.email)
-                if user.email == get_mail:
+            if my_option == 1:
+                if user.email == my_chain: #je pourrais améliorer ça, plus tard ...
                     profile_found.mail_confirmed = True
                     profile_found.save()
                 else:
-                    messages.error(request, "le confirmation de l'adresse mail a échoué !")
-            if new_mail == "new_mail":
+                    messages.error(request, "la confirmation de l'adresse mail a échoué !")
+            elif my_option == 2:
                 profile_found.mail_confirm_sent = False
                 profile_found.save()
             form = MoreUserDataForm()
@@ -125,30 +128,29 @@ class myAccountView(View):
             return render(request, "user/myAccount.html", context)
         return redirect('user:connection')
 
-    def post(self, request, new_mail=""):
-        if request.user.is_authenticated:
-            form = MoreUserDataForm(request.POST)
-            if form.is_valid(): 
-                mail = form.cleaned_data['mail'] #gets the mail
-                #sends a mail to confirm mail adress before adding in base
-                subject = "Confirmation de votre mail "
-                message = "Clickez sur ce lien http://127.0.0.1:8000/myAccount/1/{} pour confirmer votre mail"\
-                .format(mail)
-                from_email = settings.EMAIL_HOST_USER
-                to_list = [mail]
-                # send_mail(subject, message, from_email, to_list, fail_silently=True)
-                # notify base that mail has been sent
-                user, profile_found = self.get_user_and_profile(request.user)
-                profile_found.mail_confirm_sent = True
-                profile_found.save()
-                user.email = mail
-                user.save()
-                return redirect('myAccount')
+    def post(self, request):
+        form = MoreUserDataForm(request.POST)
+        if form.is_valid(): 
+            mail = form.cleaned_data['mail'] #gets the mail
+            #sends a mail to confirm mail adress before adding in base
+            subject = "Confirmation de votre mail "
+            message = "Clickez sur ce lien http://127.0.0.1:8000/myAccount/1/{} pour confirmer votre mail"\
+            .format(mail)
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [mail]
+            # send_mail(subject, message, from_email, to_list, fail_silently=True)
+            # notify base that mail has been sent
+            user, profile_found = self.get_user_and_profile(request.user)
+            profile_found.mail_confirm_sent = True
+            profile_found.save()
+            user.email = mail
+            user.save()
 
             context={
                 'form' : form
             }
             return render(request, "user/myAccount.html", context)
+        return HttpResponse("Le formulaire n'est pas valide")
 
 
 

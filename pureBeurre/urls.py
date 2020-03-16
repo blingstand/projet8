@@ -19,7 +19,8 @@ from django.contrib import admin
 
 urlpatterns = [
 	path(r'user/', include('user.urls')),
-	path(r'', include(('user.urls', 'user'), namespace='user')),
+    path(r'', include(('user.urls', 'user'), namespace='user')),
+	path(r'research/', include(('research.urls', 'research'), namespace='research')),
     path(r'admin/', admin.site.urls),
 ]
 

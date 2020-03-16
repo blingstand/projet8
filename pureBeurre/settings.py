@@ -34,7 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_URL = 'coach/login/'
+LOGIN_URL = 'user/login/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserConfig', 
     'research.apps.ResearchConfig', 
-    'debug_toolbar',
+    'skeleton.apps.SkeletonConfig', 
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [

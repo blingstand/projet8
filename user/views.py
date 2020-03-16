@@ -10,9 +10,12 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 
-from .form import UserForm, MoreUserDataForm
-from .models import Profile
+#from app import
+from user.form import UserForm, MoreUserDataForm
+from user.models import Profile
 
+#from other app import
+import research.form as rf
 
 
 class RegisterView(View):
@@ -54,8 +57,7 @@ class RegisterView(View):
                 messages.error(request, "Cet utilisateur existe déjà !")
                 return redirect('user:register')
         messages.error(request, "Problème dans le formulaire !")
-        return redirect('user:register')
-        
+        return redirect('user:register')        
 
 class ConnectionView(View):
     """ This class deals with login
@@ -87,8 +89,6 @@ class ConnectionView(View):
         messages.error(request, "Problème dans le formulaire !")
         return redirect('user:connection')
                 
-
-
 class myAccountView(View):
     """ this class handles with myAccount view to display the myAccount.html
 
@@ -152,19 +152,15 @@ class myAccountView(View):
             return render(request, "user/myAccount.html", context)
         return HttpResponse("Le formulaire n'est pas valide")
 
-
-
-
 def logoutUser(request):
     logout(request)
     return redirect('user:index')
 
-
-
 def index(request):
     # message = "Bienvenu sur le site pureBeurre !"
-
-    return render(request, 'user/index.html')
+    form = rf.SearchForm()
+    context = { 'form' : form }
+    return render(request, 'skeleton/index.html', context)
 
 def legalMentions(request):
 	return render(request, 'user/legalMentions.html')

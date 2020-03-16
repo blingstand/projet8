@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% block head%}
 <head>
 
   <meta charset="utf-8">
@@ -11,28 +11,29 @@
   <title>Bienvenu sur PureBeurre =)</title>
   {% load static %}
   <!-- Font Awesome Icons -->
-  <link href="{% static 'user/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'skeleton/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
   <!-- Google Fonts -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Scope+One" rel="stylesheet" type="text/css">
 
   <!-- Plugin CSS -->
-  <link href="{% static 'user/vendor/magnific-popup/magnific-popup.css'%}" rel="stylesheet">
+  <link href="{% static 'skeleton/vendor/magnific-popup/magnific-popup.css'%}" rel="stylesheet">
 
   <!-- Theme CSS - Includes Bootstrap -->
-  <link href="{% static 'user/css/creative.min.css'%}" rel="stylesheet">
-  <link href="{% static 'user/css/change_creative.css'%}" rel="stylesheet">
-
+  <link href="{% static 'skeleton/css/creative.min.css'%}" rel="stylesheet">
+  <link href="{% static 'skeleton/css/change_creative.css'%}" rel="stylesheet">
 </head>
+{% endblock %}
 
 <body id="page-top">
-
+  
+  {% block nav_bar%}
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
       <a href="{% url 'user:index' %}">
-        <img class="img-fluid-logo" id="biscuit" src="{% static 'user/img/logo_pur_beurre.jpg'%}" alt="">
+        <img class="img-fluid-logo" id="biscuit" src="{% static 'skeleton/img/logo_pur_beurre.jpg'%}" alt="">
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -59,11 +60,19 @@
       </div>
     </div>
   </nav>
+  {% endblock %}
+
+  <!-- this block contains searching app -->
   {% block search %}{% endblock %}
-
-
-  {% block content %}{% endblock %}
-
+  
+  {% block form %}
+  {% endblock %}
+  <!-- this block contains informations about owners -->
+  {% block about %}{% endblock %}
+  
+  <!-- this block contains informations to contact owners -->
+  {% block contact %}{% endblock %}
+  {% block footer %}
   <!-- Footer -->
   <footer class="py-5 modal-footer">
     <div class="container">
@@ -78,18 +87,20 @@
       
     </div>
   </footer>
-
+  {% endblock %}
+  
+  {% block script%}
   <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'user/vendor/jquery/jquery.min.js'%}"></script>
-  <script src="{% static 'user/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'skeleton/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'skeleton/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="{% static 'user/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
-  <script src="{% static 'user/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{% static 'skeleton/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+  <script src="{% static 'skeleton/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="{% static 'user/js/creative.min.js'%}"></script>
-
+  <script src="{% static 'skeleton/js/creative.min.js'%}"></script>
+  {% endblock %}
 </body>
 
 </html>

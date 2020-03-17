@@ -1,0 +1,85 @@
+{% extends "skeleton/base.html" %}
+
+{% block ASF %}
+
+<header class="masthead-ripening">
+    <div class="container">
+        <h2 class="text-center mt-0 text-white">Recherche avancée </h2>
+        <p class="text-center mt-0 text-white">on affine que tes recherches</p>
+        {% for message in messages%}
+        <p id="text-white">{{message}}</p>
+        {% endfor%}
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <form class="opac_white_background" action="" method='POST'>
+                    {% csrf_token %}
+                    <div class="form-row padding-top-2">
+                        <div class="col-lg-3 center">Nom</div >     
+                        <div class="col-lg-9 center">{{ form.name}}</div >      
+                    </div>
+                    <div class="form-row padding-top-2">
+                        <div class="col-lg-3 center">Catégorie </div >
+                        <div class="col-lg-9 center">{{ form.category}}</div >
+                    </div>
+                    <div class="form-row padding-top-2">
+                        <div class="col-lg-3 center">Nutriscore </div >
+                        <div class="col-lg-9 center">{{ form.nutriscore}}</div >
+                    </div>
+                    <div class="form-row padding-top-2">
+                        <div class="col-lg-4 center">Conditionnement </div >
+                        <div class="col-lg-8 ">{{ form.packaging}}</div >
+                    </div>
+                    <div class="right-input">
+                        <input type="submit" class="btn btn-primary" value="Lancer la recherche">
+                    </div>
+                </form>
+                {{form.errors}}
+            </div>
+            <div class="col-lg-3"></div>
+
+        </div>
+    </div>
+</header>
+
+<!-- 
+<script>
+    //this script organise the li of the page
+
+    ul = document.querySelectorAll("ul");
+    ul[1].setAttribute("class", "choices")
+    ul[2].setAttribute("class", "choices")
+
+    div_choice_container = document.getElementsByClassName("choice_container")
+    console.log(div_choice_container)
+    const organize_li = function(my_list, div_choice_container){
+        //I want to organise my li on 2 lines
+    //first list widget, I take the 2 last elements.
+    number_element = my_list.children.length
+    console.log(number_element)
+    //I create a new ul 
+    let new_ul = document.createElement("ul");
+    new_ul.setAttribute("class", "choices")
+    
+    div_choice_container.appendChild(new_ul)
+    console.log(div_choice_container.children) //for test
+    console.log("new_ul : ",new_ul) //for test
+
+    let children = []
+    for (let i = 3; i < number_element; i ++){
+        concerned_child = my_list.children[3]
+        console.log(i, concerned_child, my_list)
+        children.push(concerned_child)
+        my_list.removeChild(concerned_child)
+        new_ul.appendChild(concerned_child)
+    }
+    console.log("list of children >", children) //for test
+    console.log(my_list.children.length, "stay in first ul") //for test
+    }
+
+    organize_li(ul[1], div_choice_container[0])
+    organize_li(ul[2], div_choice_container[1])
+
+</script> -->
+
+{% endblock%}

@@ -4,5 +4,5 @@ from . import views as v # import views so we can use them in urls.
 
 
 urlpatterns = [
-    path(r'searchForm', v.SearchFormView.as_view(), name="searchForm"),
+    path(r'advancedSearch', v.AdvancedSearchView.as_view(), name="advancedSearch"),
 ]

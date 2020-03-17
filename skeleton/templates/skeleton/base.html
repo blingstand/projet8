@@ -41,7 +41,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Recherche Avancée</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'research:advancedSearch' %}">Recherche Avancée</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{% url 'user:myAccount'%}">Mon Compte</a>
@@ -65,7 +65,11 @@
   <!-- this block contains searching app -->
   {% block search %}{% endblock %}
   
-  {% block form %}
+  <!-- this block contains connection/register/advancedSearch form -->
+  {% block form %} 
+  {% endblock %}
+  <!-- this block contains advancedSearch form (ASF) -->
+  {% block ASF %}
   {% endblock %}
   <!-- this block contains informations about owners -->
   {% block about %}{% endblock %}

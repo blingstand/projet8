@@ -1,0 +1,27 @@
+{% extends "skeleton/base.html" %}
+
+{% block results%}
+<header class="masthead-results"> <!-- changer le masthead pour mettre la photo du produit trouvé -->
+	<div class="container">
+		<h2 class="text-center mt-0 text-white">Resultats </h2>
+		<p class="text-center mt-0 text-white">Nom du produit</p>
+	</div>
+</header>
+<section class="page-section bg-primary" id="services">
+	<div class="container">
+		<h2 class="text-center text-white mt-0">Vous pouvez remplacer cet aliment par ... ! </h2>
+		<hr class="divider my-4">
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10 text-center">
+				<ul class="ul-col-3">
+					{% for result in results %}
+					<li class="text-white">photo du résultat n°{{result}} + NS</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-lg-1"></div>
+		</div>
+	</div>
+</section>
+{% endblock%}

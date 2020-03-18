@@ -17,7 +17,7 @@ class IndexViewTests(TestCase):
         response = self.client.get(reverse('user:index'))
         self.assertEqual(response.status_code, 200)
 
-@skip
+
 class AuthenticationViewTests(TestCase):
 
     def setUp(self): 
@@ -185,14 +185,14 @@ class myAccountViewTests(TestCase):
 
     def tearDown(self):
         self.client.logout()
-    @skip
+    
     def test_myacc_can_not_get_access_page(self):
         """ user connected can access myAccount page"""
         self.client.logout()
         response = self.client.get(reverse('user:myAccount'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, reverse("user:connection"))
-    @skip
+    
     def test_myacc_get_access_page(self):
         """ user connected can access myAccount page"""
         response = self.client.get("/user/myAccount", follow=True)
@@ -200,7 +200,7 @@ class myAccountViewTests(TestCase):
         self.assertEqual(response.wsgi_request.build_absolute_uri(), \
             "http://testserver/user/myAccount")
         
-    @skip
+    
     def test_myacc_get_access_page_option1_and_mail(self):
         """ user can access myAcount with url : ".../user/myAccount/1/test@mail.fr" """
         self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
@@ -213,7 +213,7 @@ class myAccountViewTests(TestCase):
         self.assertContains(response, "Tu m'as communiqué ce mail : test@mail.fr")
         
 
-    @skip
+    
     def test_myacc_get_access_page_option2(self):
         """ user can access myAcount with url : ".../user/myAccount/2
             that means user has given a first mail and can change it because a new email form appears
@@ -225,7 +225,7 @@ class myAccountViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Il semblerait que je n'ai pas ton mail ...")
 
-    @skip
+    
     def test_myacc_post_form_is_not_valid(self):
         """
             user gets an error page if form is not valid 

@@ -149,7 +149,7 @@ class myAccountView(View):
             context={
                 'form' : form
             }
-            return render(request, "user/myAccount.html", context)
+            return redirect("user:myAccount")
         return HttpResponse("Le formulaire n'est pas valide")
 
 def logoutUser(request):

@@ -23,10 +23,10 @@ class AdvancedSearchForm(forms.Form):
     nutriscore = forms.MultipleChoiceField(
         label="nutriscore",
         required=False,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'ul-col-2'}),
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'ul-col-2 no-point'}),
         choices=[(1,"A"),(2,"B"),(3,"C"),(4, "D"),(5, "E")])
     packaging = forms.MultipleChoiceField(
         label="conditionnement",
         required=False,
-        widget=forms.CheckboxSelectMultiple(attrs={'class': 'ul-col-2'}),
+        widget=forms.CheckboxSelectMultiple(attrs={'class': 'ul-col-2 no-point'}),
         choices=FAV_PACKAGINGS)

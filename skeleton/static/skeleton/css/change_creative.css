@@ -182,7 +182,9 @@ footer a:hover{
 .ul-col-2{
 	column-count: 2;
 }
-
+.no-point{
+	list-style-type: none;
+}
 .ul-col-3{
 	column-count: 3;
 }

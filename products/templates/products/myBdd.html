@@ -1,0 +1,29 @@
+{% extends "skeleton/base.html" %}
+
+{% block content%}
+<header class="masthead-account">
+	
+	<div class="container ">
+		<div class="row ">
+			<div class="col-lg-3"></div>
+			<div class="col-lg-6 opac_white_background">
+				<h2 class="text-center mt-3 account">Gestionnaire de la base de données ! </h2>
+				<h3 class="mt-3 account ">Affichage</h3>
+				<div class="row">
+					<div class="col-lg-8">nombre de catégories dans la base : </div>
+					<div class="col-lg-4 text-center"> {{ nb_cat }}</div>
+					<div class="col-lg-8">nombre de produits dans la base : </div>
+					<div class="col-lg-4 text-center"> {{ nb_prod }}</div>
+					<div class="col-lg-8">dernière mise à jour de la table produits : </div>
+					<div class="col-lg-4 text-center"> {{ last_maj }}</div>
+				</div>
+				<h3 class="mt-3 account">Modifications</h3>
+				<div class="text-center mb-3"><button>mettre à jour la base</button></div>
+			</div>
+		</div>
+		<div class="col-lg-3 "></div>
+	</div>
+</div>
+</div>
+</header>
+{% endblock %}

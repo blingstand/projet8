@@ -13,7 +13,7 @@ Développé avec Python 3.8, Django 3.0.3
 
 # Table des matières
 (utilisateur)
-1. [Installation](#installation)
+1. [Installation](#installation(linux))
 2. [Configuration](#configuration)
 3. [Utilisation du site](#utilisation)
 (développers)
@@ -45,7 +45,7 @@ compte admin/admin@mail.fr/mdpadmin (pseudo/mail/mot de passe).
         Superuser created successfully. # preuve que tout va bien =)
 
 
-## Utilisation du site
+## Utilisation
 
 Je suppose que vous avez installé et configuré mon projet. Vous pouvez désormais le lancer en faisant : 
 
@@ -66,10 +66,12 @@ Je vous laisse ensuite explorer les fonctionnalités ...
 ************************************************
 ## Commandes
 
-    Pour ce qui est des commandes accessibles, tapez : 
+Pour ce qui est des commandes accessibles, tapez : 
+    
     $ python manage.py -h #ouvre le helpeur
 
-    Dans cet extrait, vous trouverez les deux commandes que j'ai créé pour peupler mes tables Category et Product mais aussi pour les vider.
+Dans cet extrait, vous trouverez les deux commandes que j'ai créé pour peupler mes tables Category et Product mais aussi pour les vider.
+    
     [products]
     dropcp #vide les tables
     pop_db #peuple les tables

@@ -26,7 +26,7 @@ class RegisterView(View):
     def get(self, request): 
         """ display html page with form in order to register a new user"""
         if request.user.is_authenticated:
-            return redirect('user:index') #if auth user comes to register page
+            return redirect('search:index') #if auth user comes to register page
         form = UserForm()
         context = {'form':form}
         return render(request, 'user/register.html', context)
@@ -67,7 +67,7 @@ class ConnectionView(View):
     def get(self, request):
         """ loads a connection page """
         if request.user.is_authenticated:
-            return redirect('user:index')
+            return redirect('search:index')
         form = UserForm()
         context = {'form' : form}
         return render(request, 'user/connection.html', context)
@@ -82,7 +82,7 @@ class ConnectionView(View):
 
             if new_user is not None:
                 login(request, new_user)
-                return redirect('user:index')
+                return redirect('search:index')
             else:
                 messages.info(request, 'Pseudo ou mot de passe incorrect')
                 return redirect('user:connection')
@@ -154,13 +154,7 @@ class myAccountView(View):
 
 def logoutUser(request):
     logout(request)
-    return redirect('user:index')
-
-def index(request):
-    # message = "Bienvenu sur le site pureBeurre !"
-    form = rf.SearchForm()
-    context = { 'form' : form }
-    return render(request, 'skeleton/index.html', context)
+    return redirect('search:index')
 
 def legalMentions(request):
 	return render(request, 'user/legalMentions.html')

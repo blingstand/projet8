@@ -191,11 +191,14 @@ footer a:hover{
 
 /*page resultats*/
 .masthead-results{ 	
-	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/blue_background.png");
+	background: black;
 	padding-top: 10rem;
 	padding-bottom: calc(10rem - 72px);
 	background-position: top;
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-size: cover;
+}
+
+#background{
 }

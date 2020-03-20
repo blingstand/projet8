@@ -3,8 +3,6 @@ from django.urls import path
 from . import views as v # import views so we can use them in urls.
 
 urlpatterns = [
-    path(r'', v.index, name="index"), # "/store" will call the method "index" in "views.py"
-    path(r'index', v.index, name="index"),
     path(r'legalMentions', v.legalMentions, name="legalMentions"),
     path(r'contacts', v.contacts, name="contacts"),
     path(r'favoris', v.favoris, name="favoris"),

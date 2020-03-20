@@ -200,7 +200,6 @@ class myAccountViewTests(TestCase):
         self.assertEqual(response.wsgi_request.build_absolute_uri(), \
             "http://testserver/user/myAccount")
         
-    
     def test_myacc_get_access_page_option1_and_mail(self):
         """ user can access myAcount with url : ".../user/myAccount/1/test@mail.fr" """
         self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True

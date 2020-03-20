@@ -8,15 +8,14 @@ import sys
 from datetime import datetime
 import openfoodfacts
 
-debug = True
-class Fill_DB():
+class GetDatas():
 
     SIZE_RESEARCH = 100
     
     # criterions = ("product_name", "packaging", "nutrition_grades", "url", "image_url" )
 
-    def __init__(self, nb_product, category, criterions):
-        self.nb_product = nb_product
+    def __init__(self, size, category, criterions):
+        self.size = size
         self.category = category
         self.criterions = criterions
     def call_api(self, category):
@@ -66,10 +65,10 @@ class Fill_DB():
 
         return list_prod
     def _respect_size(self, my_list, category):
-        """ Limits the number of element at 20 """
+        """ Limits the number of elements """
         list_resp_size = []
         for prod in my_list:
-            if len(list_resp_size)<20:
+            if len(list_resp_size)<self.size:
                 list_resp_size.append(prod)
         return list_resp_size
     def _just_keep_criterions(self, my_list, category):
@@ -86,7 +85,7 @@ class Fill_DB():
                 new_list.append(new_prod)
         return new_list
     def _get_list_for_cat(self, category):
-        """ Searches in API and returns a list of 20 prod """
+        """ Searches in API and returns a list of prods """
 
         first_list_prod = self.call_api(category) #list of 50 prods with same cat
         #list prod with no duplicate names
@@ -99,10 +98,11 @@ class Fill_DB():
         list_prod_with_selec_col = self._just_keep_criterions(list_without_empty, category)
 
         #list do not pass the SIZE_IN_TAB limit
-        list_20_prod = self._respect_size(list_prod_with_selec_col, category)
+        list_prod_resp_size = self._respect_size(list_prod_with_selec_col, category)
 
-        return list_20_prod
-    def create_dict_prod(self):
+        return list_prod_resp_size
+
+    def create_dict_cat(self):
         """Creates the dict_prod with previous functions  """
 
         dict_prod = {} #create dico

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig', 
     'research.apps.ResearchConfig', 
     'skeleton.apps.SkeletonConfig', 
+    'products.apps.ProductsConfig', 
     'debug_toolbar'
 ]
 

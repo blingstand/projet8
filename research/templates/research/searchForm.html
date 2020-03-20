@@ -1,6 +1,6 @@
 {% extends 'skeleton/base.html' %}
 
-{% block form %}
+{% block content %}
 <form class="white-bg" action="{% url 'research:searchForm' %}" method='get'>
 	{% csrf_token %}
 	<div class="form-row">

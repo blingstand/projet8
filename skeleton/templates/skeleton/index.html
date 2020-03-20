@@ -1,7 +1,7 @@
 {% extends 'skeleton/base.html' %}
 {% load static %}
 
-{% block search %}
+{% block content %}
 <!-- Mastheadfc -->
 <header class="mastheadfc">
   <div class="container h-100">
@@ -11,7 +11,7 @@
       </div>
       <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</p>
       <div class="col-lg-10 contains_simple_search">
-        {% block searchform %}
+
         <form action="" method='POST'>
           {% csrf_token %}
 
@@ -24,12 +24,11 @@
         </form>
       </div>
 
-      {% endblock %}
+      
     </div>
   </div>
 </header>
-{% endblock %}
-{% block about %}
+
 <!-- About Section -->
 <section class="page-section bg-primary" id="about">
   <div class="container">
@@ -57,9 +56,7 @@
     </div>
   </div>
 </section>
-{% endblock %}
 
-{% block contact%}
 <!-- Contacts Section -->
 <section class="page-section contact-us" id="services">
   <div class="container">

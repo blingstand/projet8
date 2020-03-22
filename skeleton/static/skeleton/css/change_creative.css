@@ -200,5 +200,7 @@ footer a:hover{
 	background-size: cover;
 }
 
-#background{
+.img-result{
+	max-width: 80px; 
+	height: auto;
 }

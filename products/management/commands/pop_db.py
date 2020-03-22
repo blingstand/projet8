@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
 from products.models import Category, Product
 
-
 import os
 
 from products.get_datas import GetDatas
@@ -38,7 +37,7 @@ class Command(BaseCommand):
                     "Glaces", "Chocolat noir", "Soupes", "Compotes" ]]
             
             print("\n", "*** Récupération des données depuis le site Open Food Fact ***")
-            objet = GetDatas(size, categories, criterions) 
+            objet = GetDatas(size+5, categories, criterions) 
             dico_cat = objet.create_dict_cat()
             print("\n", "*** Insertion des données dans la base ***")
             for cat in categories:  
@@ -48,17 +47,30 @@ class Command(BaseCommand):
                 new_cat.save()
                 if display_entry == 1:
                         print(cat, "> created")
+                nb_entry = 1
                 for count, dico_prod in enumerate(list_prod):
-                    new_prod = Product(\
-                    name=dico_prod["product_name"],
-                    image_url=dico_prod["image_url"],
-                    url=dico_prod["url"],
-                    nutriscore=dico_prod["nutrition_grades"],
-                    packaging=dico_prod["packaging"],
-                    category=new_cat)
-                    if display_entry == 1:
-                        print("\t", count+1,new_prod, "> created")
-                    new_prod.save()
+                    if nb_entry <= size : 
+                        print(cat, " - ", nb_entry)
+                        try:   
+                            new_prod = Product(\
+                            name=dico_prod["product_name"],
+                            image_url=dico_prod["image_url"],
+                            url=dico_prod["url"],
+                            nutriscore=dico_prod["nutrition_grades"],
+                            packaging=dico_prod["packaging"],
+                            category=new_cat)
+                            if display_entry == 1:
+                                print("\t", count+1,new_prod, "> created")
+                            new_prod.save()
+                            nb_entry += 1
+                        except Exception as e:
+                            debug = Product.objects.filter(name = dico_prod["product_name"])
+                            print("- - "*20)
+                            print("Problème ici : {} | {}".format(cat,dico_prod["product_name"]))
+                            print(debug[0].category, debug[0].name)
+                            print("- - "*20)
+
+
         else :
             response = input("Votre table Category n'est pas vide ..."\
                 "\n1 \t>  vider la table,"\

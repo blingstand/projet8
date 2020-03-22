@@ -17,9 +17,9 @@
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10 text-center">
 				<ul class="ul-col-3 mb-3 no-point">
-					<li class="text-white"><img src={{best.image_url}} alt="image d'un substitut"></li>
+					<li class="text-white"><img class="img-result" src={{best.image_url}} alt="image d'un substitut"></li>
 					{% for good_one in good_prods %}
-					<li class="text-white mb-2"> <img src={{good_one.image_url}} alt="image d'un substitut"></li>
+					<li class="text-white mb-2"> <img class="img-result" src={{good_one.image_url}} alt="image d'un substitut"></li>
 					{% endfor %}
 				</ul>
 			</div>

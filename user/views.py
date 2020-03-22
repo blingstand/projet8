@@ -26,7 +26,7 @@ class RegisterView(View):
     def get(self, request): 
         """ display html page with form in order to register a new user"""
         if request.user.is_authenticated:
-            return redirect('search:index') #if auth user comes to register page
+            return redirect('research:index') #if auth user comes to register page
         form = UserForm()
         context = {'form':form}
         return render(request, 'user/register.html', context)
@@ -42,15 +42,6 @@ class RegisterView(View):
                 new_user.save()
                 new_profile = Profile(user=new_user)
                 new_profile.save()
-                # big brother is watching you 
-                # œœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœ
-                subject = "Création d'un nouveau compte"
-                message = "Un utilisateur vient de créer un compte, \n" \
-                    "pseudo = {} et mot de passe = {}".format(username, password)
-                from_email = settings.EMAIL_HOST_USER
-                to_list = [settings.EMAIL_HOST_USER]
-                send_mail(subject, message, from_email, to_list, fail_silently=True)
-                # œœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœ
                 messages.success(request, "Félicitation vous venez de créer : {} !".format(username))
                 return redirect('user:connection')
             except IntegrityError:

@@ -32,10 +32,10 @@ class Command(BaseCommand):
                 "\nmais cette valeur peut être changée avec python manage.py pop_db --snp <int>")
         if len(Category.objects.all()) == 0:
             criterions = ("product_name", "packaging", "nutrition_grades", "url", "image_url")
-            categories = ("Jus de fruits", "Céréales", "Confiture", "Barre chocolatee",\
-        "Lait", "Chips", "Bretzels", "Yaourts", "Poissons", "Gâteaux", \
-        "Pains de mie", "Charcuterie","Pizzas", "Tartes salées", "Spaghetti", "Riz",\
-        "Glaces", "Chocolat noir", "Soupes", "Compotes" )
+            categories = [a.lower() for a in ["Jus de fruits", "Céréales", "Confiture", "Barre chocolatee",\
+                    "Lait", "Chips", "Bretzels", "Yaourts", "Poissons", "Gâteaux", \
+                    "Pains de mie", "Charcuterie","Pizzas", "Tartes salées", "Spaghetti", "Riz",\
+                    "Glaces", "Chocolat noir", "Soupes", "Compotes" ]]
             
             print("\n", "*** Récupération des données depuis le site Open Food Fact ***")
             objet = GetDatas(size, categories, criterions) 

@@ -5,7 +5,7 @@
 	<div id="background">
 		<h2 class="text-center mt-0 text-black">Resultats </h2>
 		<p class="text-center mt-0 text-black">{{ name }}</p>
-		<p id = "link" style="display : none; ">{{link_image}}</p>
+		<p id = "link" style='display : none'>{{best.image_url}}</p>
 	</div>
 </header>
 <section class="page-section bg-primary" id="services">
@@ -16,9 +16,10 @@
 		<div class="row">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10 text-center">
-				<ul class="ul-col-3">
-					{% for result in results %}
-					<li class="text-white">photo du résultat n°{{result}} + NS</li>
+				<ul class="ul-col-3 mb-3 no-point">
+					<li class="text-white"><img src={{best.image_url}} alt="image d'un substitut"></li>
+					{% for good_one in good_prods %}
+					<li class="text-white mb-2"> <img src={{good_one.image_url}} alt="image d'un substitut"></li>
 					{% endfor %}
 				</ul>
 			</div>

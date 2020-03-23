@@ -34,7 +34,7 @@ class Command(BaseCommand):
             categories = [a.lower() for a in ["Jus de fruits", "Céréales", "Confiture", "Barre chocolatee",\
                     "Lait", "Chips", "Bretzels", "Yaourts", "Poissons", "Gâteaux", \
                     "Pains de mie", "Charcuterie","Pizzas", "Tartes salées", "Spaghetti", "Riz",\
-                    "Glaces", "Chocolat noir", "Soupes", "Compotes" ]]
+                    "Glaces", "Chocolat noir", "Soupes", "Compotes", "Pâte à tartiner" ]]
             
             print("\n", "*** Récupération des données depuis le site Open Food Fact ***")
             objet = GetDatas(size+5, categories, criterions) 

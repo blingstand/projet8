@@ -6,6 +6,7 @@ from django.views import View
 from .form import SearchForm, AdvancedSearchForm
 
 from products.models import Category, Product
+from .searcher import find_subs
 # Create your views here.
 
 class AdvancedSearchView(View):
@@ -50,23 +51,17 @@ class IndexView(View):
             get_from_input = form.cleaned_data["simple_search"] 
             #I write result in context
             try:
-                print("je cherche")
-                cat_found = Category.objects.filter(name__contains=get_from_input)
-                prod_found = Product.objects.filter(category=cat_found[0])
-                good_prods_nutriscore = [prod.nutriscore for prod in prod_found]
-                prods = Product.objects.filter(
-                    category=cat_found[0], 
-                    nutriscore=min(good_prods_nutriscore))
-                best = prods[0]
-                good_prods = prods[1:]
-                print(best, good_prods)
+                product, substitutes = find_subs(get_from_input)
+                print("Résultats : le produit recherché était", product,\
+                    "et voici les substituts trouvés :\n", substitutes)
+                print("* * * "*10)
                 context = { 
-                "name" : cat_found[0].name, 
-                "best" : best, 
-                "good_prods" : good_prods}
+                "name" : product.name, 
+                "best" : substitutes[0], 
+                "good_prods" : substitutes[1:]}
                 return render(request, "research/results.html", context)
             except Exception as e:
-                raise e #for debug
+                raise(e) #for debug
                 messages.error(request, "Pas de résultats dans la base actuellement pour"\
                     " la recherche - {}.".format(get_from_input))
                 return redirect("research:index")

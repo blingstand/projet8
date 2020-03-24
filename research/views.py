@@ -36,35 +36,49 @@ class ResultsView(View):
         """ manage the HttpResponse for the SearchFormView with get method request """
         return render(request, "research/results.html")
 
+
+
 class IndexView(View):
     
-    def get(self, request):
-        # message = "Bienvenu sur le site pureBeurre !"
+    def get(self, request, argument=""):
         form = SearchForm()
-        context = { 'form' : form }
+        if argument != "":
+            message = 123
+            print(argument, message)
+            return HttpResponse(message)
+        context = {'form' : form}
         return render(request, 'research/index.html', context)
     
-    def post(self, request):
+    def post(self, request, argument):
         form = SearchForm(request.POST)
         if form.is_valid(): 
             #I throw a search 
             get_from_input = form.cleaned_data["simple_search"] 
             #I write result in context
             try:
-                product, substitutes = find_subs(get_from_input)
-                print("Résultats : le produit recherché était", product,\
-                    "et voici les substituts trouvés :\n", substitutes)
-                print("* * * "*10)
-                context = { 
-                "name" : product.name, 
-                "best" : substitutes[0], 
-                "good_prods" : substitutes[1:]}
-                return render(request, "research/results.html", context)
+                find_prod, product, substitutes = find_subs(get_from_input)
+                if find_prod:
+                    print("Résultats : le produit recherché était", product,\
+                        "et voici les substituts trouvés :\n", substitutes)
+                    print("* * * "*10)
+                    context = { 
+                    "name" : product.name, 
+                    "best" : substitutes[0], 
+                    "good_prods" : substitutes[1:]}
+                    return render(request, "research/results.html", context)
+                else:
+                    messages.error(request, "Pas de résultats dans la base actuellement pour"\
+                    " la recherche : '{}'.".format(get_from_input))
+                    context = { 
+                        'form' : form, "categories" : substitutes.keys,
+                        'however' : " Cependant j'ai des résultats en rapport avec ta recherche ..." }
+                    return render(request, 'research/index.html', context)
             except Exception as e:
-                raise(e) #for debug
+                print(e) #for debug
                 messages.error(request, "Pas de résultats dans la base actuellement pour"\
-                    " la recherche - {}.".format(get_from_input))
+                    " la recherche : {}.".format(get_from_input))
                 return redirect("research:index")
+                
 
                 # alert me 
                 # œœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœ

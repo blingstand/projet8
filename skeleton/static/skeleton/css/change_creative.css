@@ -157,7 +157,7 @@ footer a:hover{
 }
 
 
-.form_my_account{
+.flex-space-around{
 	display:flex;
 	justify-content : space-around;
 }

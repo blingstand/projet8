@@ -8,28 +8,36 @@ def find_subs(get_from_input):
     print("* * * "*10)
     print("je cherche dans la base pour le mot : {}".format(get_from_input))
     prod_found = Product.objects.filter(name__contains=get_from_input)
-    
-    if not prod_found.exists() : 
-        print("résultat :", prod_found.exists(), "je recherche mot à mot ...")
+    find_smth = prod_found.exists()
+    if not find_smth : 
+        print("\tRésultat : {}, je recherche mot à mot ...".format(find_smth))
         # return a list of prod 
         dico = {}    
+        list_queryset = []
+        
         for word in get_from_input.split(" "):
             if word in ["de"]: 
                 continue
-            print("- - -")
-            print(word)
+            print("\t- - -\n\t", word)
             list_obj_prod = Product.objects.filter(name__contains=word)
-            print(list_obj_prod.exists())
-            print(type(list_obj_prod))
-            print([prod.category.name for prod in list_obj_prod])
-            if list_obj_prod.exists():
-                dico[word] = list_obj_prod
-            print("- - - - "*5)
-        print("dico final", dico)
+            print("\t{} résultats.".format(len(list_obj_prod)))
+            [list_queryset.append(prod) for prod in list_obj_prod]
+        
+        print("\t- - -\n\t{} résultats.".format(list_queryset))
+        if len(list_queryset) != 0:
+            for queryset in list_queryset:
+                try:
+                    dico[queryset.category.name].append(queryset)
+                except : 
+                    dico[queryset.category.name] = []
+                    dico[queryset.category.name].append(queryset)
+            
+        print("\t- - -\n", "\n\tdico final", dico, "\t- - -\n")
         good_prods_nutriscore = [prod.nutriscore for prod in prod_found]
+        return False, None, dico
     else : 
 
-        print("\trésultat :", prod_found.exists(),">", prod_found[0])
+        print("\trésultat :", find_smth,">", prod_found[0])
         cat_found = prod_found[0].category
         print("\tIl appartient à la catégorie :", cat_found.name)
         print("\tJe cherche donc des substituts ...")
@@ -47,4 +55,4 @@ def find_subs(get_from_input):
                 list_best_sub.append(sub)
         print("\tNombre de substituts : {}.".format(len(list_best_sub))) 
         print("* * * "*10)   
-        return prod_found[0], list_best_sub
+        return find_smth, prod_found[0], list_best_sub

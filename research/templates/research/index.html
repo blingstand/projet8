@@ -20,8 +20,19 @@
               <input type="submit" class="btn btn-primary" id="simple_form_submit" value="Valider"> 
             </div>   
             {% for message in messages %}
-            <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white"> {{ message}} </div>
+            <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white"> {{ message}}</div>
             {% endfor %}
+            <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white mt-2">
+              {% if however%}
+              <p>{{however}}</p>
+              <div class="flex-space-around">
+                {% for cat in categories%}  
+                <p><a class="btn btn-primary mt-2 bt-1" href="{% url 'research:index'%}/{{cat}}">{{cat}}</a></p>
+                {% endfor %}
+              {% endif%}
+              </div>
+            </div>
+            
           </div>
         </form>
       </div>

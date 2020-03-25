@@ -26,7 +26,7 @@ class RegisterView(View):
     def get(self, request): 
         """ display html page with form in order to register a new user"""
         if request.user.is_authenticated:
-            return redirect('research:index') #if auth user comes to register page
+            return redirect('reresearch:index') #if auth user comes to register page
         form = UserForm()
         context = {'form':form}
         return render(request, 'user/register.html', context)
@@ -58,7 +58,7 @@ class ConnectionView(View):
     def get(self, request):
         """ loads a connection page """
         if request.user.is_authenticated:
-            return redirect('search:index')
+            return redirect('research:index')
         form = UserForm()
         context = {'form' : form}
         return render(request, 'user/connection.html', context)
@@ -73,7 +73,7 @@ class ConnectionView(View):
 
             if new_user is not None:
                 login(request, new_user)
-                return redirect('search:index')
+                return redirect('research:index')
             else:
                 messages.info(request, 'Pseudo ou mot de passe incorrect')
                 return redirect('user:connection')
@@ -145,7 +145,7 @@ class myAccountView(View):
 
 def logoutUser(request):
     logout(request)
-    return redirect('search:index')
+    return redirect('research:index')
 
 def legalMentions(request):
 	return render(request, 'user/legalMentions.html')

@@ -27,7 +27,7 @@
               <p>{{however}}</p>
               <div class="flex-space-around">
                 {% for cat in categories%}  
-                <p><a class="btn btn-primary mt-2 bt-1" href="{% url 'research:index'%}/{{cat}}">{{cat}}</a></p>
+                <p><a class="btn btn-primary mt-2 bt-1" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a></p>
                 {% endfor %}
               {% endif%}
               </div>

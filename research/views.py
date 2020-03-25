@@ -32,24 +32,24 @@ class ResultsView(View):
     """ manage a HttpResponse in case of get or post method 
     request for this url research/advancedSearch"""
 
-    def get(self, request):
+    def get(self, request, category=None, get_from_input=None):
         """ manage the HttpResponse for the SearchFormView with get method request """
-        return render(request, "research/results.html")
+        if category is not None:
+            find_prod, product, substitutes = find_subs(get_from_input, category)
+            context = { "good_prods" : substitutes, "no_prod" : True}
+        return render(request, "research/results.html", context)
 
-
+    def post(self, request, category=None, get_from_input=None):
+        pass
 
 class IndexView(View):
     
-    def get(self, request, argument=""):
+    def get(self, request):
         form = SearchForm()
-        if argument != "":
-            message = 123
-            print(argument, message)
-            return HttpResponse(message)
         context = {'form' : form}
         return render(request, 'research/index.html', context)
     
-    def post(self, request, argument):
+    def post(self, request):
         form = SearchForm(request.POST)
         if form.is_valid(): 
             #I throw a search 
@@ -71,7 +71,8 @@ class IndexView(View):
                     " la recherche : '{}'.".format(get_from_input))
                     context = { 
                         'form' : form, "categories" : substitutes.keys,
-                        'however' : " Cependant j'ai des résultats en rapport avec ta recherche ..." }
+                        'however' : " Cependant j'ai des résultats en rapport avec ta recherche ...", 
+                        'get_from_input' : get_from_input}
                     return render(request, 'research/index.html', context)
             except Exception as e:
                 print(e) #for debug

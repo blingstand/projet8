@@ -1,13 +1,18 @@
 from products.models import Category, Product
 import re
 
-def find_subs(get_from_input): 
+def find_subs(get_from_input, given_category=None): 
     """
         returns a list of substitutes
     """
     print("* * * "*10)
     print("je cherche dans la base pour le mot : {}".format(get_from_input))
     prod_found = Product.objects.filter(name__contains=get_from_input)
+    if given_category is not None:
+        query_category = Category.objects.get(name__contains=given_category)
+        prod_found = Product.objects.filter(
+            name__contains=get_from_input, 
+            category=query_category)
     find_smth = prod_found.exists()
     if not find_smth : 
         print("\tRésultat : {}, je recherche mot à mot ...".format(find_smth))
@@ -16,10 +21,12 @@ def find_subs(get_from_input):
         list_queryset = []
         
         for word in get_from_input.split(" "):
-            if word in ["de"]: 
+            if word in ["de", "aux", "à", "au", "des"]: 
                 continue
             print("\t- - -\n\t", word)
             list_obj_prod = Product.objects.filter(name__contains=word)
+            if given_category:
+                list_obj_prod = Product.objects.filter(name__contains=word, category=query_category)
             print("\t{} résultats.".format(len(list_obj_prod)))
             [list_queryset.append(prod) for prod in list_obj_prod]
         
@@ -32,8 +39,9 @@ def find_subs(get_from_input):
                     dico[queryset.category.name] = []
                     dico[queryset.category.name].append(queryset)
             
-        print("\t- - -\n", "\n\tdico final", dico, "\t- - -\n")
-        good_prods_nutriscore = [prod.nutriscore for prod in prod_found]
+        print("\t- - -\n", "\n\tdico final", dico, "\n\t- - -\n")
+        if given_category is not None:
+            return False, None, dico[given_category]
         return False, None, dico
     else : 
 

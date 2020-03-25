@@ -6,7 +6,7 @@
 # -*- coding: utf8 -*-
 import sys
 from datetime import datetime
-import openfoodfacts
+from products.openfoodfact import OpenFoodFact
 
 class GetDatas():
 
@@ -20,7 +20,8 @@ class GetDatas():
         self.criterions = criterions
     def call_api(self, category):
         """ Finds 50 prods from a given cat """
-        results = openfoodfacts.products.advanced_search({
+        off = OpenFoodFact()
+        results = off.advanced_search({
             "search_terms":"",
             "tagtype_0":"categories ",
             "tag_contains_0":"contains",
@@ -111,4 +112,9 @@ class GetDatas():
             dict_prod[cat] = list_prod
 
         return dict_prod
+
+
+
+
+
 

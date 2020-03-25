@@ -1,4 +1,4 @@
 *.pyc
 user/migrations/__pycache__/
 email_info.py
-products/management/commands
+

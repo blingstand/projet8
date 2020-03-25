@@ -24,7 +24,7 @@ class Product(models.Model):
     url = models.CharField(max_length=200)
     nutriscore = models.CharField(max_length=2)
     packaging = models.CharField(max_length=250)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
+    category = models.ManyToManyField(Category)
     last_maj_0 = models.DateField(auto_now=True)
 
     def __str__(self):

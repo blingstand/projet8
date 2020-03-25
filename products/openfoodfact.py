@@ -34,7 +34,7 @@ class OpenFoodFact():
             return True
         return False
 
-off = OpenFoodFact()
-cat = "jus de fruits"
-rep = off.this_cat_exists(cat)
-print("la catégorie({}) est-elle présente dans la base de donnée OFF ?\n>Réponse : {}".format(cat, rep))
+# off = OpenFoodFact()
+# cat = "jus de fruits"
+# rep = off.this_cat_exists(cat)
+# print("la catégorie({}) est-elle présente dans la base de donnée OFF ?\n>Réponse : {}".format(cat, rep))

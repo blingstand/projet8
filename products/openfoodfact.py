@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 import urllib
-
+#inspired by 
 class OpenFoodFact(): 
     def build_url(self, parameters=None):
         service='cgi'

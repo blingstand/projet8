@@ -43,7 +43,7 @@ class ResultsView(View):
         pass
 
 class IndexView(View):
-    
+    """ gère les index """
     def get(self, request):
         form = SearchForm()
         context = {'form' : form}

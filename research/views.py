@@ -36,7 +36,7 @@ class ResultsView(View):
         """ manage the HttpResponse for the SearchFormView with get method request """
         if category is not None:
             find_prod, product, substitutes = find_subs(get_from_input, category)
-            context = { "good_prods" : substitutes, "no_prod" : True}
+            context = { "name" : category, "good_prods" : substitutes, "no_prod" : True}
         return render(request, "research/results.html", context)
 
     def post(self, request, category=None, get_from_input=None):
@@ -61,10 +61,12 @@ class IndexView(View):
                     print("Résultats : le produit recherché était", product,\
                         "et voici les substituts trouvés :\n", substitutes)
                     print("* * * "*10)
+                    many = len(substitutes) >= 1 
+                    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>many", many)
                     context = { 
                     "name" : product.name, 
-                    "best" : substitutes[0], 
-                    "good_prods" : substitutes[1:]}
+                    "good_prods" : substitutes,
+                    "many" : many }
                     return render(request, "research/results.html", context)
                 else:
                     messages.error(request, "Pas de résultats dans la base actuellement pour"\

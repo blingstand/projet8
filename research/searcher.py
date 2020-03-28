@@ -30,15 +30,21 @@ def find_subs(get_from_input, given_category=None):
             print("\t{} résultats.".format(len(list_obj_prod)))
             [list_queryset.append(prod) for prod in list_obj_prod]
         
-        print("\t- - -\n\t{} résultats.".format(list_queryset))
+        print("\t- - -\n\t{} résultats.".format(len(list_queryset)))
         if len(list_queryset) != 0:
             for queryset in list_queryset:
-                try:
-                    dico[queryset.category.name].append(queryset)
-                except : 
-                    dico[queryset.category.name] = []
-                    dico[queryset.category.name].append(queryset)
-            
+                list_categories = queryset.category.all()
+                list_categories = [category.name for category in list_categories]
+                print("\t>list_categories", list_categories)
+                for category in list_categories: 
+                    try:
+                        dico[category].append(queryset)
+                        print(">> ",  dico)
+                    except Exception as e:
+                        dico[category] = []
+                        a = isinstance(dico[category], list)
+                        print("c'est une liste ? rep : ", a)
+                        dico[category].append(queryset)                
         print("\t- - -\n", "\n\tdico final", dico, "\n\t- - -\n")
         if given_category is not None:
             return False, None, dico[given_category]
@@ -46,7 +52,8 @@ def find_subs(get_from_input, given_category=None):
     else : 
 
         print("\trésultat :", find_smth,">", prod_found[0])
-        cat_found = prod_found[0].category
+        cat_found = prod_found[0].category.all()[0]
+        print("cat_found", cat_found)
         print("\tIl appartient à la catégorie :", cat_found.name)
         print("\tJe cherche donc des substituts ...")
         substituts_same_cat = Product.objects.filter(category=cat_found)

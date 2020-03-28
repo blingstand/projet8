@@ -180,13 +180,15 @@ footer a:hover{
 }
 
 .ul-col-2{
-	column-count: 2;
+	columns: 18rem 2;
+	column-gap: 2rem;
 }
 .no-point{
 	list-style-type: none;
 }
 .ul-col-3{
-	column-count: 3;
+	columns: 18rem 3;
+	column-gap: 4rem;
 }
 
 /*page resultats*/
@@ -200,7 +202,26 @@ footer a:hover{
 	background-size: cover;
 }
 
+.cont-img-result{
+	position: relative; 
+    left :  0; top:0;
+    z-index: 1;
+}
 .img-result{
-	max-width: 80px; 
-	height: auto;
+    margin: 1rem 0;
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 18rem;
+    height: 18rem;
+}
+
+.cont-indice{
+	position: relative; 
+    left :  7.5rem;
+    top: 3.5rem;
+    z-index: 2;
+}
+.indice{
+    width: 3rem;
+    overflow: hidden; 
 }

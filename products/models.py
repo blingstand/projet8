@@ -37,6 +37,11 @@ class Product(models.Model):
             return correct_form_last_maj
         print("Valeur nulle > Pensez à enregistrer")
 
+    @property
+    def nutriscore_img(self):
+        nutriscore_img = f"{self.nutriscore.upper()}.png"
+        return nutriscore_img
+
 # prod1 = p(name="Pur jus d'orange sans pulpe", 
 #     image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
 #     url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 

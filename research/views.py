@@ -6,7 +6,7 @@ from django.views import View
 from .form import SearchForm, AdvancedSearchForm
 
 from products.models import Category, Product
-from .searcher import find_subs
+from .searcher import Search
 # Create your views here.
 
 class AdvancedSearchView(View):
@@ -35,8 +35,10 @@ class ResultsView(View):
     def get(self, request, category=None, get_from_input=None):
         """ manage the HttpResponse for the SearchFormView with get method request """
         if category is not None:
-            find_prod, product, substitutes = find_subs(get_from_input, category)
-            context = { "name" : category, "good_prods" : substitutes, "no_prod" : True}
+            search = Search(get_from_input, category)
+            print(f"Je cherche des substituts avec {get_from_input} et {category}")
+            substitutes = search.list_sub
+            context = { "name" : category, "substitutes" : substitutes, "no_prod" : True}
         return render(request, "research/results.html", context)
 
     def post(self, request, category=None, get_from_input=None):
@@ -55,31 +57,31 @@ class IndexView(View):
             #I throw a search 
             get_from_input = form.cleaned_data["simple_search"] 
             #I write result in context
-            try:
-                find_prod, product, substitutes = find_subs(get_from_input)
-                if find_prod:
-                    print("Résultats : le produit recherché était", product,\
-                        "et voici les substituts trouvés :\n", substitutes)
-                    print("* * * "*10)
-                    many = len(substitutes) >= 1 
-                    print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>many", many)
-                    context = { 
-                    "name" : product.name, 
-                    "good_prods" : substitutes,
-                    "many" : many }
-                    return render(request, "research/results.html", context)
-                else:
-                    messages.error(request, "Pas de résultats dans la base actuellement pour"\
-                    " la recherche : '{}'.".format(get_from_input))
-                    context = { 
-                        'form' : form, "categories" : substitutes.keys,
-                        'however' : " Cependant j'ai des résultats en rapport avec ta recherche ...", 
-                        'get_from_input' : get_from_input}
-                    return render(request, 'research/index.html', context)
-            except Exception as e:
-                print(e) #for debug
+            search = Search(get_from_input)
+            print("* * * "*10)
+            print("je cherche dans la base pour le mot : {}".format(get_from_input))
+            prod = search.prod
+            substitutes = search.list_sub
+            if prod:
+                print("Résultats : le produit recherché était", prod,\
+                    "et voici les substituts trouvés :\n", substitutes)
+                print("* * * "*10)
+                context = { 
+                "product" : prod, 
+                "nutriscore" : prod.nutriscore.upper(), 
+                "substitutes" : substitutes }
+                return render(request, "research/results.html", context)
+            elif search.cat_to_choose is not None:
+                messages.error(request, "Pas de résultats parfaitement identiques "\
+                    f"dans la base actuellement pour la recherche : {get_from_input}.")
+                context = { 
+                    'form' : form, "categories" : search.cat_to_choose,
+                    'however' : " Cependant j'ai des résultats en rapport avec ta recherche ...", 
+                    'get_from_input' : get_from_input, "few_cat" : len(search.cat_to_choose) <= 3}
+                return render(request, 'research/index.html', context)
+            else:
                 messages.error(request, "Pas de résultats dans la base actuellement pour"\
-                    " la recherche : {}.".format(get_from_input))
+                    f" la recherche : {get_from_input}.")
                 return redirect("research:index")
                 
 

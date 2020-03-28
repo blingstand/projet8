@@ -25,21 +25,32 @@
             <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white mt-2">
               {% if however%}
               <p>{{however}}</p>
+              {% endif%}
+              {% if few_cat%}
               <div class="flex-space-around">
                 {% for cat in categories%}  
                 <p><a class="btn btn-primary mt-2 bt-1" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a></p>
                 {% endfor %}
-              {% endif%}
               </div>
+              {%else%}
+              <div class="row">
+                {% for cat in categories%}  
+                <div class="mb-2 col-lg-4">
+                  <a class="btn btn-primary mt-2 bt-1" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
             </div>
-            
           </div>
-        </form>
-      </div>
-
-
+          
+        </div>
+      </form>
     </div>
+
+
   </div>
+</div>
 </header>
 
 <!-- About Section -->

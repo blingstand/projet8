@@ -36,9 +36,11 @@ class ResultsView(View):
         """ manage the HttpResponse for the SearchFormView with get method request """
         if category is not None:
             search = Search(get_from_input, category)
-            print(f"Je cherche des substituts avec {get_from_input} et {category}")
+            print(f"Je cherche un produit avec les termes : {get_from_input} et {category}")
+            product = search.list_pot_prod()[0]
+            print(f"J'ai {product} ! ")
             substitutes = search.list_sub
-            context = { "name" : category, "substitutes" : substitutes, "no_prod" : True}
+            context = { "product" : product, "substitutes" : substitutes, "no_prod" : True}
         return render(request, "research/results.html", context)
 
     def post(self, request, category=None, get_from_input=None):
@@ -58,28 +60,33 @@ class IndexView(View):
             get_from_input = form.cleaned_data["simple_search"] 
             #I write result in context
             search = Search(get_from_input)
-            print("* * * "*10)
-            print("je cherche dans la base pour le mot : {}".format(get_from_input))
+            # print("* * * "*10)
+            # print("je cherche dans la base pour la recherche : {}".format(get_from_input))
             prod = search.prod
-            substitutes = search.list_sub
+            # print("prod -->", prod)
+            categories = search.cat_to_choose
             if prod:
-                print("Résultats : le produit recherché était", prod,\
-                    "et voici les substituts trouvés :\n", substitutes)
-                print("* * * "*10)
+                print("cas 1")
+                substitutes = search.list_sub
+                # print("Résultats : le produit recherché était", prod,\
+                #     "et voici les substituts trouvés :\n", substitutes)
+                # print("* * * "*10)
                 context = { 
                 "product" : prod, 
                 "nutriscore" : prod.nutriscore.upper(), 
                 "substitutes" : substitutes }
                 return render(request, "research/results.html", context)
-            elif search.cat_to_choose is not None:
+            elif categories is not None:
+                print("cas 2")
                 messages.error(request, "Pas de résultats parfaitement identiques "\
                     f"dans la base actuellement pour la recherche : {get_from_input}.")
                 context = { 
-                    'form' : form, "categories" : search.cat_to_choose,
+                    'form' : form, "categories" : categories,
                     'however' : " Cependant j'ai des résultats en rapport avec ta recherche ...", 
-                    'get_from_input' : get_from_input, "few_cat" : len(search.cat_to_choose) <= 3}
+                    'get_from_input' : get_from_input, "few_cat" : len(categories) <= 3}
                 return render(request, 'research/index.html', context)
             else:
+                print("cas 3")
                 messages.error(request, "Pas de résultats dans la base actuellement pour"\
                     f" la recherche : {get_from_input}.")
                 return redirect("research:index")

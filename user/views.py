@@ -26,7 +26,7 @@ class RegisterView(View):
     def get(self, request): 
         """ display html page with form in order to register a new user"""
         if request.user.is_authenticated:
-            return redirect('reresearch:index') #if auth user comes to register page
+            return redirect('research:index') #if auth user comes to register page
         form = UserForm()
         context = {'form':form}
         return render(request, 'user/register.html', context)

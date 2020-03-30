@@ -24,12 +24,16 @@ class IndexViewTests(TestCase):
             name="Pur jus d'orange sans pulpe", 
             image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
             url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 
-            nutriscore=3, packaging="carton", category=self.category)
+            nutriscore=3, packaging="carton")
         self.product2 = Product(
             name="Jus d'orange pas bon pas bio pas cher", 
             image_url="fake url",
             url="fake url", 
-            nutriscore=5, packaging="bouteille plastique", category=self.category)
+            nutriscore=5, packaging="bouteille plastique")
+        self.product1.save()
+        self.product2.save()
+        self.product1.category.add(self.category)
+        self.product2.category.add(self.category)
         self.product1.save()
         self.product2.save()
 
@@ -38,26 +42,12 @@ class IndexViewTests(TestCase):
         self.product1.delete()
         self.product2.delete()
 
-    def test_parse_input(self):
-        
-        my_input = "jus de fruit"
-        index = IndexView()
-        test = index.parse_input(my_input)
-        self.assertEqual(test, my_input)
-
     def test_get_access_page(self):
         """ user can access page index """
-        response = self.client.get(reverse('research:index'))
+        response = self.client.get('http://127.0.0.1:8000/index')
         self.assertEqual(response.status_code, 200)
-
-    # def test_input_search_is_in_db(self):
-    #     """ user can fill the input and server can get the input  value """
-    #     self.mock_form.is_valid.return_value = True
-    #     self.mock_form.data_cleaned = "jus de fruits"
-    #     response = self.client.post(reverse("research:index"))
-    #     self.assertEqual(response.status_code, 200)
         
-    def test_myacc_post_form_is_not_valid(self):
+    def test_index_post_form_is_not_valid(self):
         """
             user gets an error page if form is not valid 
         """
@@ -65,3 +55,29 @@ class IndexViewTests(TestCase):
         response = self.client.post(reverse("research:index"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Problème dans le formulaire")
+
+    def test_index_post_find_result(self):
+        """ user can fill the input and server can get the input  value """
+        self.mock_form.is_valid.return_value = True
+        self.mock_form.cleaned_data = {"simple_search" : "Pur jus d'orange sans pulpe"}
+        response = self.client.post(reverse("research:index"), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Vous pouvez remplacer cet aliment par ... ! ")
+
+
+    def test_index_post_do_not_find_result(self):
+        """ user can fill the input and server can get the input  value """
+        self.mock_form.is_valid.return_value = True
+        self.mock_form.cleaned_data = {"simple_search" : "123"}
+        response = self.client.post(reverse("research:index"), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Pas de résultats dans la base actuellement")
+
+    def test_index_post_no_result_but_category(self):
+        """ user can fill the input and server can get the input  value """
+        self.mock_form.is_valid.return_value = True
+        self.mock_form.cleaned_data = {"simple_search" : "pas sans pulpe"}
+        response = self.client.post(reverse("research:index"), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Pas de résultats parfaitement identiques ")
+

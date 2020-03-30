@@ -9,13 +9,6 @@ from unittest import mock, skip
 from .form import UserForm, MoreUserDataForm
 from .models import Profile
 
-class IndexViewTests(TestCase):
-    def test_access_page(self):
-        """
-        user can access page
-        """
-        response = self.client.get(reverse('user:index'))
-        self.assertEqual(response.status_code, 200)
 
 
 class AuthenticationViewTests(TestCase):
@@ -46,7 +39,7 @@ class AuthenticationViewTests(TestCase):
         #loads page
         response = self.client.get(reverse("user:register"), follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertRedirects(response, reverse("user:index"))
+        self.assertRedirects(response, reverse("research:index"))
         self.assertTrue(logged_in)
         #cleans datas
         self.client.logout()
@@ -106,7 +99,7 @@ class AuthenticationViewTests(TestCase):
         #loads page
         response = self.client.get(reverse("user:connection"), follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertRedirects(response, reverse("user:index"))
+        self.assertRedirects(response, reverse("research:index"))
         self.assertTrue(logged_in)
         #cleans datas
         self.client.logout()
@@ -136,7 +129,7 @@ class AuthenticationViewTests(TestCase):
             password="new_psw"))
         self.client.logout()
         response = self.client.post(reverse("user:connection"), follow=True)
-        self.assertRedirects(response, reverse("user:index"))
+        self.assertRedirects(response, reverse("research:index"))
 
     def test_conn_post_bad_credentials(self):
         #user account
@@ -244,8 +237,8 @@ class myAccountViewTests(TestCase):
         self.mock_form.is_valid.return_value = True
         self.mock_form.cleaned_data = {"mail": "a new mail"}  #le pb ne vient pas de là 
         response = self.client.post(reverse("user:myAccount"))
-        self.assertEqual(response.status_code, 200)
         session_profile = Profile.objects.filter(user = self.user)[0]
+        self.assertRedirects(response, reverse("user:myAccount"))
         self.assertTrue(response.wsgi_request.user.email == "a new mail")
         self.assertTrue(session_profile.mail_confirm_sent)
 

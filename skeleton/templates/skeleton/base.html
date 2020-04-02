@@ -44,10 +44,10 @@
             <a class="nav-link js-scroll-trigger" href="{% url 'research:index' %}">Recherche</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'user:myAccount'%}">Mon Compte</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'user:MyAccount'%}">Mon Compte</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{% url 'user:favoris'%}">Mes Aliments</a>
+            <a class="nav-link js-scroll-trigger" href="{% url 'user:favorite'%}">Mes Aliments</a>
           </li>
           <li class="nav-item">
             {% if user.is_authenticated  %}

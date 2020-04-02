@@ -16,6 +16,7 @@ from user.models import Profile
 
 #from other app import
 import research.form as rf
+from products.models import Product
 
 
 class RegisterView(View):
@@ -158,9 +159,13 @@ class FavoriteView(View):
     def get(self, request, prod_name):
         if request.user.is_authenticated:
             user = request.user
-            print(f"user : {user}")
+            profile = Profile.objects.get(user=user)
+            product = Product.objects.get(name=prod_name)
+            profile.favlist.add(product)
+            profile.save()
+            print(profile.favlist.all())
 
-        return HttpResponse(f"J'enregistre {prod_name} dans la base pour le profile de {user}")
+        return HttpResponse(f"J'enregistre l'objet {product} dans la base pour le profile de {profile.user.username}")
 
 
 

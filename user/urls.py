@@ -12,6 +12,7 @@ urlpatterns = [
     path(r'connection', v.ConnectionView.as_view(), name="connection"),
     path(r'register', v.RegisterView.as_view(), name="register"),
     path(r'favorite/<str:prod_name>', v.FavoriteView.as_view(), name="favorite"),
+    path(r'favorite', v.FavoriteView.as_view(), name="favorite"),
 
 ]
 

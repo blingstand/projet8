@@ -80,7 +80,7 @@ class ConnectionView(View):
         messages.error(request, "Problème dans le formulaire !")
         return redirect('user:connection')
                 
-class myAccountView(View):
+class MyAccountView(View):
     """ this class handles with myAccount view to display the myAccount.html
 
         get() can load the same page but this one can change according to the context
@@ -153,9 +153,15 @@ def legalMentions(request):
 def contacts(request):
 	return render(request, 'user/contacts.html')
 
-@login_required(login_url='connection')
-def favoris(request):
-    return render(request, 'user/favoris.html')
+class FavoriteView(View):
+
+    def get(self, request, prod_name):
+        if request.user.is_authenticated:
+            user = request.user
+            print(f"user : {user}")
+
+        return HttpResponse(f"J'enregistre {prod_name} dans la base pour le profile de {user}")
+
 
 
 

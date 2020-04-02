@@ -19,6 +19,18 @@ p{
 	.padding-top-2{
 		padding-top: 2em; 
 	}
+	.btn-primary-green {
+	  color: black;
+	  border-radius: 2rem;
+	  background-color: #009900;
+	  border-color: #f4623a;
+	}
+
+	.btn-primary-green:hover {
+	  color: black;
+	  background-color: #00ff00;
+	  border-color: #ee3e0d;
+	}
 
 /* css for base.html */
 	#mainNav {

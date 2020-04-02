@@ -7,12 +7,13 @@ class UserForm(forms.Form):
 
 class MoreUserDataForm(forms.Form):
 
-	mail = forms.EmailField(			label="Mon mail", 
-										max_length=100, 
-										widget=forms.TextInput(attrs={'class': 'account_i'}))
+	mail = forms.EmailField(			
+		label="Mon mail", 
+		max_length=100, 
+		widget=forms.TextInput(attrs={'class': 'account_i'}))
 
-class AddFavorite(forms.form): 
+class AddFavorite(forms.Form): 
 	fav = forms.MultipleChoiceField(	
 		required=False,
         label="ajouter aux favoris",
-        widget=forms.CheckboxSelectMultiple)
+        widget=forms.CheckboxSelectMultiple())

@@ -4,9 +4,10 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from .form import SearchForm, AdvancedSearchForm
-
-from products.models import Category, Product
 from .searcher import Search
+
+from user.form import AddFavorite
+from products.models import Category, Product
 # Create your views here.
 
 
@@ -16,6 +17,7 @@ class ResultsView(View):
 
     def get(self, request, category=None, get_from_input=None):
         """ manage the HttpResponse for the SearchFormView with get method request """
+        form = AddFavorite()
         if category is not None:
             search = Search(get_from_input)
             print(f"Cas result get : {get_from_input} et {category}")
@@ -25,7 +27,8 @@ class ResultsView(View):
             print(f" ---- j'ai category : {category}")
             substitutes = search.list_sub(category) 
             print(f"Voici les substituts : {substitutes}")
-            context = { "product" : prod, "substitutes" : substitutes, "no_prod" : True}
+            context = { "product" : prod, "substitutes" : substitutes, "no_prod" : True, 'form' : form}
+
             return render(request, "research/results.html", context)
         return redirect("research:index")
 

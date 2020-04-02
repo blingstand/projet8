@@ -9,24 +9,6 @@ from products.models import Category, Product
 from .searcher import Search
 # Create your views here.
 
-class AdvancedSearchView(View):
-    """ manage a HttpResponse in case of get or post method 
-    request for this url research/advancedSearch"""
-
-    def get(self, request):
-        """ manage the HttpResponse for the SearchFormView with get method request """
-        form = AdvancedSearchForm()
-        context={'form' : form}
-        return render(request, "research/advancedSearch.html", context)
-
-    def post(self, request):
-        form = AdvancedSearchForm(request.POST)
-        results=(1,2,3)
-        if form.is_valid():
-            results = [r for r in range(10)]
-            context = { "results" : results}
-            return render(request, "research/results.html", context)
-        return HttpResponse("Pb dans le form")
 
 class ResultsView(View):
     """ manage a HttpResponse in case of get or post method 
@@ -35,13 +17,17 @@ class ResultsView(View):
     def get(self, request, category=None, get_from_input=None):
         """ manage the HttpResponse for the SearchFormView with get method request """
         if category is not None:
-            search = Search(get_from_input, category)
-            print(f"Je cherche un produit avec les termes : {get_from_input} et {category}")
-            product = search.list_pot_prod()[0]
-            print(f"J'ai {product} ! ")
-            substitutes = search.list_sub
-            context = { "product" : product, "substitutes" : substitutes, "no_prod" : True}
-        return render(request, "research/results.html", context)
+            search = Search(get_from_input)
+            print(f"Cas result get : {get_from_input} et {category}")
+            prod = search.list_pot_prod(category)[0]
+            print(f"J'ai {prod} ! ")
+            category = prod.category.all()[0]
+            print(f" ---- j'ai category : {category}")
+            substitutes = search.list_sub(category) 
+            print(f"Voici les substituts : {substitutes}")
+            context = { "product" : prod, "substitutes" : substitutes, "no_prod" : True}
+            return render(request, "research/results.html", context)
+        return redirect("research:index")
 
     def post(self, request, category=None, get_from_input=None):
         pass
@@ -61,13 +47,15 @@ class IndexView(View):
             #I write result in context
             search = Search(get_from_input)
             # print("* * * "*10)
-            # print("je cherche dans la base pour la recherche : {}".format(get_from_input))
+            print(f"je cherche dans la base pour la recherche : {get_from_input}")
             prod = search.prod
-            # print("prod -->", prod)
+            print("prod -->", prod)
             categories = search.cat_to_choose
-            if prod:
+            print("categories -->", categories)
+            if prod is not None:
                 print("cas 1")
-                substitutes = search.list_sub
+                category = prod.category.first()
+                substitutes = search.list_sub(category)
                 # print("Résultats : le produit recherché était", prod,\
                 #     "et voici les substituts trouvés :\n", substitutes)
                 # print("* * * "*10)
@@ -91,17 +79,27 @@ class IndexView(View):
                     f" la recherche : {get_from_input}.")
                 return redirect("research:index")
                 
-
-                # alert me 
-                # œœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœ
-                # subject = "catégorie à ajouter"
-                # message = "une nouvelle catégorie à ajouter : {}".format(get_from_input)
-                # from_email = settings.EMAIL_HOST_USER
-                # to_list = [settings.EMAIL_HOST_USER]
-                # send_mail(subject, message, from_email, to_list, fail_silently=True)
-                # œœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœœ
-                # prepare work
             context = {"form": form}
             return render(request, "research/index.html", context)
             
         return HttpResponse ("Problème dans le formulaire")
+
+    #pour la version 2.0
+class AdvancedSearchView(View):
+    """ manage a HttpResponse in case of get or post method 
+    request for this url research/advancedSearch"""
+
+    def get(self, request):
+        """ manage the HttpResponse for the SearchFormView with get method request """
+        form = AdvancedSearchForm()
+        context={'form' : form}
+        return render(request, "research/advancedSearch.html", context)
+
+    def post(self, request):
+        form = AdvancedSearchForm(request.POST)
+        results=(1,2,3)
+        if form.is_valid():
+            results = [r for r in range(10)]
+            context = { "results" : results}
+            return render(request, "research/results.html", context)
+        return HttpResponse("Pb dans le form")

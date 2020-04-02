@@ -1,16 +1,18 @@
 from django.test import TestCase
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from django.shortcuts import render, redirect
-
 from unittest import mock, skip
+#from app import
 from .form import UserForm, MoreUserDataForm
 from .models import Profile
 
+#from other app import
+from products.models import Product, Category
 
-
+@skip
 class AuthenticationViewTests(TestCase):
 
     def setUp(self): 
@@ -152,8 +154,8 @@ class AuthenticationViewTests(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(messages[0].message,'Pseudo ou mot de passe incorrect')
         
-
-class myAccountViewTests(TestCase):
+@skip
+class MyAccountViewTests(TestCase):
 
     def setUp(self): 
         patcher = mock.patch("user.views.myAccountView")
@@ -242,9 +244,53 @@ class myAccountViewTests(TestCase):
         self.assertTrue(response.wsgi_request.user.email == "a new mail")
         self.assertTrue(session_profile.mail_confirm_sent)
 
+class FavoriteTests(TestCase):
+
+    def setUp(self): 
+        self.user = User(username="test")
+        self.profile = Profile(user=self.user)
+        self.user.set_password("test")
+        self.user.pk = 1
+        self.user.save()
+        self.profile.save()
+        self.logged_in = self.client.login(username="test", password="test")
         
+        self.category = Category(name="jus de fruits")
+        self.category.save()
+        self.product1 = Product(
+            name="Pur jus d'orange sans pulpe", 
+            image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
+            url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 
+            nutriscore=3, packaging="carton")
+        self.product2 = Product(
+            name="Jus d'orange pas bon pas bio pas cher", 
+            image_url="fake url",
+            url="fake url", 
+            nutriscore=5, packaging="bouteille plastique")
+        self.product1.save()
+        self.product2.save()
+        self.product1.category.add(self.category)
+        self.product2.category.add(self.category)
+        self.product1.save()
+        self.product2.save()
 
-        
 
+    def test_favorite_get_access_no_param_no_connected(self):
+        self.client.logout()
+        response = self.client.get(reverse("user:favorite"))
+        self.assertRedirects(response, reverse("user:connection"))
 
-     
+    def test_favorite_get_access_no_param(self):
+        """ test wehter user can acces user/favorite """
+        response = self.client.get(reverse("user:favorite"))
+        self.assertTrue(response.status_code, 200)
+
+    def test_favorite_get_access_with_param(self):
+        """ test wehter user can acces user/favorite/Pur jus d'orange sans pulpe"""
+        response = self.client.get(reverse("user:favorite", args=["Pur jus d'orange sans pulpe"]))
+        self.assertTrue(response.status_code, 200)
+
+    def test_add_db(self):
+        """ test wether a product can be add user favorite page"""
+        response = self.client.get(reverse("user:favorite", args=["Pur jus d'orange sans pulpe"]))
+        self.assertTrue(len(self.profile.favlist.all()), 1)

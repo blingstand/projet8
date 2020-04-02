@@ -156,16 +156,17 @@ def contacts(request):
 
 class FavoriteView(View):
 
-    def get(self, request, prod_name):
+    def get(self, request, prod_name=None):
         if request.user.is_authenticated:
-            user = request.user
-            profile = Profile.objects.get(user=user)
-            product = Product.objects.get(name=prod_name)
-            profile.favlist.add(product)
-            profile.save()
-            print(profile.favlist.all())
-
-        return HttpResponse(f"J'enregistre l'objet {product} dans la base pour le profile de {profile.user.username}")
+            if prod_name is not None: 
+                user = request.user
+                profile = Profile.objects.get(user=user)
+                product = Product.objects.get(name=prod_name)
+                profile.favlist.add(product)
+                profile.save()
+                print(profile.favlist.all())
+                return HttpResponse(f"J'enregistre l'objet {product} dans la base pour le profile de {profile.user.username}")
+        return redirect('user:connection')
 
 
 

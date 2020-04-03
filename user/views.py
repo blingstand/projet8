@@ -144,6 +144,26 @@ class MyAccountView(View):
             return redirect("user:myAccount")
         return HttpResponse("Le formulaire n'est pas valide")
 
+class FavoriteView(View):
+
+    def get(self, request, prod_name=None):
+        if request.user.is_authenticated:
+            print("auth")
+            user = request.user
+            profile = Profile.objects.get(user=user)
+            if prod_name is not None: 
+                product = Product.objects.get(name=prod_name)
+                profile.favlist.add(product)
+                profile.save()
+            fav_list = [fav for fav in profile.favlist.all()]
+            for fav in fav_list:
+                print(fav, fav.nutriscore_img)
+            print(f"--> favlist : {fav_list}")
+            context = {"fav_list" : fav_list}
+            return render(request, 'user/favorite.html', context)
+        return redirect('user:connection')
+
+
 def logoutUser(request):
     logout(request)
     return redirect('research:index')
@@ -154,19 +174,6 @@ def legalMentions(request):
 def contacts(request):
 	return render(request, 'user/contacts.html')
 
-class FavoriteView(View):
-
-    def get(self, request, prod_name=None):
-        if request.user.is_authenticated:
-            if prod_name is not None: 
-                user = request.user
-                profile = Profile.objects.get(user=user)
-                product = Product.objects.get(name=prod_name)
-                profile.favlist.add(product)
-                profile.save()
-                print(profile.favlist.all())
-                return HttpResponse(f"J'enregistre l'objet {product} dans la base pour le profile de {profile.user.username}")
-        return redirect('user:connection')
 
 
 

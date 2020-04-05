@@ -11,7 +11,7 @@ from .views import IndexView
 
 from products.models import Category, Product
 
-@skip
+
 class IndexViewTests(TestCase):
     
     def setUp(self):
@@ -117,13 +117,9 @@ class ResultsViewTests(TestCase):
 
 
     def test_access_get_with_params(self):
-        # response = self.client.get(reverse('research:results', args=[str("jus de fruits"), str("Pur jus d'orange sans pulpe")]))
-        response = self.client.get('research/results/jus de fruits/Pur jus')
+        response = self.client.get("/results/jus de fruits/Pur jus d'orange")
         self.assertEqual(response.status_code , 200)
-        self.assertContains(response, "Pur jus d'orange sans pulpe")
-
-
-        # self.assertEqual(response.status_code , 200)
+        self.assertContains(response, "Résultats")
 
     def test_no_access_get_no_param(self):
         response = self.client.get(reverse('research:results' ))

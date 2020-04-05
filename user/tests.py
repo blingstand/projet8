@@ -12,7 +12,7 @@ from .models import Profile
 #from other app import
 from products.models import Product, Category
 
-@skip
+
 class AuthenticationViewTests(TestCase):
 
     def setUp(self): 
@@ -154,11 +154,11 @@ class AuthenticationViewTests(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(messages[0].message,'Pseudo ou mot de passe incorrect')
         
-@skip
+
 class MyAccountViewTests(TestCase):
 
     def setUp(self): 
-        patcher = mock.patch("user.views.myAccountView")
+        patcher = mock.patch("user.views.MyAccountView")
         self.addCleanup(patcher.stop) #called after teardown
         mock_acc_view_class = patcher.start()
         self.mock_acc_view = mock_acc_view_class.return_value
@@ -203,6 +203,7 @@ class MyAccountViewTests(TestCase):
         self.mock_acc_view.get_user_and_profile = self.user, self.profile
         #send a .../myAccount/1/test@mail.fr
         response = self.client.get(reverse("user:myAccount", args=[1, str("test@mail.fr")]))
+        print("---", response.wsgi_request.build_absolute_uri())
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Tu m'as communiqué ce mail : test@mail.fr")
         
@@ -243,6 +244,7 @@ class MyAccountViewTests(TestCase):
         self.assertRedirects(response, reverse("user:myAccount"))
         self.assertTrue(response.wsgi_request.user.email == "a new mail")
         self.assertTrue(session_profile.mail_confirm_sent)
+
 
 class FavoriteTests(TestCase):
 
@@ -287,10 +289,16 @@ class FavoriteTests(TestCase):
 
     def test_favorite_get_access_with_param(self):
         """ test wehter user can acces user/favorite/Pur jus d'orange sans pulpe"""
-        response = self.client.get(reverse("user:favorite", args=["Pur jus d'orange sans pulpe"]))
+        response = self.client.get("user/favorite/Pur jus d'orange sans pulpe")
         self.assertTrue(response.status_code, 200)
 
-    def test_add_db(self):
+    def test_favorite_add_db(self):
         """ test wether a product can be add user favorite page"""
-        response = self.client.get(reverse("user:favorite", args=["Pur jus d'orange sans pulpe"]))
-        self.assertTrue(len(self.profile.favlist.all()), 1)
+        before = len(self.profile.favlist.all())
+        response = self.client.get("user/favorite/Pur jus d'orange sans pulpe")
+        after = len(self.profile.favlist.all())
+        self.assertTrue(before + 1, after)
+
+
+
+        

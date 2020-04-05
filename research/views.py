@@ -18,17 +18,17 @@ class ResultsView(View):
     def get(self, request, category=None, get_from_input=None):
         """ manage the HttpResponse for the SearchFormView with get method request """
         form = AddFavorite()
+        print(f"cat : {category}, get_from_input : {get_from_input} ")
         if category is not None:
             search = Search(get_from_input)
             print(f"Cas result get : {get_from_input} et {category}")
             prod = search.list_pot_prod(category)[0]
             print(f"J'ai {prod} ! ")
             category = prod.category.all()[0]
-            print(f" ---- j'ai category : {category}")
+            print(f"j'ai category : {category}")
             substitutes = search.list_sub(category) 
             print(f"Voici les substituts : {substitutes}")
             context = { "product" : prod, "substitutes" : substitutes, "no_prod" : True, 'form' : form}
-
             return render(request, "research/results.html", context)
         return redirect("research:index")
 

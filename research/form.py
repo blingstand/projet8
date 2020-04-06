@@ -5,7 +5,13 @@ class SearchForm(forms.Form):
     simple_search = forms.CharField(
         label="Entrez le nom d'un produit", 
         max_length=50,
+        required=False,
         widget=forms.TextInput(attrs={'id': 'simple_form_input'}) )
+    mini_simple_search = forms.CharField(
+        label="Entrez le nom d'un produit", 
+        max_length=50,
+        required=False,
+        widget=forms.TextInput(attrs={'id': 'nav-mini-search'}) )
 
 
 

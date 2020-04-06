@@ -13,12 +13,12 @@
 				<form class="white-bg" action="" method='POST'>
 					{% csrf_token %}
 					<div class="form-group">
-						<p>{{ form.username.label}}</p>		
-						<p>{{ form.username}}</p>		
+						<p>{{ us_form.username.label}}</p>		
+						<p>{{ us_form.username}}</p>		
 					</div>
 					<div class="form-group">
-						<p>{{ form.password.label}}</p>
-						<p>{{ form.password}}</p>
+						<p>{{ us_form.password.label}}</p>
+						<p>{{ us_form.password}}</p>
 					</div>
 					<input type="submit" class="btn btn-primary" value="Se créer une compte">
 				</form>

@@ -31,11 +31,16 @@ p{
 	  background-color: #00ff00;
 	  border-color: #ee3e0d;
 	}
+	.legend{
+		font-weight: bold; 
+		font-style: italic; 
+		font-size :  2rem;
+	}
 
 /* css for base.html */
 	#mainNav {
 		box-shadow: none;
-		opacity: 0.9;
+		opacity: 0.8;
 		background-color: #345a61; 
 	}
 		.cont-logo-title{
@@ -70,6 +75,9 @@ p{
 			border-radius : 10em;
 			position : relative;
 			left : -2em;
+		}
+		.page-section {
+		  padding: 3rem 0;
 		}
 
 

@@ -11,10 +11,11 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 #from app import
-from user.form import UserForm, MoreUserDataForm
-from user.models import Profile
+from .form import UserForm, MoreUserDataForm
+from .models import Profile
 
 #from other app import
+from research.form import SearchForm
 import research.form as rf
 from products.models import Product
 
@@ -24,20 +25,21 @@ class RegisterView(View):
         get > loads a registration page
         post > analyses datas to try to create a new user and profile
     """
+    search_form = SearchForm()
     def get(self, request): 
         """ display html page with form in order to register a new user"""
         if request.user.is_authenticated:
             return redirect('research:index') #if auth user comes to register page
-        form = UserForm()
-        context = {'form':form}
+        us_form = UserForm()
+        context = {"search_form" : self.search_form, 'us_form': us_form}
         return render(request, 'user/register.html', context)
     
     def post(self, request):
         """ get the outcome from register's form and try to create a new user and profile"""
-        form = UserForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+        us_form = UserForm(request.POST)
+        if us_form.is_valid():
+            username = us_form.cleaned_data['username']
+            password = us_form.cleaned_data['password']
             try:
                 new_user = User.objects.create_user(username=username, password=password)
                 new_user.save()
@@ -56,20 +58,21 @@ class ConnectionView(View):
         get > loads a connection page
         post > analyses datas in order to try to authenticate
     """
+    search_form = SearchForm()
     def get(self, request):
         """ loads a connection page """
         if request.user.is_authenticated:
             return redirect('research:index')
-        form = UserForm()
-        context = {'form' : form}
+        us_form = UserForm()
+        context = {"search_form" : self.search_form, 'us_form' : us_form}
         return render(request, 'user/connection.html', context)
     
     def post(self, request):
         """ analyses datas in order to try to authenticate """
-        form = UserForm(request.POST)
-        if form.is_valid(): 
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+        us_form = UserForm(request.POST)
+        if us_form.is_valid(): 
+            username = us_form.cleaned_data['username']
+            password = us_form.cleaned_data['password']
             new_user = authenticate(username=username, password=password)
 
             if new_user is not None:
@@ -87,7 +90,7 @@ class MyAccountView(View):
         get() can load the same page but this one can change according to the context
         context will depend on parameters in the request 
     """
-    
+    search_form = SearchForm()    
     def get_user_and_profile(self, user):
         user_found = user
         ufpk = user_found.pk #user_found_primary_key = ufpk
@@ -110,20 +113,21 @@ class MyAccountView(View):
             elif my_option == 2:
                 profile_found.mail_confirm_sent = False
                 profile_found.save()
-            form = MoreUserDataForm()
+            mail_form = MoreUserDataForm()
             context={
-                'form' : form, 
+                'mail_form' : mail_form, 
                 'mail_confirm_sent' : profile_found.mail_confirm_sent,
                 'mail_confirmed' : profile_found.mail_confirmed, 
-                'user_mail' : user_mail
+                'user_mail' : user_mail, 
+                "search_form" : self.search_form 
             }
             return render(request, "user/myAccount.html", context)
         return redirect('user:connection')
 
     def post(self, request):
-        form = MoreUserDataForm(request.POST)
-        if form.is_valid(): 
-            mail = form.cleaned_data['mail'] #gets the mail
+        mail_form = MoreUserDataForm(request.POST)
+        if mail_form.is_valid(): 
+            mail = mail_form.cleaned_data['mail'] #gets the mail
             #sends a mail to confirm mail adress before adding in base
             subject = "Confirmation de votre mail "
             message = "Clickez sur ce lien http://127.0.0.1:8000/myAccount/1/{} pour confirmer votre mail"\
@@ -139,7 +143,8 @@ class MyAccountView(View):
             user.save()
 
             context={
-                'form' : form
+                'mail_form' : mail_form, 
+                "search_form" : self.search_form 
             }
             return redirect("user:myAccount")
         return HttpResponse("Le formulaire n'est pas valide")
@@ -147,6 +152,7 @@ class MyAccountView(View):
 class FavoriteView(View):
 
     def get(self, request, prod_name=None):
+        search_form = SearchForm()
         if request.user.is_authenticated:
             user = request.user
             profile = Profile.objects.get(user=user)
@@ -155,7 +161,7 @@ class FavoriteView(View):
                 profile.favlist.add(product)
                 profile.save()
             fav_list = [fav for fav in profile.favlist.all()]
-            context = {"fav_list" : fav_list}
+            context = {"search_form" : search_form, "fav_list" : fav_list}
             return render(request, 'user/favorite.html', context)
         return redirect('user:connection')
 
@@ -165,10 +171,14 @@ def logoutUser(request):
     return redirect('research:index')
 
 def legalMentions(request):
-	return render(request, 'user/legalMentions.html')
+    search_form = SearchForm()
+    context = {"search_form" : search_form}
+    return render(request, 'user/legalMentions.html')
 
 def contacts(request):
-	return render(request, 'user/contacts.html')
+    search_form = SearchForm()
+    context = {"search_form" : search_form}
+    return render(request, 'user/contacts.html')
 
 
 

@@ -3,40 +3,49 @@
 {% block content %}
 <header class="masthead-register">
 	<div class="container">
-		<h2 class="text-center mt-0 text-white">Maintenant tu vas me dire qui tu es ... </h2>
-		{% for message in messages%}
-			<p id="text-white">{{message}}</p>
-		{% endfor%}
+		<h2 class="text-center mt-0 text-white">Fait comme un rat ... </h2>
+		<p class="text-center mt-0 text-white">Toi tu vas passer à table</p>
 		<div class="row">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
-				<form class="white-bg" action="" method='POST'>
+				<form class="opac_white_background" action="" method="POST">
 					{% csrf_token %}
-					<div class="form-group">
-						<p>{{ us_form.username.label}}</p>		
-						<p>{{ us_form.username}}</p>		
+					<div class="form-row pt-5">
+						<div class="col-lg-3 text-center">Pseudo</div >     
+						<div class="col-lg-9 text-center">{{ us_form.username}}</div >      
 					</div>
-					<div class="form-group">
-						<p>{{ us_form.password.label}}</p>
-						<p>{{ us_form.password}}</p>
+					<div class="form-row pt-5">
+						<div class="col-lg-3 text-center">Mot de passe </div >
+						<div class="col-lg-9 text-center">{{us_form.password}}</div >
 					</div>
-					<input type="submit" class="btn btn-primary" value="Se créer une compte">
+					<div class="row mt-5">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 text-center">
+							<input type="submit" class="btn btn-primary big-btn" value="M'inscrire">
+						</div>
+						<div class="col-lg-2"></div>
+						<!-- nouvelle ligne -->
+						<div class="col-lg-2"></div>
+						<div class="col-lg-8 text-center">
+							{% if error %}
+							<p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+							{% endif %}
+							<p class="mini-legend">J'ai déjà un compte : <a href="{% url 'user:connection' %}">Se connecter</a></p>
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-2"></div>
 				</form>
-				{{form.errors}}
-				<p>J'ai déjà un compte : <a href="{% url 'user:connection' %}">Se connecter</a></p>
-
 			</div>
 			<div class="col-lg-3"></div>
-
 		</div>
 	</div>
 </header>
 <script>
-
-		//Query All input fields
-		var form_fields = document.getElementsByTagName('input')
-		form_fields[1].placeholder='Pseudo...';
-		form_fields[2].placeholder='Mot de passe...';
+	//Query All input fields
+	var form_fields = document.getElementsByTagName('input')
+	form_fields[1].placeholder='Pseudo...';
+	form_fields[2].placeholder='Mot de passe...';
 
 </script>
 {% endblock %}

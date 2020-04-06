@@ -3,38 +3,40 @@
 {% block content %}
 <header class="masthead-connexion">
     <div class="container">
-        <h2 class="text-center mt-0 text-white">Il me semble te connaître </h2>
+        <h2 class="text-center mt-0 text-white">Il me semble te connaître ...</h2>
+        <p class="text-center mt-0 text-white">Comment tu tappelles ?</p>
         {% for message in messages%}
-            <p class="text-white">{{message}}</p>
+        <p class="text-center mt-0 text-white">{{message}}</p>
         {% endfor%}
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
-                <form class="white-bg" action="" method="POST">
+                <form class="opac_white_background" action="" method="POST">
                     {% csrf_token %}
-                    <div class="form-group row">
-                        <div class="col-lg-6">{{ us_form.username.label}}</div>
-                        <div class="col-lg-6">{{ us_form.username}}</div>
+                    <div class="form-row pt-5">
+                        <div class="col-lg-3 text-center">Pseudo</div >     
+                        <div class="col-lg-9 text-center">{{ us_form.username}}</div >      
                     </div>
-                    <div class="form-group row">
-                        <div class="col-lg-6">{{ us_form.password.label}}</div>
-                        <div class="col-lg-6">{{ us_form.password}}</div>
+                    <div class="form-row pt-5">
+                        <div class="col-lg-3 text-center">Mot de passe </div >
+                        <div class="col-lg-9 text-center">{{us_form.password}}</div >
                     </div>
-                    <div class=" row">
+                    <div class="row mt-5">
                         <div class="col-lg-2"></div>
-                        <div class="col-lg-8">
-                            <button type="submit" class="btn btn-primary big-btn">Se connecter</button> 
+                        <div class="col-lg-8 text-center">
+                            <input type="submit" class="btn btn-primary big-btn" value="Se connecter">
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <!-- nouvelle ligne -->
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 text-center">
                             {% if error %}
-                                <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+                            <p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
                             {% endif %}
-                            <p>Je n'ai pas encore de compte : <a href="{% url 'user:register' %}">S'inscrire</a>
+                            <p class="mini-legend">Je n'ai pas encore de compte : <a class="text-bold "href="{% url 'user:register' %}">M'inscrire</a>
                             </p>
                         </div>
                         <div class="col-lg-2"></div>
-                        {% if errors%}
-                            <p>il y a une erreur !</p>
-                        {% endif%}
-                    </div>
                 </form>
             </div>
             <div class="col-lg-3"></div>

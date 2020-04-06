@@ -13,11 +13,7 @@ p{
 		justify-content : flex-end;
 	}
 	.opac_white_background{
-		background-color: rgba(255, 255, 230, 0.3);
-		}
-
-	.padding-top-2{
-		padding-top: 2em; 
+		background-color: rgba(255, 255, 230, 0.5);
 	}
 	.btn-primary-green {
 	  color: black;
@@ -36,6 +32,12 @@ p{
 		font-style: italic; 
 		font-size :  2rem;
 	}
+	.mini-legend{
+		font-weight: bold; 
+		font-style: italic; 
+		font-size :  1rem;
+	}
+
 
 /* css for base.html */
 	#mainNav {

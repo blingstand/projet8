@@ -54,8 +54,22 @@ p{
 			height: auto;
 			opacity : 1;
 		}
-		.navbar-nav .nav-item .nav-link{
-			font-weight: bold; 
+
+		#nav-mini-search{
+			width : 20em;
+			height : 2.5em;
+			border-radius : 10em 0 0 10em;
+			padding-left : 1em; 
+			margin-left: 3em;
+			text-align : left;
+		}
+
+		#nav-mini-submit{
+			width : 8em;
+			height : 2.5em;
+			border-radius : 10em;
+			position : relative;
+			left : -2em;
 		}
 
 

@@ -40,13 +40,25 @@
         </a>
         <div class="title-close-to-logo">PUR BEURRE</div> 
       </div>
-     <!--  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
-
+          <li class="nav-item">
+            <form action="" method='POST'>
+              {% csrf_token %}
+              <div class="row">
+                {% if user.is_authenticated  %}
+                <div class="col-lg-8 mt-2 "><input type="search" placeholder="Recherche" id="nav-mini-search" ></div> 
+                {%else%}
+                <div class="col-lg-8 mt-2 "><input type="search" placeholder="Connecte-toi pour commencer" id="nav-mini-search" ></div> 
+                {%endif%}
+                <div class="col-lg-4 mt-2 ">
+                  <input type="submit" class="btn btn-primary" id="nav-mini-submit" value="Valider"> 
+                </div>
+              </div>
+            </form>
+          </li>
           {% if user.is_authenticated  %}
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'user:myAccount'%}"><img src="{% static 'skeleton/img/account_logo.png'%}" alt=""></a>
           </li>
@@ -57,9 +69,6 @@
             <a class="nav-link" href="{% url 'user:logout' %}"><img src="{% static 'skeleton/img/disconnect.png'%}" alt=""></a>
           </li>
           {% else %}
-          <li class="nav-item">
-            <a class="nav-link need_connection" href="{% url 'research:index' %}">barre input </a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'user:connection' %}"><img src="{% static 'skeleton/img/account_logo.png'%}" alt=""></a>
             {% endif %}

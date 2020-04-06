@@ -35,15 +35,27 @@ p{
 /* css for base.html */
 	#mainNav {
 		box-shadow: none;
-		opacity: 0.6;
+		opacity: 0.9;
+		background-color: #345a61; 
 	}
+		.cont-logo-title{
+			display:  flex; 
+			flex-direction: row; 
+			align-items: center;
+			width : 30rem;
+		}
+		.title-close-to-logo{
+			font-size: 3rem;
+			color :  #f4623a;
+			margin-left: 1rem;
+		}
 		.img-fluid-logo {
 			width : 75px;
 			height: auto;
 			opacity : 1;
 		}
 		.navbar-nav .nav-item .nav-link{
-			color : white;
+			font-weight: bold; 
 		}
 
 

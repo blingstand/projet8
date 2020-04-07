@@ -17,7 +17,6 @@ from products.models import Category, Product
 class ResultsView(View):
     """ manage a HttpResponse in case of get or post method 
     request for this url research/advancedSearch"""
-    search_form = SearchForm()
     def get(self, request, category=None, get_from_input=None):
         """ manage the HttpResponse for the SearchFormView with get method request """
         fav_form = AddFavorite()
@@ -33,7 +32,7 @@ class ResultsView(View):
             print(f"Voici les substituts : {substitutes}")
             context = { 
             "product" : prod, "substitutes" : substitutes, "no_prod" : True, 
-            'fav_form' : fav_form, 'search_form' : self.search_form}
+            'fav_form' : fav_form}
             return render(request, "research/results.html", context)
         return redirect("research:index")
 
@@ -43,8 +42,7 @@ class ResultsView(View):
 class IndexView(View):
     """ gère les index """
     def get(self, request):
-        search_form = SearchForm()
-        context = {'search_form' : search_form}
+        context ={}
         return render(request, 'research/index.html', context)
     
     def post(self, request):
@@ -72,7 +70,7 @@ class IndexView(View):
                 "product" : prod, 
                 "nutriscore" : prod.nutriscore.upper(), 
                 "substitutes" : substitutes, 
-                'search_form' : search_form
+              
                 }
                 return render(request, "research/results.html", context)
             elif categories is not None:
@@ -80,7 +78,7 @@ class IndexView(View):
                 messages.error(request, "Pas de résultats parfaitement identiques "\
                     f"dans la base actuellement pour la recherche : {get_from_input}.")
                 context = { 
-                    'search_form' : search_form, "categories" : categories,
+                    "categories" : categories,
                     'however' : " Cependant j'ai des résultats en rapport avec ta recherche ...", 
                     'get_from_input' : get_from_input, "few_cat" : len(categories) <= 3}
                 return render(request, 'research/index.html', context)
@@ -104,7 +102,7 @@ class AdvancedSearchView(View):
         """ manage the HttpResponse for the SearchFormView with get method request """
         adv_form = AdvancedSearchForm()
         search_form = SearchForm()
-        context={'adv_form' : adv_form, 'search_form' : search_form}
+        context={'adv_form' : adv_form}
         return render(request, "research/advancedSearch.html", context)
 
     def post(self, request):

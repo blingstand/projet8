@@ -31,7 +31,7 @@ class RegisterView(View):
         if request.user.is_authenticated:
             return redirect('research:index') #if auth user comes to register page
         us_form = UserForm()
-        context = {"search_form" : self.search_form, 'us_form': us_form}
+        context = {'us_form': us_form}
         return render(request, 'user/register.html', context)
     
     def post(self, request):
@@ -64,7 +64,7 @@ class ConnectionView(View):
         if request.user.is_authenticated:
             return redirect('research:index')
         us_form = UserForm()
-        context = {"search_form" : self.search_form, 'us_form' : us_form}
+        context = {'us_form' : us_form}
         return render(request, 'user/connection.html', context)
     
     def post(self, request):
@@ -90,7 +90,7 @@ class MyAccountView(View):
         get() can load the same page but this one can change according to the context
         context will depend on parameters in the request 
     """
-    search_form = SearchForm()    
+  
     def get_user_and_profile(self, user):
         user_found = user
         ufpk = user_found.pk #user_found_primary_key = ufpk
@@ -119,7 +119,6 @@ class MyAccountView(View):
                 'mail_confirm_sent' : profile_found.mail_confirm_sent,
                 'mail_confirmed' : profile_found.mail_confirmed, 
                 'user_mail' : user_mail, 
-                "search_form" : self.search_form 
             }
             return render(request, "user/myAccount.html", context)
         return redirect('user:connection')
@@ -144,7 +143,6 @@ class MyAccountView(View):
 
             context={
                 'mail_form' : mail_form, 
-                "search_form" : self.search_form 
             }
             return redirect("user:myAccount")
         return HttpResponse("Le formulaire n'est pas valide")
@@ -161,7 +159,7 @@ class FavoriteView(View):
                 profile.favlist.add(product)
                 profile.save()
             fav_list = [fav for fav in profile.favlist.all()]
-            context = {"search_form" : search_form, "fav_list" : fav_list}
+            context = {"fav_list" : fav_list}
             return render(request, 'user/favorite.html', context)
         return redirect('user:connection')
 
@@ -172,12 +170,12 @@ def logoutUser(request):
 
 def legalMentions(request):
     search_form = SearchForm()
-    context = {"search_form" : search_form}
+    context = {}
     return render(request, 'user/legalMentions.html')
 
 def contacts(request):
     search_form = SearchForm()
-    context = {"search_form" : search_form}
+    context = {}
     return render(request, 'user/contacts.html')
 
 

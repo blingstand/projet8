@@ -8,9 +8,32 @@ p{
 }
 
 /* main css */
+	.section1{
+		background-color: #c45525;
+	}
+	.section2{
+		background-color: #86ebe6; 
+	}
+	.section3{
+		background-color:  #e8a75d; 
+	}
+	.section1 a, .section2 a, .section3 a{
+		color : #345a61;
+		text-decoration: none;
+		font-weight: bold; 	
+	}
+	.section1 a:hover, .section2 a:hover, .section3 a:hover{
+		color : white;  
+	}
 	.right-input{
 		display:flex;
 		justify-content : flex-end;
+
+	}
+	.align-center{
+		display :  flex;
+		align-items: center;
+		justify-content: center;
 	}
 	.opac_white_background{
 		background-color: rgba(255, 255, 230, 0.5);
@@ -37,6 +60,7 @@ p{
 		font-style: italic; 
 		font-size :  1rem;
 	}
+
 
 
 /* css for base.html */
@@ -88,9 +112,7 @@ p{
 
 	}
 	.contact-us{
-	 	background-color: #86ebe6; 
 	 	color : #345a61;
-
 	 }
 	 .contact-us a{
 		color : #345a61;
@@ -299,3 +321,16 @@ p{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+}
+/* legalNotice */
+.masthead-legalNotice{
+	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),
+	 url("../img/for_legal_notice.jpg");
+	padding-top: 10rem;
+	padding-bottom: calc(15rem - 72px);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 80rem 37rem;
+	height: 28rem;
+}

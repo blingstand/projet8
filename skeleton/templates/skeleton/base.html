@@ -45,7 +45,7 @@
           {% block navsearch %}
 <!-- ----------------------------------------------------------------------------------- -->
           <li class="nav-item">
-            <form action="" method='POST' id="form">
+            <form action="{% url 'research:index' %}" method='POST' id="form">
               {% csrf_token %}
               <div class="row">
                 <div class="col-lg-8 mt-2 ">

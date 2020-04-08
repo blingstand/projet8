@@ -123,7 +123,7 @@ class MyAccountView(View):
             return render(request, "user/myAccount.html", context)
         return redirect('user:connection')
 
-    def post(self, request):
+    def post(self, request, my_option=""):
         mail_form = MoreUserDataForm(request.POST)
         if mail_form.is_valid(): 
             mail = mail_form.cleaned_data['mail'] #gets the mail

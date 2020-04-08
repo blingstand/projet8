@@ -21,7 +21,7 @@
 					{% endif%}
 				{% else %}
 				<h4 class="text-center mt-0 account">Il semblerait que je n'ai pas ton mail ... </h4>
-				<form class="white-bg" action="" method='POST'>
+				<form class="white-bg" action="" method='POST' id="mail_form">
 					{% csrf_token %}
 					<div class="form-row">
 						<div class="col-lg-1"></div>
@@ -52,7 +52,7 @@
 		const regex_mail = /^[\w.+-]{1,64}@[a-zA-Z\d-]{3,252}\.[a-zA-Z\.]{2,6}/;
 		const check_mail_field = document.getElementById('check_mail')
 
-		const form = document.querySelector("form");
+		const form = document.getElementById("mail_form");
 		form.addEventListener("submit", function (e) {
 			//check the mail
 			let validiteCourriel = "";

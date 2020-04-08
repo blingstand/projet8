@@ -140,7 +140,7 @@ p{
 	}
 	
 	.mastheadfc{ /*according to clients desires*/	
-		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/fond.jpg");
+		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/fond.7cd8fe251a97.jpg");
 		padding-top: 10rem;
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
@@ -169,7 +169,7 @@ p{
 	}
 /*page connexion*/
 	.masthead-connexion{ 	
-		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/for_connexion.jpg");
+		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/for_connexion.2a505585e3ca.jpg");
 		padding-top: 10rem;
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
@@ -198,7 +198,7 @@ p{
 		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 	}
 	.masthead-connexion{ 	
-		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/for_connexion.jpg");
+		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/for_connexion.2a505585e3ca.jpg");
 		padding-top: 10rem;
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
@@ -207,7 +207,7 @@ p{
 		background-size: cover;
 	}
 	.masthead-register{ 	
-		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/for_register.jpg");
+		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/for_register.49671f04da29.jpg");
 		padding-top: 10rem;
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
@@ -218,7 +218,7 @@ p{
 /* account page */
 	.masthead-account{ 	
 		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), 
-		url("../img/supermarket.png");
+		url("../img/supermarket.ca1fde8c5a91.png");
 		padding-top: 10rem;
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
@@ -241,7 +241,7 @@ p{
 
 	.masthead-ripening{
 		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), 
-		url("../img/ripening.jpg");
+		url("../img/ripening.6e429f1dbfc6.jpg");
 		padding-top: 10rem;
 		padding-bottom: calc(10rem - 72px);
 		background-position: top;
@@ -314,7 +314,7 @@ p{
 /* favorite */
 .masthead-favorite{ 	
 	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),
-	 url("../img/for_favorite.jpg");
+	 url("../img/for_favorite.04b786d208c8.jpg");
 	padding-top: 10rem;
 	padding-bottom: calc(15rem - 72px);
 	background-position: center;
@@ -325,7 +325,7 @@ p{
 /* legalNotice */
 .masthead-legalNotice{
 	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),
-	 url("../img/for_legal_notice.jpg");
+	 url("../img/for_legal_notice.539be1f6b359.jpg");
 	padding-top: 10rem;
 	padding-bottom: calc(15rem - 72px);
 	background-position: center;

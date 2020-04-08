@@ -1,12 +1,14 @@
 
-*** Projet 8 : Openclassrooms ***
+#Projet 8 : Openclassrooms 
 *********************
 
 Ce projet a été créé pour répondre aux exigence du projet 8 de la formation Openclassroom parcours Python. Il s'agit de créer un site web pour recherche un substitut aux produit du quotidien. [Mon site(https://blingpurebeurre.herokuapp.com/)]
 Sur ce site vous pouvez actuellement : 
     * vous inscrire,
     * vous connecter/déconnecter,
-    * faire une recherche simple
+    * faire une recherche simple,
+    * ajouter un produit dans vos favoris, 
+    * renseigner un mail
 
 
 Développé avec Python 3.8, Django 3.0.3
@@ -70,7 +72,7 @@ Pour ce qui est des commandes accessibles, tapez :
     
     $ python manage.py -h #ouvre le helpeur
 
-Dans cet extrait, vous trouverez les deux commandes que j'ai créé pour peupler mes tables Category et Product mais aussi pour les vider.
+Dans cet extrait, vous trouverez les trois commandes que j'ai créé pour peupler mes tables Category et Product mais aussi pour les vider.
     
     [products]
     cat #permet de montrer, ajouter ou supprimer une catégorie (et ses produits)

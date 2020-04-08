@@ -129,11 +129,11 @@ class MyAccountView(View):
             mail = mail_form.cleaned_data['mail'] #gets the mail
             #sends a mail to confirm mail adress before adding in base
             subject = "Confirmation de votre mail "
-            message = "Clickez sur ce lien http://127.0.0.1:8000/myAccount/1/{} pour confirmer votre mail"\
+            message = "Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{} pour confirmer votre mail"\
             .format(mail)
             from_email = settings.EMAIL_HOST_USER
             to_list = [mail]
-            # send_mail(subject, message, from_email, to_list, fail_silently=True)
+            send_mail(subject, message, from_email, to_list, fail_silently=True)
             # notify base that mail has been sent
             user, profile_found = self.get_user_and_profile(request.user)
             profile_found.mail_confirm_sent = True

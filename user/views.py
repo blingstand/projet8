@@ -1,9 +1,12 @@
+#global 
+import random, string
+
+#django
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
 from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.http import HttpResponse
@@ -19,13 +22,33 @@ from research.form import SearchForm
 import research.form as rf
 from products.models import Product
 
+#usefull function for myAccount and Favorite class 
+def get_user_and_profile(request):
+    """ return the session user and the profile he belongs """
+    user_found = request.user
+    ufpk = user_found.pk #user_found_primary_key = ufpk
+    profile_found = Profile.objects.filter(user=ufpk)[0]
+    return user_found, profile_found 
 
 class RegisterView(View):
     """ This class deals with registration
         get > loads a registration page
         post > analyses datas to try to create a new user and profile
     """
-    search_form = SearchForm()
+
+    def add_new_user(self, name, password):
+        """ Tries to add a new user in base and return Boolean and message
+            True = Success / False = Fail
+        """
+        try:
+            new_user = User.objects.create_user(username=name, password=password)
+            new_user.save()
+            new_profile = Profile(user=new_user)
+            new_profile.save()
+            return True, f"Félicitation vous venez de créer : {name} !"
+        except IntegrityError:
+            return False, f"Cet utilisateur existe déjà !"
+
     def get(self, request): 
         """ display html page with form in order to register a new user"""
         if request.user.is_authenticated:
@@ -38,27 +61,20 @@ class RegisterView(View):
         """ get the outcome from register's form and try to create a new user and profile"""
         us_form = UserForm(request.POST)
         if us_form.is_valid():
-            username = us_form.cleaned_data['username']
-            password = us_form.cleaned_data['password']
-            try:
-                new_user = User.objects.create_user(username=username, password=password)
-                new_user.save()
-                new_profile = Profile(user=new_user)
-                new_profile.save()
-                messages.success(request, "Félicitation vous venez de créer : {} !".format(username))
+            name, password = us_form.cleaned_data['username'], us_form.cleaned_data['password']
+            success, message = self.add_new_user(name, password)
+            messages.info(request, message)
+            if success:
                 return redirect('user:connection')
-            except IntegrityError:
-                messages.error(request, "Cet utilisateur existe déjà !")
-                return redirect('user:register')
-        messages.error(request, "Problème dans le formulaire !")
-        return redirect('user:register')        
+            return redirect('user:register')
+        return HttpResponse("Problème dans le formulaire !")
+       
 
 class ConnectionView(View):
     """ This class deals with login
         get > loads a connection page
         post > analyses datas in order to try to authenticate
     """
-    search_form = SearchForm()
     def get(self, request):
         """ loads a connection page """
         if request.user.is_authenticated:
@@ -68,7 +84,7 @@ class ConnectionView(View):
         return render(request, 'user/connection.html', context)
     
     def post(self, request):
-        """ analyses datas in order to try to authenticate """
+        """ get datas in order to try to authenticate """
         us_form = UserForm(request.POST)
         if us_form.is_valid(): 
             username = us_form.cleaned_data['username']
@@ -90,22 +106,34 @@ class MyAccountView(View):
         get() can load the same page but this one can change according to the context
         context will depend on parameters in the request 
     """
-  
-    def get_user_and_profile(self, user):
-        user_found = user
-        ufpk = user_found.pk #user_found_primary_key = ufpk
-        profile_found = Profile.objects.filter(user=ufpk)[0]
-        return user, profile_found
+    def _send_confirm_mail(self, mail, code):
+        """ sends a code by mail to confirm mail adress before adding in base """
+        subject = "Confirmation de votre mail "
+        message = f"Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{code}"\
+        " pour confirmer votre mail"
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [mail]
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-    def get(self, request, my_option="", my_chain=""):
+    
+    def notify_db(self, user, profile, code, mail):
+        """ notifies the db that a code in a confirm mail has been send """
+        profile.mail_confirm_sent = True
+        profile.code = code
+        profile.save()
+        user.email = mail
+        user.save()
+
+    def get(self, request, my_option="", code=""):
+        """ displays a different myAccount page depending on given parameters """
         if request.user.is_authenticated:
-            user, profile_found = self.get_user_and_profile(request.user)
+            user, profile_found = get_user_and_profile(request)
             try:
                 user_mail = user.email
             except Exception as e:
                 user.email = None #to avoid error
             if my_option == 1:
-                if user.email == my_chain: #je pourrais améliorer ça, plus tard ...
+                if profile_found.code == code: 
                     profile_found.mail_confirmed = True
                     profile_found.save()
                 else:
@@ -127,20 +155,11 @@ class MyAccountView(View):
         mail_form = MoreUserDataForm(request.POST)
         if mail_form.is_valid(): 
             mail = mail_form.cleaned_data['mail'] #gets the mail
-            #sends a mail to confirm mail adress before adding in base
-            subject = "Confirmation de votre mail "
-            message = "Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{} pour confirmer votre mail"\
-            .format(mail)
-            from_email = settings.EMAIL_HOST_USER
-            to_list = [mail]
-            send_mail(subject, message, from_email, to_list, fail_silently=True)
+            code = "".join([random.choice(string.digits) for _ in range(24)])
+            self._send_confirm_mail(mail, code)
             # notify base that mail has been sent
-            user, profile_found = self.get_user_and_profile(request.user)
-            profile_found.mail_confirm_sent = True
-            profile_found.save()
-            user.email = mail
-            user.save()
-
+            user_found, profile_found = get_user_and_profile(request)
+            self.notify_db(user_found, profile_found, code, mail)
             context={
                 'mail_form' : mail_form, 
             }
@@ -148,17 +167,19 @@ class MyAccountView(View):
         return HttpResponse("Le formulaire n'est pas valide")
 
 class FavoriteView(View):
+    """ manages the favorite page"""
+    def notify_db(self, profile, prod_name):
+        """ adds a given prod to the profile fav list"""
+        product = Product.objects.get(name=prod_name)
+        profile.favlist.add(product)
+        profile.save()
 
     def get(self, request, prod_name=None):
-        search_form = SearchForm()
         if request.user.is_authenticated:
-            user = request.user
-            profile = Profile.objects.get(user=user)
+            profile_found = get_user_and_profile(request)[1]
             if prod_name is not None: 
-                product = Product.objects.get(name=prod_name)
-                profile.favlist.add(product)
-                profile.save()
-            fav_list = [fav for fav in profile.favlist.all()]
+                self.notify_db(profile_found, prod_name)
+            fav_list = [fav for fav in profile_found.favlist.all()]
             context = {"fav_list" : fav_list}
             return render(request, 'user/favorite.html', context)
         return redirect('user:connection')
@@ -168,15 +189,6 @@ def logoutUser(request):
     logout(request)
     return redirect('research:index')
 
-def legalMentions(request):
-    search_form = SearchForm()
-    context = {}
-    return render(request, 'user/legalMentions.html')
-
-def contacts(request):
-    search_form = SearchForm()
-    context = {}
-    return render(request, 'user/contacts.html')
 
 
 

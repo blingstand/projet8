@@ -6,12 +6,13 @@ from django.urls import reverse
 
 from unittest import mock, skip
 
-from .form import SearchForm, AdvancedSearchForm
-from .views import IndexView
+from research.form import SearchForm, AdvancedSearchForm
+from research.views import IndexView
 
 from products.models import Category, Product
 
-
+print("test_research\n", "_ "*20)
+# @skip
 class IndexViewTests(TestCase):
     
     def setUp(self):
@@ -82,7 +83,7 @@ class IndexViewTests(TestCase):
         response = self.client.post(reverse("research:index"), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Pas de résultats parfaitement identiques ")
-
+# @skip
 class ResultsViewTests(TestCase):
 
     def setUp(self):

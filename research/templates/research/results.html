@@ -26,11 +26,11 @@
 			<div class="col-lg-10 text-center">
 				<div class="row">
 					{% for sub in substitutes %}
-					<div class="text-white mb-2 col-lg-4"> 
+					<div class="text-white mb-2 col-lg-4" data-toggle="tooltip" data-placement="bottom" title="Nutriscore"> 
 						<div class='cont-indice'>	
-							<img class="indice" src="{% static 'skeleton/img/' %}{{sub.nutriscore_img}}" >
+							<img class="indice" src="{% static 'skeleton/img/' %}{{sub.nutriscore_img}}"  >
 						</div>
-						<div class="cont-img-result"  data-toggle="tooltip" data-placement="bottom" title="Cliquez Pour plus d'infos">
+						<div class="cont-img-result"  data-toggle="tooltip" data-placement="bottom" title="Cliquez pour plus d'infos">
 							<a href="{{sub.url}}" target="_blank">
 								<img class="img-result" src={{sub.image_url}} alt="image d'un substitut">
 							</a>

@@ -8,6 +8,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     mail_confirm_sent = models.BooleanField(default=False)
     mail_confirmed = models.BooleanField(default=False)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    code = models.CharField(max_length=24, null=True)
     favlist = models.ManyToManyField(Product)
 

@@ -1,18 +1,80 @@
-from django.test import TestCase
+from unittest import mock, skip
+
+#from django
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from django.test import TestCase, RequestFactory
 from django.urls import reverse
 
-from unittest import mock, skip
 #from app import
-from .form import UserForm, MoreUserDataForm
-from .models import Profile
+from user.form import UserForm, MoreUserDataForm
+from user.models import Profile
 
 #from other app import
 from products.models import Product, Category
 
+import user.views as v
+print("test_user\n", "_ "*20)
 
+
+#-- unit test --
+class UnitTest(TestCase):
+    def setUp(self):
+        self.user = User(username="test")
+        self.profile = Profile(user=self.user)
+        self.user.set_password("test")
+        self.user.pk = 1
+        self.user.save()
+        self.profile.save()
+        self.logged_in = self.client.login(username="test", password="test")
+        self.category = Category(name="jus de fruits")
+        self.category.save()
+        self.product1 = Product(
+            name="Pur jus d'orange sans pulpe", 
+            image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
+            url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 
+            nutriscore=3, packaging="carton")
+        self.product1.save()
+        self.rv = v.RegisterView()
+        self.mav = v.MyAccountView()
+        self.fav = v.FavoriteView()
+
+    def test_get_user_and_profile(self):
+        """ tests wethers function returns user and profile """
+        #create a mock request
+        my_mock = mock.Mock()
+        my_mock.user = self.user
+        u, p = v.get_user_and_profile(my_mock)
+        self.assertTrue(u, self.user)
+        self.assertTrue(p, self.profile)
+
+    def test_add_new_user_False(self):
+        """ checks wether function returns False when user ever exists"""
+        new_user = self.rv.add_new_user("test", "test")
+        self.assertTrue(new_user, False) #because it ever exists
+    
+    def test_add_new_user_True(self):   
+        """ checks whether function  returns True when user does not ever exists"""
+        new_user2 = self.rv.add_new_user("test2", "test")
+        self.assertTrue(new_user2, True)
+    
+    def test_mav_notify_db(self):
+        """ test whether function notifies the db that a code in a confirm mail has been send """
+        #params user, profile, code, mail
+        self.mav.notify_db(self.user, self.profile, code=123, mail="mail")
+        self.assertTrue(self.profile.code, 123)
+        self.assertTrue(self.user.email, "mail")
+
+    def test_fav_notify_db(self):
+        """ tests wether function adds a given prod to the profile fav list"""
+        before = self.profile.favlist.all()
+        self.fav.notify_db(self.profile, self.product1.name)
+        after = self.profile.favlist.all()
+        self.assertTrue(len(before), len(after)-1)
+
+
+#-- integration test -- 
 class AuthenticationViewTests(TestCase):
 
     def setUp(self): 
@@ -52,9 +114,7 @@ class AuthenticationViewTests(TestCase):
         self.mock_form.is_valid.return_value = False 
         #mock qui imite le comportement form.is_valid = False
         response = self.client.post(reverse("user:register"), follow=True)
-        messages = [message for message in response.context["messages"]]
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(messages[0].message, 'Problème dans le formulaire !')
+        self.assertContains(response, "Problème dans le formulaire !")
 
     def test_regis_post_add_new_user_ok(self):
         self.mock_form.is_valid.return_value = True
@@ -198,17 +258,15 @@ class MyAccountViewTests(TestCase):
     def test_myacc_get_access_page_option1_and_mail(self):
         """ user can access myAcount with url : ".../user/myAccount/1/test@mail.fr" """
         self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
+        self.profile.code = "123"
         self.user.save()
         self.profile.save()
         self.mock_acc_view.get_user_and_profile = self.user, self.profile
-        #send a .../myAccount/1/test@mail.fr
-        response = self.client.get(reverse("user:myAccount", args=[1, str("test@mail.fr")]))
-        print("---", response.wsgi_request.build_absolute_uri())
+        response = self.client.get(reverse("user:myAccount", args=[1, "123"]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Tu m'as communiqué ce mail : test@mail.fr")
         
 
-    
     def test_myacc_get_access_page_option2(self):
         """ user can access myAcount with url : ".../user/myAccount/2
             that means user has given a first mail and can change it because a new email form appears

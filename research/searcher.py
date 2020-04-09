@@ -8,7 +8,6 @@ class Search():
         self.prod = self.get_prod()
 
     def get_prod(self):
-        print("fonction get_prod")
         try : 
             prod_found = Product.objects.get(name__icontains=self.input)
             # print(f"==>prod_found : {prod_found}")
@@ -22,9 +21,7 @@ class Search():
             From a list of potential prod, returns their categories 
         """
         # return a list of prod 
-        print("fonction list_pot_prod")  
         list_pot_prod = []
-        
         for word in self.input.split(" "):
             if word in ["de", "aux", "à", "au", "des", "la", "sans"]: 
                 continue
@@ -36,13 +33,17 @@ class Search():
 
             queryset.order_by("nutriscore")
             [list_pot_prod.append(prod) for prod in queryset]
+            list_pot_prod = list(set(list_pot_prod))
+        if len(list_pot_prod)==0:
+            return None
         return list_pot_prod
 
     @property
     def cat_to_choose(self): 
-        """ Extract cat from the list of potential prod"""
-        print("fonction cat_to_choose")
+        """ Extracts cat from the list of potential prod"""
         list_cat = [] 
+        print(f"len(list_pot_prod : {len(self.list_pot_prod())}") 
+        print(self.list_pot_prod())
         for pot_prod in self.list_pot_prod():
             list_categories = pot_prod.category.all()
             [list_cat.append(cat) for cat in list_categories]
@@ -53,10 +54,8 @@ class Search():
         return None
 
     def list_sub(self, category):
-        """ return a dictionary like dic["cat"] = [sub1, sub2, sub3 ...]"""
-        print("fonction list_sub")
-
-        print(self.prod, "-", category)
+        """ returns a list of substitutes sorted by nutriscore 
+        like dic["cat"] = [sub1, sub2, sub3 ...]"""
         list_sub = []
         list_sub = Product.objects.filter(category=category).order_by("nutriscore")
         print(f"list_sub : {list_sub} ")

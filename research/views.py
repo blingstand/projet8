@@ -13,28 +13,50 @@ from user.form import AddFavorite
 from products.models import Category, Product
 # Create your views here.
 
-
+def make_a_search(get_from_input, wanted, given_category=None):
+    """ returns the wanted value after a search based on input and sometime category"""
+    search = Search(get_from_input)
+    if given_category is not None:
+        print(f"Cas result get : {get_from_input} et {given_category}")
+        prod = search.list_pot_prod(given_category)[0]
+        print(f"J'ai {prod} ! ")
+        category = prod.category.all()[0]
+        print(f"j'ai category : {category}")
+        substitutes = search.list_sub(category) 
+        print(f"Voici les substituts : {substitutes}")
+    else:
+        print(f"je cherche dans la base pour la recherche : {get_from_input}")
+        prod = search.prod
+        print("prod -->", prod)
+        categories = search.cat_to_choose
+        print("categories -->", categories)
+    if wanted == ["prod", "sub"]:
+        return prod, substitutes
+    elif wanted == ["prod", "categories"]:
+        return prod, categories
+    return f"Verifie le paramètre wanted (valeur actuelle : {wanted})"
 class ResultsView(View):
     """ manage a HttpResponse in case of get or post method 
     request for this url research/advancedSearch"""
     def get(self, request, category=None, get_from_input=None):
         """ manage the HttpResponse for the SearchFormView with get method request """
-        fav_form = AddFavorite()
-        print(f"cat : {category}, get_from_input : {get_from_input} ")
-        if category is not None:
-            search = Search(get_from_input)
-            print(f"Cas result get : {get_from_input} et {category}")
-            prod = search.list_pot_prod(category)[0]
-            print(f"J'ai {prod} ! ")
-            category = prod.category.all()[0]
-            print(f"j'ai category : {category}")
-            substitutes = search.list_sub(category) 
-            print(f"Voici les substituts : {substitutes}")
-            context = { 
-            "product" : prod, "substitutes" : substitutes, "no_prod" : True, 
-            'fav_form' : fav_form}
-            return render(request, "research/results.html", context)
-        return redirect("research:index")
+        try :
+            fav_form = AddFavorite()
+            print(f"cat : {category}, get_from_input : {get_from_input} ")
+            if category is not None:
+                prod, substitutes = make_a_search(
+                    get_from_input=get_from_input,
+                    wanted=["prod", "sub"],
+                    given_category=category)
+                if prod is not None: 
+                    context = { 
+                    "product" : prod, "substitutes" : substitutes, "no_prod" : True, 
+                    'fav_form' : fav_form}
+                    return render(request, "research/results.html", context)
+            return redirect("research:index")
+        except Exception as e:
+            print(e)
+            return redirect("research:index")
 
     def post(self, request, category=None, get_from_input=None):
         pass
@@ -52,13 +74,9 @@ class IndexView(View):
             get_from_input = search_form.cleaned_data["simple_search"] \
             or search_form.cleaned_data["mini_simple_search"]
             #I write result in context
-            search = Search(get_from_input)
-            # print("* * * "*10)
-            print(f"je cherche dans la base pour la recherche : {get_from_input}")
-            prod = search.prod
-            print("prod -->", prod)
-            categories = search.cat_to_choose
-            print("categories -->", categories)
+            prod, categories = make_a_search(
+                get_from_input=get_from_input,
+                wanted=["prod", "categories"])
             if prod is not None:
                 print("cas 1")
                 category = prod.category.first()
@@ -93,7 +111,7 @@ class IndexView(View):
             
         return HttpResponse ("Problème dans le formulaire")
 
-    #pour la version 2.0
+    #pour la version 2.0 ---------- en cours de réflexion
 class AdvancedSearchView(View):
     """ manage a HttpResponse in case of get or post method 
     request for this url research/advancedSearch"""

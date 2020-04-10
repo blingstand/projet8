@@ -13,7 +13,6 @@ from products.models import Category, Product
 
 print("test_research\n", "_ "*20)
 #-- unit test --
-
 class UnitTest(TestCase):
     def setUp(self):
         #a cat
@@ -62,13 +61,13 @@ class UnitTest(TestCase):
         get_from_input = "Jus d'orange pas bon pas bio pas cher"
         wanted_values = ["prod", "sub"]
         given_category = "jus de fruits"
-        product, substitutes = v.make_a_search(get_from_input, wanted_values, given_category)
+        search, product, substitutes = v.make_a_search(get_from_input, wanted_values, given_category)
         self.assertTrue(product, "Pur jus d'orange sans pulpe")
         self.assertTrue(substitutes[0], "Pur jus d'orange sans pulpe")
         #---wanted_values = ["prod", "categories"]
         wanted_values = ["prod", "categories"]
         given_category = None
-        product, categories = v.make_a_search(get_from_input, wanted_values, given_category)
+        search, product, categories = v.make_a_search(get_from_input, wanted_values, given_category)
         self.assertTrue(product, "Jus d'orange pas bon pas bio pas cher")
         self.assertTrue(categories[0], "jus de fruits") 
 
@@ -112,7 +111,7 @@ class UnitTest(TestCase):
         print(list_sub)
         self.assertTrue(len(list_sub), 3) #3 prods
 
-
+#-- integration test -- 
 class ResultsViewTests(TestCase):
 
     def setUp(self):
@@ -209,7 +208,6 @@ class IndexViewTests(TestCase):
         response = self.client.post(reverse("research:index"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Problème dans le formulaire")
-
     def test_index_post_find_result(self):
         """ user can fill the input and server can get the input  value """
         self.mock_form.is_valid.return_value = True

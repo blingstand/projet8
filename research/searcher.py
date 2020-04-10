@@ -1,5 +1,4 @@
 from products.models import Category, Product
-import re
 
 class Search():
 
@@ -42,14 +41,12 @@ class Search():
     def cat_to_choose(self): 
         """ Extracts cat from the list of potential prod"""
         list_cat = [] 
-        print(f"len(list_pot_prod : {len(self.list_pot_prod())}") 
-        print(self.list_pot_prod())
-        for pot_prod in self.list_pot_prod():
-            list_categories = pot_prod.category.all()
-            [list_cat.append(cat) for cat in list_categories]
-        list_cat = list(set(list_cat)) #anti doublons
-        # print(f"==>list_categories : {list_cat}")
-        if len(list_cat) >= 1:
+        if self.list_pot_prod() is not None: 
+            for pot_prod in self.list_pot_prod():
+                list_categories = pot_prod.category.all()
+                [list_cat.append(cat) for cat in list_categories]
+            list_cat = list(set(list_cat)) #anti doublons
+            # print(f"==>list_categories : {list_cat}")
             return list_cat
         return None
 

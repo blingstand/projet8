@@ -17,7 +17,7 @@ from products.models import Product, Category
 import user.views as v
 print("test_user\n", "_ "*20)
 
-@skip
+
 #-- unit test --
 class UnitTest(TestCase):
     def setUp(self):
@@ -73,7 +73,7 @@ class UnitTest(TestCase):
         after = self.profile.favlist.all()
         self.assertTrue(len(before), len(after)-1)
 
-@skip
+
 #-- integration test -- 
 class AuthenticationViewTests(TestCase):
 
@@ -212,9 +212,8 @@ class AuthenticationViewTests(TestCase):
         messages = [message for message in response.context["messages"]]
         self.assertRedirects(response, reverse("user:connection"))
         self.assertEqual(len(messages), 1)
-        self.assertEqual(messages[0].message,'Pseudo ou mot de passe incorrect')
-        
-@skip
+        self.assertEqual(messages[0].message,'Pseudo ou mot de passe incorrect')    
+
 class MyAccountViewTests(TestCase):
 
     def setUp(self): 
@@ -303,7 +302,6 @@ class MyAccountViewTests(TestCase):
         self.assertTrue(response.wsgi_request.user.email == "a new mail")
         self.assertTrue(session_profile.mail_confirm_sent)
 
-@skip
 class FavoriteTests(TestCase):
 
     def setUp(self): 

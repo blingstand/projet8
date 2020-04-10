@@ -17,23 +17,20 @@ def make_a_search(get_from_input, wanted, given_category=None):
     """ returns the wanted value after a search based on input and sometime category"""
     search = Search(get_from_input)
     if given_category is not None:
-        print(f"Cas result get : {get_from_input} et {given_category}")
+
         prod = search.list_pot_prod(given_category)[0]
-        print(f"J'ai {prod} ! ")
+
         category = prod.category.all()[0]
-        print(f"j'ai category : {category}")
+
         substitutes = search.list_sub(category) 
-        print(f"Voici les substituts : {substitutes}")
+
     else:
-        print(f"je cherche dans la base pour la recherche : {get_from_input}")
         prod = search.prod
-        print("prod -->", prod)
         categories = search.cat_to_choose
-        print("categories -->", categories)
     if wanted == ["prod", "sub"]:
-        return prod, substitutes
+        return search, prod, substitutes
     elif wanted == ["prod", "categories"]:
-        return prod, categories
+        return search, prod, categories
     return f"Verifie le paramètre wanted (valeur actuelle : {wanted})"
 class ResultsView(View):
     """ manage a HttpResponse in case of get or post method 
@@ -42,9 +39,8 @@ class ResultsView(View):
         """ manage the HttpResponse for the SearchFormView with get method request """
         try :
             fav_form = AddFavorite()
-            print(f"cat : {category}, get_from_input : {get_from_input} ")
             if category is not None:
-                prod, substitutes = make_a_search(
+                search, prod, substitutes = make_a_search(
                     get_from_input=get_from_input,
                     wanted=["prod", "sub"],
                     given_category=category)
@@ -74,7 +70,7 @@ class IndexView(View):
             get_from_input = search_form.cleaned_data["simple_search"] \
             or search_form.cleaned_data["mini_simple_search"]
             #I write result in context
-            prod, categories = make_a_search(
+            search, prod, categories = make_a_search(
                 get_from_input=get_from_input,
                 wanted=["prod", "categories"])
             if prod is not None:

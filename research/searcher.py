@@ -55,7 +55,6 @@ class Search():
         like dic["cat"] = [sub1, sub2, sub3 ...]"""
         list_sub = []
         list_sub = Product.objects.filter(category=category).order_by("nutriscore")
-        print(f"list_sub : {list_sub} ")
         return list_sub
 
 

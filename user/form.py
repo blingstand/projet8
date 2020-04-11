@@ -5,7 +5,7 @@ class UserForm(forms.Form):
     username = forms.CharField(label="Nom d'utilisateur", max_length=30)
     password = forms.CharField(label="Mot de passe", widget=forms.PasswordInput)
 
-class MoreUserDataForm(forms.Form):
+class MailForm(forms.Form):
 
 	mail = forms.EmailField(			
 		label="Mon mail", 

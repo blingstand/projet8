@@ -37,7 +37,7 @@ SECRET_KEY = '#y-ca+0y#ewq-i=1y*5_fnad8@&r$t%7g@u#$lmg@2k_tu8cms'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
+    DEBUG = True
 else:
     DEBUG = True
 
@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'research.apps.ResearchConfig', 
     'skeleton.apps.SkeletonConfig', 
     'products.apps.ProductsConfig', 
-    'debug_toolbar'
+    'debug_toolbar',
+    "django_nose"
 ]
 
 MIDDLEWARE = [
@@ -130,7 +131,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+#for django-nose
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-tests',
+    '--cover-package=user',
+    '--cover-html'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

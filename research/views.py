@@ -39,6 +39,7 @@ class ResultsView(View):
         """ manage the HttpResponse for the SearchFormView with get method request """
         try :
             fav_form = AddFavorite()
+            print("cas results")
             if category is not None:
                 search, prod, substitutes = make_a_search(
                     get_from_input=get_from_input,
@@ -55,7 +56,7 @@ class ResultsView(View):
             return redirect("research:index")
 
     def post(self, request, category=None, get_from_input=None):
-        pass
+        return redirect("research:index")
 
 class IndexView(View):
     """ gère les index """
@@ -77,9 +78,7 @@ class IndexView(View):
                 print("cas 1")
                 category = prod.category.first()
                 substitutes = search.list_sub(category)
-                # print("Résultats : le produit recherché était", prod,\
-                #     "et voici les substituts trouvés :\n", substitutes)
-                # print("* * * "*10)
+
                 context = { 
                 "product" : prod, 
                 "nutriscore" : prod.nutriscore.upper(), 
@@ -100,31 +99,29 @@ class IndexView(View):
                 print("cas 3")
                 messages.error(request, "Pas de résultats dans la base actuellement pour"\
                     f" la recherche : {get_from_input}.")
-                return redirect("research:index")
-                
-            context = {"search_form": search_form}
-            return render(request, "research/index.html", context)
+                context = {"search_form": search_form}
+                return render(request, "research/index.html", context)
             
         return HttpResponse ("Problème dans le formulaire")
 
     #pour la version 2.0 ---------- en cours de réflexion
-class AdvancedSearchView(View):
-    """ manage a HttpResponse in case of get or post method 
-    request for this url research/advancedSearch"""
+# class AdvancedSearchView(View):
+#     """ manage a HttpResponse in case of get or post method 
+#     request for this url research/advancedSearch"""
 
-    def get(self, request):
-        """ manage the HttpResponse for the SearchFormView with get method request """
-        adv_form = AdvancedSearchForm()
-        search_form = SearchForm()
-        context={'adv_form' : adv_form}
-        return render(request, "research/advancedSearch.html", context)
+#     def get(self, request):
+#         """ manage the HttpResponse for the SearchFormView with get method request """
+#         adv_form = AdvancedSearchForm()
+#         search_form = SearchForm()
+#         context={'adv_form' : adv_form}
+#         return render(request, "research/advancedSearch.html", context)
 
-    def post(self, request):
-        form = AdvancedSearchForm(request.POST)
-        search_form = SearchForm()
-        results=(1,2,3)
-        if form.is_valid():
-            results = [r for r in range(10)]
-            context = { "results" : results, "search_form":search_form}
-            return render(request, "research/results.html", context)
-        return HttpResponse("Pb dans le form")
+#     def post(self, request):
+#         form = AdvancedSearchForm(request.POST)
+#         search_form = SearchForm()
+#         results=(1,2,3)
+#         if form.is_valid():
+#             results = [r for r in range(10)]
+#             context = { "results" : results, "search_form":search_form}
+#             return render(request, "research/results.html", context)
+#         return HttpResponse("Pb dans le form")

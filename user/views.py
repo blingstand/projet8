@@ -14,7 +14,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 #from app import
-from .form import UserForm, MoreUserDataForm
+from .form import UserForm, MailForm
 from .models import Profile
 
 #from other app import
@@ -97,8 +97,7 @@ class ConnectionView(View):
             else:
                 messages.info(request, 'Pseudo ou mot de passe incorrect')
                 return redirect('user:connection')
-        messages.error(request, "Problème dans le formulaire !")
-        return redirect('user:connection')
+        return HttpResponse("Problème dans le formulaire !")
                 
 class MyAccountView(View):
     """ this class handles with myAccount view to display the myAccount.html
@@ -131,17 +130,22 @@ class MyAccountView(View):
             try:
                 user_mail = user.email
             except Exception as e:
-                user.email = None #to avoid error
-            if my_option == 1:
+                user_mail = None
+            if my_option == 1: #comparison code
                 if profile_found.code == code: 
                     profile_found.mail_confirmed = True
                     profile_found.save()
                 else:
+                    print({
+                'mail_confirm_sent' : profile_found.mail_confirm_sent,
+                'mail_confirmed' : profile_found.mail_confirmed, 
+                'user_mail' : user_mail, 
+            })
                     messages.error(request, "la confirmation de l'adresse mail a échoué !")
-            elif my_option == 2:
+            elif my_option == 2: #new mail
                 profile_found.mail_confirm_sent = False
                 profile_found.save()
-            mail_form = MoreUserDataForm()
+            mail_form = MailForm()
             context={
                 'mail_form' : mail_form, 
                 'mail_confirm_sent' : profile_found.mail_confirm_sent,
@@ -151,8 +155,8 @@ class MyAccountView(View):
             return render(request, "user/myAccount.html", context)
         return redirect('user:connection')
 
-    def post(self, request, my_option=""):
-        mail_form = MoreUserDataForm(request.POST)
+    def post(self, request, my_option="", code=""):
+        mail_form = MailForm(request.POST)
         if mail_form.is_valid(): 
             mail = mail_form.cleaned_data['mail'] #gets the mail
             code = "".join([random.choice(string.digits) for _ in range(24)])
@@ -160,6 +164,7 @@ class MyAccountView(View):
             # notify base that mail has been sent
             user_found, profile_found = get_user_and_profile(request)
             self.notify_db(user_found, profile_found, code, mail)
+            print(user_found.email)
             context={
                 'mail_form' : mail_form, 
             }
@@ -170,8 +175,9 @@ class FavoriteView(View):
     """ manages the favorite page"""
     def notify_db(self, profile, prod_name):
         """ adds a given prod to the profile fav list"""
-        product = Product.objects.get(name=prod_name)
+        product = Product.objects.get(name=prod_name) #it always exists, so don't need : try/except
         profile.favlist.add(product)
+        print(f"{prod_name} ajouté au profil {profile.user}")
         profile.save()
 
     def get(self, request, prod_name=None):

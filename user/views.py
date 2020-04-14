@@ -49,7 +49,6 @@ class RegisterView(View):
             print("création new profile")
             return True, f"Félicitation vous venez de créer : {name} !"
         except IntegrityError as e:
-            raise e
             return False, "Cet utilisateur existe déjà !"
 
     def get(self, request): 
@@ -99,7 +98,7 @@ class ConnectionView(View):
                 login(request, new_user)
                 return redirect('research:index')
             else:
-                messages.info(request, 'Pseudo ou mot de passe incorrect')
+                messages.info(request, f'Pseudo({username}) ou mot de passe({password}) incorrect')
                 return redirect('user:connection')
         return HttpResponse("Problème dans le formulaire !")
                 

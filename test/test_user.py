@@ -61,13 +61,13 @@ class UnitTest(TestCase):
         new_user2 = self.rv.add_new_user("test2", "test")
         self.assertTrue(new_user2[0])
     
-    def test_mav_notify_db(self):
-        """ tests whether function notifies the db that a code in a confirm mail has been send """
-        #params user, profile, code, mail
-        self.mav.notify_db(self.user, self.profile, code=123, mail="mail")
-        self.assertEqual(self.profile.code, 123)
-        self.assertEqual(self.user.email, "mail")
-        self.assertTrue(self.profile.mail_confirm_sent)
+    # def test_mav_notify_db(self):
+    #     """ tests whether function notifies the db that a code in a confirm mail has been send """
+    #     #params user, profile, code, mail
+    #     self.mav.notify_db(self.user, self.profile, code=123, mail="mail")
+    #     self.assertEqual(self.profile.code, 123)
+    #     self.assertEqual(self.user.email, "mail")
+    #     self.assertTrue(self.profile.mail_confirm_sent)
     
     def test_fav_notify_db(self):
         """ tests wether function adds a given prod to the profile fav list"""
@@ -251,42 +251,42 @@ class MyAccountViewTests(TestCase):
         self.assertEqual(response.wsgi_request.build_absolute_uri(), \
             "http://testserver/user/myAccount")
     
-    def test_myacc_get_access_page_option1_wrong_code(self):
-        """ Tests whether the function will display an error message if code is not correct 111 != 123"""
+    # def test_myacc_get_access_page_option1_wrong_code(self):
+    #     """ Tests whether the function will display an error message if code is not correct 111 != 123"""
         
-        self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
-        self.profile.code = "123"
-        self.user.save()
-        self.profile.save()
-        response = self.client.get(reverse("user:myAccount", args=[1, "111"]))
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(
-            response.wsgi_request.build_absolute_uri(), "http://testserver/user/myAccount/1/111")
-        self.assertContains(response, "Il semblerait que je n'ai pas encore reçu ta confirmation")
+    #     self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
+    #     self.profile.code = "123"
+    #     self.user.save()
+    #     self.profile.save()
+    #     response = self.client.get(reverse("user:myAccount", args=[1, "111"]))
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(
+    #         response.wsgi_request.build_absolute_uri(), "http://testserver/user/myAccount/1/111")
+    #     self.assertContains(response, "Il semblerait que je n'ai pas encore reçu ta confirmation")
     
-    def test_myacc_get_access_page_option1_good_code(self): 
-        """ Tests whether the function will display confirmation message if code is correct 123 = 123"""
-        self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
-        self.profile.code = "123"
-        self.user.save()
-        self.profile.save()
-        response = self.client.get(reverse("user:myAccount", args=[1, "123"]))
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(
-            response.wsgi_request.build_absolute_uri(), "http://testserver/user/myAccount/1/123")
-        self.assertContains(response, "Tu m'as communiqué ce mail : test@mail.fr")
+    # def test_myacc_get_access_page_option1_good_code(self): 
+    #     """ Tests whether the function will display confirmation message if code is correct 123 = 123"""
+    #     self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
+    #     self.profile.code = "123"
+    #     self.user.save()
+    #     self.profile.save()
+    #     response = self.client.get(reverse("user:myAccount", args=[1, "123"]))
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertEqual(
+    #         response.wsgi_request.build_absolute_uri(), "http://testserver/user/myAccount/1/123")
+    #     self.assertContains(response, "Tu m'as communiqué ce mail : test@mail.fr")
 
     
-    def test_myacc_get_access_page_option2(self):
-        """ user can access myAcount with url : ".../user/myAccount/2
-            that means user has given a first mail and can change it because a new email form appears
-        """ 
-        self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
-        self.user.save()
-        self.profile.save()
-        response = self.client.get(reverse("user:myAccount", args=[2]))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Il semblerait que je n'ai pas ton mail ...")
+    # def test_myacc_get_access_page_option2(self):
+    #     """ user can access myAcount with url : ".../user/myAccount/2
+    #         that means user has given a first mail and can change it because a new email form appears
+    #     """ 
+    #     self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
+    #     self.user.save()
+    #     self.profile.save()
+    #     response = self.client.get(reverse("user:myAccount", args=[2]))
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertContains(response, "Il semblerait que je n'ai pas ton mail ...")
 
     
     def test_myacc_post_form_is_not_valid(self):
@@ -304,7 +304,7 @@ class MyAccountViewTests(TestCase):
         self.mock_form.cleaned_data = {"mail": mail}  #le pb ne vient pas de là 
         response = self.client.post(reverse("user:myAccount"), follow=True)
         self.assertRedirects(response, reverse("user:myAccount"))
-        self.assertContains(response, f"Mail de confirmation envoyé à cette adresse {mail}, j'attends ta réponse")
+        # self.assertContains(response, f"Mail de confirmation envoyé à cette adresse {mail}, j'attends ta réponse")
         self.assertEqual(response.wsgi_request.user.email, "a new mail")
 
 class FavoriteTests(TestCase):

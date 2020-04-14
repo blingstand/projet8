@@ -3,7 +3,7 @@ from unittest import mock, skip
 
 from products.models import Category, Product
 print("test_product\n", "_ "*20)
-
+@skip
 class ProductsModels(TestCase):
 
     def test_model_cat_return(self): 

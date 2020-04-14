@@ -105,65 +105,68 @@ class MyAccountView(View):
         get() can load the same page but this one can change according to the context
         context will depend on parameters in the request 
     """
-    def _send_confirm_mail(self, mail, code):
-        """ sends a code by mail to confirm mail adress before adding in base """
-        subject = "Confirmation de votre mail "
-        message = f"Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{code}"\
-        " pour confirmer votre mail"
-        from_email = settings.EMAIL_HOST_USER
-        to_list = [mail]
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
+    # def _send_confirm_mail(self, mail, code):
+    #     """ sends a code by mail to confirm mail adress before adding in base """
+    #     subject = "Confirmation de votre mail "
+    #     message = f"Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{code}"\
+    #     " pour confirmer votre mail"
+    #     from_email = settings.EMAIL_HOST_USER
+    #     to_list = [mail]
+    #     send_mail(subject, message, from_email, to_list, fail_silently=True)
 
     
-    def notify_db(self, user, profile, code, mail):
-        """ notifies the db that a code in a confirm mail has been send """
-        profile.mail_confirm_sent = True
-        profile.code = code
-        profile.save()
-        user.email = mail
-        user.save()
+    # def notify_db(self, user, profile, code, mail):
+    #     """ notifies the db that a code in a confirm mail has been send """
+    #     profile.mail_confirm_sent = True
+    #     profile.code = code
+    #     profile.save()
+    #     user.email = mail
+    #     user.save()
 
-    def get(self, request, my_option="", code=""):
+    def get(self, request):
         """ displays a different myAccount page depending on given parameters """
         if request.user.is_authenticated:
             user, profile_found = get_user_and_profile(request)
             try:
                 user_mail = user.email
+                print("ça marche")
             except Exception as e:
                 user_mail = None
-            if my_option == 1: #comparison code
-                if profile_found.code == code: 
-                    profile_found.mail_confirmed = True
-                    profile_found.save()
-                else:
-                    print({
-                'mail_confirm_sent' : profile_found.mail_confirm_sent,
-                'mail_confirmed' : profile_found.mail_confirmed, 
-                'user_mail' : user_mail, 
-            })
-                    messages.error(request, "la confirmation de l'adresse mail a échoué !")
-            elif my_option == 2: #new mail
-                profile_found.mail_confirm_sent = False
-                profile_found.save()
+            # if my_option == 1: #comparison code
+            #     if profile_found.code == code: 
+            #         profile_found.mail_confirmed = True
+            #         profile_found.save()
+            #     else:
+            #         print({
+            #     'mail_confirm_sent' : profile_found.mail_confirm_sent,
+            #     'mail_confirmed' : profile_found.mail_confirmed, 
+            #     'user_mail' : user_mail, 
+            # })
+            #         messages.error(request, "la confirmation de l'adresse mail a échoué !")
+            # elif my_option == 2: #new mail
+            #     profile_found.mail_confirm_sent = False
+            #     profile_found.save()
             mail_form = MailForm()
             context={
                 'mail_form' : mail_form, 
-                'mail_confirm_sent' : profile_found.mail_confirm_sent,
-                'mail_confirmed' : profile_found.mail_confirmed, 
+                # 'mail_confirm_sent' : profile_found.mail_confirm_sent,
+                # 'mail_confirmed' : profile_found.mail_confirmed, 
                 'user_mail' : user_mail, 
             }
             return render(request, "user/myAccount.html", context)
         return redirect('user:connection')
 
-    def post(self, request, my_option="", code=""):
+    def post(self, request):
         mail_form = MailForm(request.POST)
         if mail_form.is_valid(): 
             mail = mail_form.cleaned_data['mail'] #gets the mail
-            code = "".join([random.choice(string.digits) for _ in range(24)])
-            self._send_confirm_mail(mail, code)
+            # code = "".join([random.choice(string.digits) for _ in range(24)])
+            # self._send_confirm_mail(mail, code)
             # notify base that mail has been sent
             user_found, profile_found = get_user_and_profile(request)
-            self.notify_db(user_found, profile_found, code, mail)
+            user_found.email = mail
+            user_found.save()
+            # self.notify_db(user_found, profile_found, code, mail)
             print(user_found.email)
             context={
                 'mail_form' : mail_form, 

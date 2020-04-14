@@ -67,7 +67,7 @@ class RegisterView(View):
             name, password = us_form.cleaned_data['username'], us_form.cleaned_data['password']
             success, message = self.add_new_user(name, password)
             messages.info(request, message)
-            print(f("success = {success}"))
+            print(f"success = {success}")
             if success:
                 return redirect('user:connection')
             return redirect('user:register')

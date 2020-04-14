@@ -42,7 +42,7 @@ class RegisterView(View):
         """
         try:
             new_user = User(username=name)
-            new_user.set_password(password=password)
+            new_user.set_password(password)
             new_user.save()
             print("création new user")
             new_profile = Profile(user=new_user)

@@ -48,7 +48,7 @@ class RegisterView(View):
             new_profile.save()
             print("création new profile")
             return True, f"Félicitation vous venez de créer : {name} !"
-        except IntegrityError:
+        except IntegrityError as e:
             raise e
             return False, "Cet utilisateur existe déjà !"
 

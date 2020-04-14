@@ -1,5 +1,4 @@
-
-#Projet 8 : Openclassrooms 
+# Projet 8 : Openclassrooms 
 *********************
 
 Ce projet a été créé pour répondre aux exigence du projet 8 de la formation Openclassroom parcours Python. Il s'agit de créer un site web pour recherche un substitut aux produit du quotidien. [Mon site(https://blingpurebeurre.herokuapp.com/)]

@@ -43,11 +43,14 @@ class RegisterView(View):
         try:
             new_user = User.objects.create_user(username=name, password=password)
             new_user.save()
+            print("création new user")
             new_profile = Profile(user=new_user)
             new_profile.save()
+            print("création new profile")
             return True, f"Félicitation vous venez de créer : {name} !"
         except IntegrityError:
-            return False, f"Cet utilisateur existe déjà !"
+            raise e
+            return False, "Cet utilisateur existe déjà !"
 
     def get(self, request): 
         """ display html page with form in order to register a new user"""
@@ -64,6 +67,7 @@ class RegisterView(View):
             name, password = us_form.cleaned_data['username'], us_form.cleaned_data['password']
             success, message = self.add_new_user(name, password)
             messages.info(request, message)
+            print(f("success = {success}"))
             if success:
                 return redirect('user:connection')
             return redirect('user:register')

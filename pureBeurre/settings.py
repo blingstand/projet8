@@ -39,7 +39,7 @@ SECRET_KEY = '#y-ca+0y#ewq-i=1y*5_fnad8@&r$t%7g@u#$lmg@2k_tu8cms'
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = True
 else:
-    DEBUG = False
+    DEBUG = True
 
 ALLOWED_HOSTS = ["blingpurebeurre.herokuapp.com"]
 

@@ -41,7 +41,7 @@ class RegisterView(View):
             True = Success / False = Fail
         """
         try:
-            new_user = User.objects.create_user(username=name, password=password)
+            new_user = User(username=name, password=password)
             new_user.save()
             print("création new user")
             new_profile = Profile(user=new_user)

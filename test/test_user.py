@@ -19,7 +19,7 @@ print("test_user\n", "_ "*20)
 
 
 #-- unit test --
-
+@skip
 class UnitTest(TestCase):
     def setUp(self):
         self.user = User(username="test")
@@ -84,7 +84,7 @@ class UnitTest(TestCase):
         self.assertRedirects(response, reverse("research:index"))
 
 #-- integration test -- 
-
+@skip
 class AuthenticationViewTests(TestCase):
 
     def setUp(self): 
@@ -211,7 +211,7 @@ class AuthenticationViewTests(TestCase):
         self.assertRedirects(response, reverse("user:connection"))
         self.assertEqual(len(messages), 1)
         self.assertEqual(messages[0].message,'Pseudo ou mot de passe incorrect')    
-
+@skip
 class MyAccountViewTests(TestCase):
 
     def setUp(self): 
@@ -306,7 +306,7 @@ class MyAccountViewTests(TestCase):
         self.assertRedirects(response, reverse("user:myAccount"))
         # self.assertContains(response, f"Mail de confirmation envoyé à cette adresse {mail}, j'attends ta réponse")
         self.assertEqual(response.wsgi_request.user.email, "a new mail")
-
+@skip
 class FavoriteTests(TestCase):
 
     def setUp(self): 

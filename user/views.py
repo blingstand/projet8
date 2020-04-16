@@ -99,7 +99,7 @@ class ConnectionView(View):
                 login(request, new_user)
                 return redirect('research:index')
             else:
-                messages.info(request, f'Pseudo({username}) ou mot de passe({password}) incorrect')
+                messages.info(request, 'Pseudo ou mot de passe incorrect')
                 return redirect('user:connection')
         return HttpResponse("Problème dans le formulaire !")
                 

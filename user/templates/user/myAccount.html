@@ -9,7 +9,7 @@
 			<div class="col-lg-6 opac-white-background">
 				<h2 class="text-center mt-0 account">Bienvenue {{request.user.username}} ! </h2>
 				{% if user_mail %}
-				<p class="text-center"> Tu m'as communiqué ce mail : {{user_mail}}</p>
+				<p class="text-center" id="id_mail_communicated"> Tu m'as communiqué ce mail : {{user_mail}}</p>
 				{% else %}
 				<h4 class="text-center mt-0 account">Il semblerait que je n'ai pas ton mail ... </h4>
 				<form class="white-bg" action="" method='POST' id="mail_form">
@@ -23,7 +23,7 @@
 					
 					<div class="right-input">
 						<div >
-							<input type="submit" class="btn btn-primary account" value="Envoyer les infos complémentaires">
+							<input type="submit" id="id_submit" class="btn btn-primary account" value="Envoyer les infos complémentaires">
 						</div>
 					</div>
 				</form>

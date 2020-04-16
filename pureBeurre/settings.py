@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'skeleton.apps.SkeletonConfig', 
     'products.apps.ProductsConfig', 
     'debug_toolbar',
+
     # "django_nose"
 ]
 

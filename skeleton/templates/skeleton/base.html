@@ -62,13 +62,13 @@
           {% if user.is_authenticated  %}
 
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user:myAccount'%}" data-toggle="tooltip" data-placement="bottom" title="Mon Compte"><img src="{% static 'skeleton/img/account_logo.png'%}" alt=""></a>
+            <a class="nav-link" id="id_my_account_logo" href="{% url 'user:myAccount'%}" data-toggle="tooltip" data-placement="bottom" title="Mon Compte"><img src="{% static 'skeleton/img/account_logo.png'%}" alt=""></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user:favorite'%}" data-toggle="tooltip" data-placement="bottom" title="Mes Favoris"><img src="{% static 'skeleton/img/carrot.png'%}" alt=""></a>
+            <a class="nav-link" id="id_carrot" href="{% url 'user:favorite'%}" data-toggle="tooltip" data-placement="bottom" title="Mes Favoris"><img src="{% static 'skeleton/img/carrot.png'%}" alt=""></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'user:logout' %}" data-toggle="tooltip" data-placement="bottom" title="Déconnexion"><img src="{% static 'skeleton/img/disconnect.png'%}" alt=""></a>
+            <a class="nav-link" id="id_disconnect" href="{% url 'user:logout' %}" data-toggle="tooltip" data-placement="bottom" title="Déconnexion"><img src="{% static 'skeleton/img/disconnect.png'%}" alt=""></a>
           </li>
           {% else %}
           <li class="nav-item">

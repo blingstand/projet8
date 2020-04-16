@@ -2677,3 +2677,1168 @@ JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 11
 1587024902390	Marionette	WARN	TLS certificate errors will be ignored for this session
 1587024904844	Marionette	INFO	Stopped listening on port 35189
 JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+1587025612456	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.J3hPA6vFQEAG"
+1587025613113	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587025614804	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587025614804	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587025614805	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587025614805	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587025618600	Marionette	INFO	Listening on port 44449
+1587025618669	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587025618719	Marionette	INFO	Stopped listening on port 44449
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+console.warn: services.settings: Error retrieving the getLastModified timestamp from blocklists/plugins RemoteSettingClient Message: UnknownError: IndexedDB getLastModified() The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587025666782	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Zvsiggk0OHxM"
+1587025667413	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587025669114	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587025669114	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587025669115	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587025669115	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587025671569	Marionette	INFO	Listening on port 40397
+1587025671594	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587025673978	Marionette	INFO	Stopped listening on port 40397
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+1587025722129	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.wqgC4cX47OxH"
+1587025722835	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587025724505	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587025724505	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587025724505	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587025724505	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587025726870	Marionette	INFO	Listening on port 45823
+1587025727832	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587025729325	Marionette	INFO	Stopped listening on port 45823
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 433))
+1587026037944	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.j5CngsU79EFl"
+1587026038587	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026040276	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026040276	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026040276	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026040276	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026042792	Marionette	INFO	Listening on port 41743
+1587026042859	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587026088738	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.qBSvfyghHGD2"
+1587026089402	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026090985	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026090985	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026090985	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026090985	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026093340	Marionette	INFO	Listening on port 38647
+1587026093360	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587026120997	Marionette	INFO	Stopped listening on port 38647
+1587026126838	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.n2NMWwa8W9RC"
+1587026127907	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026129506	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026129506	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026129506	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026129506	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026131863	Marionette	INFO	Listening on port 45595
+1587026131955	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587026171020	Marionette	INFO	Stopped listening on port 41743
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587026181200	Marionette	INFO	Stopped listening on port 45595
+1587026199214	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ntwPQGFF1u4v"
+1587026199830	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026201457	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026201457	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026201458	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026201458	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026204007	Marionette	INFO	Listening on port 32975
+1587026204030	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587026225234	Marionette	INFO	Stopped listening on port 32975
+1587026230688	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.p5Etkl06VQRQ"
+1587026231341	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026233132	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026233133	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026233133	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026233133	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026235658	Marionette	INFO	Listening on port 36511
+1587026235701	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587026276716	Marionette	INFO	Stopped listening on port 36511
+1587026279291	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.9d7qP6sTukrq"
+1587026279964	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026281957	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026281957	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026281958	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026281958	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026284789	Marionette	INFO	Listening on port 36105
+1587026284808	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:47763/research/index, line 175: TypeError: simple_form_input_field is null
+SourceActor threw an exception: Error: Failed to fetch http://localhost:47763/research/index. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:47763/research/index. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:47763/research/index. Code 2152398878.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587026323483	Marionette	INFO	Stopped listening on port 36105
+1587026372870	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.fhB3IHq0B2XD"
+1587026373542	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026375184	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026375184	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026375185	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026375185	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026379020	Marionette	INFO	Listening on port 41899
+1587026379092	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:46509/research/index, line 175: TypeError: simple_form_input_field is null
+1587026462038	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XDtoBGFca0BM"
+1587026462729	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026464362	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026464362	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026464363	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026464363	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026466874	Marionette	INFO	Listening on port 41283
+1587026466955	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:55283/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587026503765	Marionette	INFO	Stopped listening on port 41283
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587026508095	Marionette	INFO	Stopped listening on port 41899
+1587026515797	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.KpqbC8qAuCbz"
+1587026516525	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026518146	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026518146	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026518147	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026518147	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026520694	Marionette	INFO	Listening on port 32827
+1587026520712	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:44733/research/index, line 175: TypeError: simple_form_input_field is null
+1587026523225	Marionette	INFO	Stopped listening on port 32827
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+1587026787667	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kR6aNKOdIn1I"
+1587026788350	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026789941	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026789941	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026789941	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026789941	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026792386	Marionette	INFO	Listening on port 41387
+1587026792478	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587026792747	Marionette	INFO	Stopped listening on port 41387
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 921: Error: Connection is not open.
+JavaScript error: , line 0: AbortError: A request was aborted, for example through a call to IDBTransaction.abort.
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 433))
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xB80015,name=PWindowGlobal::Msg_Destroy) Channel closing: too late to send/recv, messages will be lost
+
+1587026889849	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.cGuF9Smx1mvQ"
+1587026890464	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587026892156	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587026892156	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587026892156	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587026892157	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587026894509	Marionette	INFO	Listening on port 44637
+1587026894565	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587026894831	Marionette	INFO	Stopped listening on port 44637
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 921: Error: Connection is not open.
+JavaScript error: resource://gre/modules/IndexedDB.jsm, line 370: UnknownError: IDBDatabase.transaction: Can't start IndexedDB transaction during shutdown
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 433))
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xB80015,name=PWindowGlobal::Msg_Destroy) Channel closing: too late to send/recv, messages will be lost
+
+1587027016624	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vsqndC9XAvxr"
+1587027017228	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587027018841	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587027018841	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587027018841	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587027018842	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587027021174	Marionette	INFO	Listening on port 35319
+1587027021264	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587027022650	Marionette	INFO	Stopped listening on port 35319
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+console.warn: services.settings: Error retrieving the getLastModified timestamp from blocklists/plugins RemoteSettingClient Message: UnknownError: IndexedDB getLastModified() The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 433))
+1587027057918	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.rHdo1KLr8Cj7"
+1587027058529	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587027060274	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587027060274	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587027060274	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587027060274	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587027062637	Marionette	INFO	Listening on port 45081
+1587027062736	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587027062986	Marionette	INFO	Stopped listening on port 45081
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 921: Error: Connection is not open.
+console.warn: services.settings: Error retrieving the getLastModified timestamp from blocklists/plugins RemoteSettingClient Message: UnknownError: IndexedDB getLastModified() The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+JavaScript error: , line 0: AbortError: A request was aborted, for example through a call to IDBTransaction.abort.
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 433))
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xB80015,name=PWindowGlobal::Msg_Destroy) Channel closing: too late to send/recv, messages will be lost
+
+1587027202409	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.SaeSyHX5GbOF"
+1587027203034	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587027204750	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587027204750	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587027204751	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587027204751	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587027207237	Marionette	INFO	Listening on port 45743
+1587027207321	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587027207376	Marionette	INFO	Stopped listening on port 45743
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 921: Error: Connection is not open.
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 921: Error: Connection is not open.
+console.warn: services.settings: Error retrieving the getLastModified timestamp from blocklists/plugins RemoteSettingClient Message: UnknownError: IndexedDB getLastModified() The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+
+###!!! [Parent][DispatchAsyncMessage] Error: PBackgroundIDBFactory::Msg_PBackgroundIDBFactoryRequestConstructor Value error: message was deserialized, but contained an illegal value
+
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xB80015,name=PWindowGlobal::Msg_Destroy) Channel closing: too late to send/recv, messages will be lost
+
+1587027256472	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jGJlaLhGQE6s"
+1587027257148	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587027258822	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587027258823	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587027258823	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587027258823	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587027261348	Marionette	INFO	Listening on port 38345
+1587027261389	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587027261651	Marionette	INFO	Stopped listening on port 38345
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 921: Error: Connection is not open.
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xB80015,name=PWindowGlobal::Msg_Destroy) Channel closing: too late to send/recv, messages will be lost
+
+1587027338161	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ju20iys6Fe5i"
+1587027338891	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587027340569	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587027340569	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587027340570	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587027340570	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587027344214	Marionette	INFO	Listening on port 38687
+1587027344276	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587027345429	Marionette	INFO	Stopped listening on port 38687
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 110: Error: Unknown callback
+1587027563218	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.H1MCDftN8xfU"
+1587027563840	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587027565477	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587027565478	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587027565478	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587027565478	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587027567872	Marionette	INFO	Listening on port 41643
+1587027567931	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:39021/research/index, line 175: TypeError: simple_form_input_field is null
+1587027570107	Marionette	INFO	Stopped listening on port 41643
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+1587029019927	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.sO5bcwzNpHuS"
+1587029020685	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029022299	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029022299	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029022299	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029022300	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029024647	Marionette	INFO	Listening on port 32781
+1587029024739	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587029030877	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zwKJNF22c1pp"
+1587029031535	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029033211	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029033212	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029033212	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029033212	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029035616	Marionette	INFO	Listening on port 45187
+1587029035694	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587029040620	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.SZ0mmiMZnESu"
+1587029041505	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029043265	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029043265	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029043265	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029043265	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029045567	Marionette	INFO	Stopped listening on port 32781
+1587029046106	Marionette	INFO	Listening on port 43557
+1587029046135	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587029079955	Marionette	INFO	Stopped listening on port 43557
+1587029080169	Marionette	INFO	Stopped listening on port 45187
+1587029281581	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.GB8l9gcq8FNf"
+1587029282215	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029283831	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029283831	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029283832	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029283832	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029286285	Marionette	INFO	Listening on port 44067
+1587029286300	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587029291198	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Uixk2R9hdk6D"
+1587029292001	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029293715	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029293715	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029293715	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029293715	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029296367	Marionette	INFO	Listening on port 41701
+1587029296411	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587029301820	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.KmcURsphLqbt"
+1587029302774	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029305423	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029305423	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029305423	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029305423	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029306097	Marionette	INFO	Stopped listening on port 41701
+1587029308211	Marionette	INFO	Listening on port 37869
+1587029308243	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587029308440	Marionette	INFO	Stopped listening on port 44067
+1587029372162	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.EiPHAB4g5CGU"
+1587029372866	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029374559	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029374559	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029374559	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029374559	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029377025	Marionette	INFO	Listening on port 42563
+1587029377076	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587029424641	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.64hsjXLmuUYG"
+1587029425352	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029427139	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029427139	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029427139	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029427139	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029429759	Marionette	INFO	Listening on port 37467
+1587029429859	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587029448479	Marionette	INFO	Stopped listening on port 42563
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587029448749	Marionette	INFO	Stopped listening on port 37467
+1587029449067	Marionette	INFO	Stopped listening on port 37869
+1587029515501	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.8SZMdOynobQO"
+1587029516154	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029517738	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029517738	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029517738	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029517738	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029520292	Marionette	INFO	Listening on port 36171
+1587029520313	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:34343/research/index, line 175: TypeError: simple_form_input_field is null
+1587029633186	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.U8YuCahoDnhi"
+1587029633831	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029635849	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029635849	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029635850	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029635850	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587029636728	Marionette	INFO	Stopped listening on port 36171
+1587029638275	Marionette	INFO	Listening on port 36469
+1587029638300	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:60375/research/index, line 175: TypeError: simple_form_input_field is null
+1587029698454	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kc80FxziFdiL"
+1587029699060	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029700805	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029700805	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029700805	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029700806	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029703222	Marionette	INFO	Listening on port 41849
+1587029703308	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:41241/research/index, line 175: TypeError: simple_form_input_field is null
+1587029730395	Marionette	INFO	Stopped listening on port 41849
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587029737606	Marionette	INFO	Stopped listening on port 36469
+1587029772524	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.nbbNlLcbEw55"
+1587029773205	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029774918	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029774918	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029774919	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029774919	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029777332	Marionette	INFO	Listening on port 41125
+1587029777346	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:44251/research/index, line 175: TypeError: simple_form_input_field is null
+1587029808563	Marionette	INFO	Stopped listening on port 41125
+1587029815220	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.s9CU3GJrgI67"
+1587029815855	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029817562	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029817562	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029817562	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029817563	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029819860	Marionette	INFO	Listening on port 34495
+1587029819942	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:49319/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587029862452	Marionette	INFO	Stopped listening on port 34495
+1587029964531	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.8yGRWE9NQARq"
+1587029965210	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587029966925	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587029966925	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587029966926	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587029966926	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587029969359	Marionette	INFO	Listening on port 36763
+1587029969445	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:34241/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587030049435	Marionette	INFO	Stopped listening on port 36763
+1587030187230	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ktmJeljWcu95"
+1587030187861	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587030189572	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587030189572	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587030189573	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587030189573	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587030191979	Marionette	INFO	Listening on port 42505
+1587030192045	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:56935/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:56935/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587030344174	Marionette	INFO	Stopped listening on port 42505
+1587030350949	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.82YkVmLznjC8"
+1587030351554	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587030353245	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587030353245	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587030353245	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587030353245	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587030355580	Marionette	INFO	Listening on port 45927
+1587030355660	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:54645/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:54645/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1587030473855	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.H0I6kG2eI7rq"
+1587030474504	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587030476133	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587030476134	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587030476134	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587030476134	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587030478656	Marionette	INFO	Listening on port 40253
+1587030478675	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:55843/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587030522256	Marionette	INFO	Stopped listening on port 45927
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587030524581	Marionette	INFO	Stopped listening on port 40253
+1587030563633	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.B92skQvMplRR"
+1587030564222	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587030565852	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587030565852	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587030565852	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587030565852	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587030568144	Marionette	INFO	Listening on port 39855
+1587030568244	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:33749/research/index, line 175: TypeError: simple_form_input_field is null
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+Exiting due to channel error.
+1587030734973	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.DOReIsBzAUgk"
+1587030735667	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587030737278	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587030737278	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587030737278	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587030737278	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587030739675	Marionette	INFO	Listening on port 44715
+1587030739693	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:41413/research/index, line 175: TypeError: simple_form_input_field is null
+1587030760579	Marionette	INFO	Stopped listening on port 44715
+1587030769197	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.cFJ1Y01zOMMt"
+1587030769792	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587030771402	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587030771402	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587030771402	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587030771402	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587030773753	Marionette	INFO	Listening on port 33909
+1587030773812	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:36143/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:36143/research/index, line 175: TypeError: simple_form_input_field is null
+1587031840787	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.1YnittFRio2v"
+1587031841516	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587031843371	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587031843371	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587031843371	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587031843371	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587031845957	Marionette	INFO	Listening on port 36549
+1587031846000	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:40587/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587031861328	Marionette	INFO	Stopped listening on port 33909
+1587031861524	Marionette	INFO	Stopped listening on port 36549
+1587031897162	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.t1QOkKCApNcQ"
+1587031897780	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587031899422	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587031899422	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587031899423	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587031899423	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587031901749	Marionette	INFO	Listening on port 33129
+1587031901773	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:42085/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:42085/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587032370492	Marionette	INFO	Stopped listening on port 33129
+1587039045434	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.n9aDMnbDk5iZ"
+1587039046370	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587039048014	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587039048014	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587039048015	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587039048015	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587039051558	Marionette	INFO	Listening on port 36929
+1587039051587	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:46795/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46795/user/myAccount, line 104: TypeError: mail_field is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "http://localhost:46795"
+SourceActor threw an exception: Error: Failed to fetch http://localhost:46795/user/myAccount. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:46795/user/myAccount. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:46795/user/myAccount. Code 2152398878.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587039229094	Marionette	INFO	Stopped listening on port 36929
+1587040782561	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.g2ZdtNnU3ugZ"
+1587040783302	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587040784987	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587040784988	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587040784988	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587040784988	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587040787379	Marionette	INFO	Listening on port 34551
+1587040787482	Marionette	WARN	TLS certificate errors will be ignored for this session
+1587040836669	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FDTr6rwSDxV8"
+1587040837251	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587040838936	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587040838936	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587040838937	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587040838937	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587040841298	Marionette	INFO	Listening on port 41055
+1587040841381	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:48643/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48643/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587041027348	Marionette	INFO	Stopped listening on port 41055
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587041031487	Marionette	INFO	Stopped listening on port 34551
+1587041179886	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Dn7qQ6kbP798"
+1587041180550	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587041182229	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587041182229	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587041182229	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587041182229	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587041184537	Marionette	INFO	Listening on port 37669
+1587041184601	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:48141/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48141/user/myAccount, line 104: TypeError: mail_field is null
+1587041543500	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.mSVtwyEKSdej"
+1587041544155	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587041545950	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587041545950	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587041545950	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587041545950	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587041548340	Marionette	INFO	Listening on port 36265
+1587041548425	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:52315/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52315/user/myAccount, line 104: TypeError: mail_field is null
+1587041584107	Marionette	INFO	Stopped listening on port 36265
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587041588238	Marionette	INFO	Stopped listening on port 37669
+1587041675885	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.PcNv50E8xqPG"
+1587041676605	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587041678239	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587041678239	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587041678240	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587041678240	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587041680729	Marionette	INFO	Listening on port 33621
+1587041680797	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:48295/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48295/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:48295/research/index, line 177: TypeError: simple_form_input_field is null
+1587041712549	Marionette	INFO	Stopped listening on port 33621
+1587041955699	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.GogZn6JXJT55"
+1587041956359	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587041958036	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587041958036	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587041958036	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587041958036	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587041960375	Marionette	INFO	Listening on port 42057
+1587041960412	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:60843/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:60843/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:60843/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587042052193	Marionette	INFO	Stopped listening on port 42057
+1587042529333	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IQUq2Ua4FPVK"
+1587042530035	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587042531720	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587042531720	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587042531721	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587042531721	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587042534117	Marionette	INFO	Listening on port 33897
+1587042534145	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:48849/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48849/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:48849/research/index, line 177: TypeError: simple_form_input_field is null
+1587042573736	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.qjg7OCmQuMN7"
+1587042574447	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587042576131	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587042576131	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587042576131	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587042576131	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587042578663	Marionette	INFO	Listening on port 44155
+1587042578753	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:38635/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:38635/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:38635/research/index, line 177: TypeError: simple_form_input_field is null
+1587042680172	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.V7lH1TQMcazH"
+1587042682126	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587042683846	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587042683846	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587042683846	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587042683847	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587042686441	Marionette	INFO	Listening on port 39143
+1587042686521	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:46249/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46249/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:46249/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46249/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587042752781	Marionette	INFO	Stopped listening on port 39143
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587042753811	Marionette	INFO	Stopped listening on port 44155
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587042756194	Marionette	INFO	Stopped listening on port 33897
+1587043137519	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tFbju1ASPW82"
+1587043138160	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587043139809	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587043139809	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587043139809	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587043139809	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587043142240	Marionette	INFO	Listening on port 36531
+1587043142337	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:43273/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:43273/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:43273/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:43273/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1587043256613	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.LL6qvdh9ulmn"
+1587043257301	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587043259042	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587043259042	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587043259042	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587043259043	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587043261545	Marionette	INFO	Listening on port 34459
+1587043261637	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:44341/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:44341/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:44341/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:44341/research/index, line 177: TypeError: simple_form_input_field is null
+1587043355727	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.yktrURdL60bU"
+1587043356379	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587043357985	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587043357986	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587043357986	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587043357986	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587043360527	Marionette	INFO	Listening on port 39685
+1587043360546	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587043373822	Marionette	INFO	Stopped listening on port 34459
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587043376925	Marionette	INFO	Stopped listening on port 36531
+1587043377230	Marionette	INFO	Stopped listening on port 39685
+1587043424412	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.IGEAT6TMkH1n"
+1587043425014	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587043426824	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587043426824	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587043426824	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587043426824	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587043429154	Marionette	INFO	Listening on port 34341
+1587043429225	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587043468025	Marionette	INFO	Stopped listening on port 34341
+1587043470906	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.JNTLXgAk9lkq"
+1587043471573	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587043473243	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587043473243	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587043473243	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587043473243	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587043475582	Marionette	INFO	Listening on port 39241
+1587043475627	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:51789/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51789/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:51789/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51789/research/index, line 181: TypeError: simple_form_input_field is null
+SourceActor threw an exception: Error: Failed to fetch http://localhost:51789/research/index. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:51789/research/index. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:51789/research/index. Code 2152398878.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587043796602	Marionette	INFO	Stopped listening on port 39241
+1587043835850	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.P11MXFYAwELZ"
+1587043836476	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587043838090	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587043838090	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587043838090	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587043838090	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587043840526	Marionette	INFO	Listening on port 33619
+1587043840562	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:55105/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:55105/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:55105/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:55105/research/index, line 181: TypeError: simple_form_input_field is null
+SourceActor threw an exception: Error: Failed to fetch http://localhost:55105/research/index. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:55105/research/index. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:55105/research/index. Code 2152398878.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587043943474	Marionette	INFO	Stopped listening on port 33619
+1587043959214	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.XDcrd9llaYlH"
+1587043959890	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587043961546	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587043961546	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587043961546	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587043961546	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587043963837	Marionette	INFO	Listening on port 36327
+1587043963927	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:55719/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:55719/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:55719/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:55719/research/index, line 181: TypeError: simple_form_input_field is null
+1587044016482	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.oGMAGbjm1ziM"
+1587044017155	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587044018774	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587044018774	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587044018774	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587044018774	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587044021150	Marionette	INFO	Listening on port 33883
+1587044021193	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:43057/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:43057/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:43057/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:43057/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587044076417	Marionette	INFO	Stopped listening on port 33883
+1587044082577	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.i60ujxUxHr9t"
+1587044083242	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587044084904	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587044084904	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587044084904	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587044084904	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587044087240	Marionette	INFO	Listening on port 35575
+1587044087289	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:43745/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:43745/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:43745/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:43745/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587044143741	Marionette	INFO	Stopped listening on port 35575
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587044144039	Marionette	INFO	Stopped listening on port 36327
+1587044680746	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Klu4zqXGnfiR"
+1587044681363	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587044682986	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587044682987	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587044682987	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587044682987	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587044687141	Marionette	INFO	Listening on port 37861
+1587044687166	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:60073/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:60073/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:60073/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:60073/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:60073/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587044770521	Marionette	INFO	Stopped listening on port 37861
+1587044772797	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OsAd3ndwRGep"
+1587044773485	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587044775299	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587044775299	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587044775300	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587044775300	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587044778424	Marionette	INFO	Listening on port 45837
+1587044778517	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:52067/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52067/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:52067/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52067/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52067/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587046079254	Marionette	INFO	Stopped listening on port 45837
+1587046089748	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.03XpJ7milKcy"
+1587046090425	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587046092023	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587046092024	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587046092024	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587046092024	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587046094489	Marionette	INFO	Listening on port 37321
+1587046095769	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:50085/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:50085/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:50085/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:50085/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:50085/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+SourceActor threw an exception: Error: Failed to fetch http://localhost:50085/research/results/jus%20de%20fruits/jus%20d'orange. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:50085/research/results/jus%20de%20fruits/jus%20d'orange. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:50085/research/results/jus%20de%20fruits/jus%20d'orange. Code 2152398878.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587046307156	Marionette	INFO	Stopped listening on port 37321
+1587046601032	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.pv6Fvbom299j"
+1587046601669	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587046603373	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587046603373	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587046603374	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587046603374	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587046605862	Marionette	INFO	Listening on port 36641
+1587046605947	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:40703/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40703/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:40703/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40703/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40703/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+SourceActor threw an exception: Error: Failed to fetch http://localhost:40703/research/results/jus%20de%20fruits/jus%20d'orange. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:40703/research/results/jus%20de%20fruits/jus%20d'orange. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:40703/research/results/jus%20de%20fruits/jus%20d'orange. Code 2152398878.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587046905742	Marionette	INFO	Stopped listening on port 36641
+1587046909162	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.rYxRA1yWDGUB"
+1587046909826	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587046911504	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587046911504	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587046911504	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587046911505	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587046914035	Marionette	INFO	Listening on port 42319
+1587046914074	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:57161/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:57161/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:57161/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:57161/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:57161/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+SourceActor threw an exception: Error: Failed to fetch http://localhost:57161/user/favorite/Jus%20d'orange%20-%20Solevita%20-%201%20L. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:57161/user/favorite/Jus%20d'orange%20-%20Solevita%20-%201%20L. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:57161/user/favorite/Jus%20d'orange%20-%20Solevita%20-%201%20L. Code 2152398878.
+JavaScript error: http://localhost:57161/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587047260926	Marionette	INFO	Stopped listening on port 42319
+1587047269165	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.zNe4b9WW76al"
+1587047269876	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587047271537	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587047271537	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587047271537	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587047271537	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587047274010	Marionette	INFO	Listening on port 35717
+1587047274078	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:40805/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40805/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:40805/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40805/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40805/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587047364312	Marionette	INFO	Stopped listening on port 35717
+1587047372397	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.DVwkgs6JPTFv"
+1587047373035	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587047374680	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587047374681	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587047374681	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587047374681	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587047377072	Marionette	INFO	Listening on port 37715
+1587047377109	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:46685/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46685/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:46685/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46685/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46685/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+1587047814092	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.4We4S3krn04m"
+1587047814807	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587047816538	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587047816538	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587047816538	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587047816538	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587047819099	Marionette	INFO	Listening on port 45665
+1587047819167	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:37999/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:37999/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:37999/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:37999/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:37999/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+1587047893083	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.jt8zA0iL6RjI"
+1587047893723	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587047895380	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587047895381	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587047895381	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587047895381	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587047896452	Marionette	INFO	Stopped listening on port 37715
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+1587047898019	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1545:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1545:17
+makeAddonVisible@XPIDatabase.jsm:2348:10
+addToDatabase@XPIDatabase.jsm:2275:12
+install@XPIInstall.jsm:4320:27
+_activateAddon@XPIInstall.jsm:4347:7
+1587047898019	addons.xpi-utils	WARN	Error: XPI database modified after shutdown began(resource://gre/modules/addons/XPIDatabase.jsm:1545:17) JS Stack trace: saveChanges@XPIDatabase.jsm:1545:17
+addToDatabase@XPIDatabase.jsm:2278:10
+install@XPIInstall.jsm:4320:27
+_activateAddon@XPIInstall.jsm:4347:7
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: , line 0: uncaught exception: 2147500036
+JavaScript error: resource://gre/modules/IndexedDB.jsm, line 370: UnknownError: IDBDatabase.transaction: Can't start IndexedDB transaction during shutdown
+1587047914100	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ozbapjlUc8IQ"
+1587047915046	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587047916674	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587047916675	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587047916675	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587047916675	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587047919053	Marionette	INFO	Listening on port 42017
+1587047919117	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:51273/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51273/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:51273/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51273/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51273/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587047975453	Marionette	INFO	Stopped listening on port 45665
+1587047977592	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.EMzHM7n1eUF1"
+1587047978211	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587047979862	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587047979862	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587047979863	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587047979863	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587047982620	Marionette	INFO	Listening on port 34565
+1587047982716	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587047984717	Marionette	INFO	Stopped listening on port 42017
+JavaScript error: http://localhost:46141/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46141/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:46141/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46141/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:46141/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+1587048074732	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.ixffGE5zXaCs"
+1587048075372	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587048076944	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587048076944	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587048076944	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587048076944	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587048079346	Marionette	INFO	Listening on port 38657
+1587048079448	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:37675/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:37675/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:37675/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:37675/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:37675/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:37675/research/index, line 158: TypeError: document.getElementById(...) is null
+SourceActor threw an exception: Error: Failed to fetch http://localhost:37675/research/index. Code 2152398878.
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:568:16
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 568, column: 16
+console.error: (new Error("Failed to fetch http://localhost:37675/research/index. Code 2152398878.", "resource://devtools/shared/DevToolsUtils.js", 568))
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 568: Error: Failed to fetch http://localhost:37675/research/index. Code 2152398878.
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587048550728	Marionette	INFO	Stopped listening on port 38657
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587048551591	Marionette	INFO	Stopped listening on port 34565
+1587048557680	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.EYnkPUyxwLZk"
+1587048558301	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587048559909	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587048559909	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587048559910	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587048559910	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587048562382	Marionette	INFO	Listening on port 43921
+1587048562401	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:48409/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48409/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:48409/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48409/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48409/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:48409/research/index, line 158: TypeError: document.getElementById(...) is null
+1587048982351	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.HZqn8PFIsRGi"
+1587048983023	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587048984673	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587048984673	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587048984673	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587048984673	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587048987066	Marionette	INFO	Listening on port 39987
+1587048987164	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:45113/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:45113/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:45113/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:45113/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:45113/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:45113/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587049008879	Marionette	INFO	Stopped listening on port 43921
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587049058808	Marionette	INFO	Stopped listening on port 39987
+1587119541494	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.2iuM4wfwSe3t"
+1587119542319	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587119544038	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587119544038	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587119544038	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587119544038	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587119547398	Marionette	INFO	Listening on port 41605
+1587119547452	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:53735/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:53735/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:53735/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:53735/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:53735/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:53735/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:53735/research/index, line 175: TypeError: simple_form_input_field is null
+1587119583860	Marionette	INFO	Stopped listening on port 41605
+1587120094843	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.WZcLTfPqpIip"
+1587120095521	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587120097124	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587120097124	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587120097124	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587120097124	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587120099503	Marionette	INFO	Listening on port 37275
+1587120099554	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:41171/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:41171/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:41171/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:41171/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:41171/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:41171/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:41171/research/index, line 175: TypeError: simple_form_input_field is null
+1587120106881	Marionette	INFO	Stopped listening on port 37275
+1587120374066	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.2DPnCi9chFFZ"
+1587120374787	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587120376392	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587120376392	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587120376392	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587120376392	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587120378802	Marionette	INFO	Listening on port 34499
+1587120378879	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:56345/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:56345/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:56345/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:56345/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:56345/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:56345/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:56345/research/index, line 175: TypeError: simple_form_input_field is null
+1587120386396	Marionette	INFO	Stopped listening on port 34499
+1587122360655	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.R1vNYTeMfx6W"
+1587122361305	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587122362946	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587122362946	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587122362946	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587122362946	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587122365230	Marionette	INFO	Listening on port 42917
+1587122365268	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:47637/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:47637/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:47637/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:47637/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:47637/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:47637/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:47637/research/index, line 175: TypeError: simple_form_input_field is null
+1587122374076	Marionette	INFO	Stopped listening on port 42917
+1587122886826	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.W8xoqDvZhdEh"
+1587122887814	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587122889544	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587122889544	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587122889544	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587122889544	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587122891906	Marionette	INFO	Listening on port 45765
+1587122891939	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:44421/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:44421/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:44421/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:44421/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:44421/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:44421/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:44421/research/index, line 175: TypeError: simple_form_input_field is null
+1587122918738	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.sa1Tx0yKr48p"
+1587122919356	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587122921147	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587122921147	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587122921148	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587122921148	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587122924312	Marionette	INFO	Listening on port 42339
+1587122924351	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:52417/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52417/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:52417/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52417/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52417/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:52417/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:52417/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:52417/research/index, line 167: TypeError: simple_form_input_field is null
+1587122933809	Marionette	INFO	Stopped listening on port 42339
+1587122986055	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FwR2mI7eY9hK"
+1587122986874	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587122988499	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587122988500	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587122988500	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587122988500	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587122991070	Marionette	INFO	Listening on port 42113
+1587122992453	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:38427/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:38427/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:38427/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:38427/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:38427/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:38427/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:38427/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:38427/research/index, line 167: TypeError: simple_form_input_field is null
+1587122999539	Marionette	INFO	Stopped listening on port 42113
+1587123124511	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.QgHvPcsj7kqk"
+1587123125158	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587123126739	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587123126739	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587123126740	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587123126740	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587123129106	Marionette	INFO	Listening on port 46517
+1587123129131	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:58321/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:58321/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:58321/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:58321/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:58321/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:58321/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:58321/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:58321/research/index, line 167: TypeError: simple_form_input_field is null
+1587123137239	Marionette	INFO	Stopped listening on port 46517
+1587123502710	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Eitaq7lGGVuZ"
+1587123503311	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587123504925	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587123504925	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587123504925	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587123504926	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587123507288	Marionette	INFO	Listening on port 36373
+1587123507326	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:48043/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48043/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:48043/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48043/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48043/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:48043/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:48043/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:48043/research/index, line 167: TypeError: simple_form_input_field is null
+1587123515966	Marionette	INFO	Stopped listening on port 36373
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1587124047434	Marionette	INFO	Stopped listening on port 45765
+1587124069579	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TLQAnOAzKScq"
+1587124070211	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1587124071816	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1587124071816	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1587124071816	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1587124071816	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1587124074618	Marionette	INFO	Listening on port 39541
+1587124074693	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:40969/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40969/user/myAccount, line 104: TypeError: mail_field is null
+JavaScript error: http://localhost:40969/research/index, line 177: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40969/research/index, line 181: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40969/research/results/jus%20de%20fruits/jus%20d'orange, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:40969/research/index, line 158: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:40969/research/index, line 175: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:40969/research/index, line 167: TypeError: simple_form_input_field is null
+1587124083569	Marionette	INFO	Stopped listening on port 39541

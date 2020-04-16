@@ -7,7 +7,7 @@
   <div class="container h-100">
     <div class="row h-100 align-items-center justify-content-center text-center">
       <div class="col-lg-10 align-self-end">
-        <h1 class="text-uppercase text-white font-weight-bold">Du gras oui mais de bonne qualité ! </h1>
+        <h1 class="text-uppercase text-white font-weight-bold" id="title_du_gras">Du gras oui mais de bonne qualité ! </h1>
       </div>
       <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</p>
       <div class="col-lg-10 contains_simple_search">
@@ -20,23 +20,23 @@
               <input type="submit" class="btn btn-primary" id="simple-form-submit" value="Valider"> 
             </div>   
             {% for message in messages %}
-            <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white"> {{ message}}</div>
+            <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white" id="index-msg-error"> {{ message}}</div>
             {% endfor %}
             <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white mt-2">
               {% if however%}
-              <p>{{however}}</p>
+              <div class="col-lg-12 col-sm-12 col-xs-12 text-center text-white" id="index-however"> {{ however }}</div>
               {% endif%}
               {% if few_cat%}
               <div class="flex-space-around">
                 {% for cat in categories%}  
-                <p><a class="btn btn-primary mt-2 bt-1" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a></p>
+                <p><a class="btn btn-primary mt-2 bt-1" id="index-cat-{{cat|cut:' '}}" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a></p>
                 {% endfor %}
               </div>
               {%else%}
               <div class="row">
                 {% for cat in categories%}  
                 <div class="mb-2 col-lg-4">
-                  <a class="btn btn-primary mt-2 bt-1" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a>
+                  <a class="btn btn-primary mt-2 bt-1 index-category" id="index-cat-{{cat|cut:' '}}" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a>
                 </div>
                 {% endfor %}
               </div>

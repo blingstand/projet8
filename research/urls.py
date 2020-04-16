@@ -1,3 +1,4 @@
+""" this script manages the urls to give an appropriate http response"""
 from django.urls import path
 
 from . import views as v # import views so we can use them in urls.

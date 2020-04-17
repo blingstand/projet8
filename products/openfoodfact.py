@@ -1,9 +1,12 @@
+""" this script request datas from open food fact"""
 # -*- coding: utf-8 -*-
 import requests
 import urllib
 #inspired by 
 class OpenFoodFact(): 
+    """ this class manages the methods to get datas"""
     def build_url(self, parameters=None):
+        """builds the url for OFF api """ 
         service='cgi'
         resource_type='search.pl'
         geo_url = 'https://fr.openfoodfacts.org'
@@ -14,7 +17,7 @@ class OpenFoodFact():
         return base_url
 
     def advanced_search(self, post_query):
-
+        """ manages the parameters to get a json response"""
         post_query['json'] = '1'
         url = self.build_url(parameters=post_query)
         response = requests.get(url)
@@ -22,6 +25,7 @@ class OpenFoodFact():
         return response
 
     def this_cat_exists(self, cat):
+        """ tests whether the wanted cat exists in OFF"""
         response = self.advanced_search({
         "search_terms":"",
         "tagtype_0":"categories ",
@@ -33,8 +37,3 @@ class OpenFoodFact():
         if len(response['products']) >= 1:
             return True
         return False
-
-# off = OpenFoodFact()
-# cat = "jus de fruits"
-# rep = off.this_cat_exists(cat)
-# print("la catégorie({}) est-elle présente dans la base de donnée OFF ?\n>Réponse : {}".format(cat, rep))

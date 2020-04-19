@@ -102,7 +102,6 @@ class GetDatas():
         return list_prod_resp_size
     def create_dict_cat(self):
         """Creates the dict_prod with previous functions  """
-
         dict_prod = {} #create dico
         for cat in self.category:
             list_prod = self._get_list_for_cat(cat)

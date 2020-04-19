@@ -24,6 +24,10 @@ class Product(models.Model):
     def nutriscore_img(self):
         nutriscore_img = f"{self.nutriscore.upper()}.png"
         return nutriscore_img
+    @property
+    def nutriscore_big_img(self):
+        nutriscore_img = f"nutriscore_{self.nutriscore.upper()}.png"
+        return nutriscore_img
 
 # prod1 = p(name="Pur jus d'orange sans pulpe", 
 #     image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",

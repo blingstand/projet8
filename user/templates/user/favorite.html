@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load static %}
-<header class="masthead-legalNotice">
+<header class="masthead-favorite">
 	<div class="container">
 		<h2 class="text-center mt-4 text-white ">Voici les aliments enregistrés</h2>
 		<hr class="divider light my-4">
@@ -20,7 +20,7 @@
 						<img class="indice" src="{% static 'skeleton/img/' %}{{fav.nutriscore_img}}"  >
 					</div>
 					<div class="cont-img-result" data-toggle="tooltip" data-placement="bottom" title="Cliquez pour plus d'infos" >
-						<a href="{{fav.url}}" target="_blank" >
+						<a href="{% url 'products:infos'%}/{{fav.name}}" target="_blank" >
 							<img class="img-result" src={{fav.image_url}} alt="image d'un produit en favori">
 						</a>
 					</div>

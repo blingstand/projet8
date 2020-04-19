@@ -33,95 +33,92 @@
   {% block nav_bar%}
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="cont-logo-title col-lg-5 col-sm-12">
-          <a href="{% url 'research:index' %}">
-            <img class="img-fluid-logo" id="biscuit" src="{% static 'skeleton/img/logo.png'%}" alt=""> 
-          </a>
-          <div class="title-close-to-logo">PUR BEURRE</div> 
-        </div>
-        <div class="collapse navbar-collapse col-lg-4" id="navbarResponsive">
-          {% block navsearch %}
-          <form action="{% url 'research:index' %}" method='POST' id="nav_barform">
-            {% csrf_token %}
-            <div class="row">
-              <div class="col-lg-8 mt-2 ">
-                {{search_form.mini_simple_search}}
-              </div> 
-              <div class="col-lg-4 mt-2 ">
-                <input type="submit" class="btn btn-primary" id="nav-mini-submit" value="Valider"> 
+    <div class="container"> 
+      <a class="navbar-brand js-scroll-trigger" href="/"><img id="logo" src="{% static 'skeleton/img/logo.png'%}" alt="logo"> <span class="title-close-to-logo"> Pur Beurre </span></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-navitem ml-5">
+          <li class="nav-item pt-3 pr-5">
+            <form class="navbar-form navbar-right inline-form row" id="form-nav-search" action="{% url 'research:index' %}" method="POST" id="nav_barform">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-8">
+                  {{search_form.mini_simple_search}}
+                </div>
+                <div class="col-4">
+                  <input type="submit" class="btn btn-primary" id="nav-mini-submit" value="Valider"> 
+                </div>
               </div>
-            </div>
-          </form>
-          {% endblock %}
-        </div>
-        <div class="col-lg-3 col-sm-12 ">
-          <ul class="my-2 my-lg-0 align-center">
-            {% if user.is_authenticated  %}
-            <li class="nav-item">
-              <a class="nav-link" id="id_my_account_logo" href="{% url 'user:myAccount'%}" data-toggle="tooltip" data-placement="bottom" title="Mon Compte"><img src="{% static 'skeleton/img/account_logo.png'%}" alt=""></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="id_carrot" href="{% url 'user:favorite'%}" data-toggle="tooltip" data-placement="bottom" title="Mes Favoris"><img src="{% static 'skeleton/img/carrot.png'%}" alt=""></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="id_disconnect" href="{% url 'user:logout' %}" data-toggle="tooltip" data-placement="bottom" title="Déconnexion"><img src="{% static 'skeleton/img/disconnect.png'%}" alt=""></a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'user:connection' %}" data-toggle="tooltip" data-placement="bottom" title="Connexion"><img src="{% static 'skeleton/img/account_logo.png'%}" alt=""></a>
-              {% endif %}
-            </li>    
-          </ul>
-        </div>
+            </form>  
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-navitem ">
+        {% if user.is_authenticated  %}
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" id="id_my_account_logo" href="{% url 'user:myAccount'%}">
+              <img src="{% static 'skeleton/img/account_logo.png'%}" title="Mon compte" alt="Mon compte">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" id="id_carrot" href="{% url 'user:favorite'%}">
+              <img src="{% static 'skeleton/img/carrot.png'%}" title="Mes aliments" alt="Mes aliments">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" id="id_disconnect" href="{% url 'user:logout' %}">
+              <img src="{% static 'skeleton/img/disconnect.png'%}" title="Déconnexion" alt="Déconnexion">
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{% url 'user:connection' %}">
+              <img src="{% static 'skeleton/img/account_logo.png'%}" title="Connexion" alt="Connexion">
+            </a>
+          </li>
+          {% endif %}
+        </ul>
       </div>
     </div>
-  </div>
-</nav>
-{% endblock %}
+  </nav>
+    {% endblock %}
+    <!-- this block contains searching app -->
+    {% block content %}{% endblock %}
 
-<!-- this block contains searching app -->
-{% block content %}{% endblock %}
-
-
-
-
-{% block footer %}
-<!-- Footer -->
-<footer class="py-5 modal-footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-6 mr-auto text-center">
-        <a class="d-block" href="{% url 'skeleton:legalNotice'%}">Mentions légales</a>
+    {% block footer %}
+    <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-6 mr-auto text-center">
+            <a class="d-block" href="{% url 'skeleton:legalNotice'%}">Mentions légales</a>
+          </div>
+          <div class="col-lg-6 col-6 mr-auto text-center">
+            <a class="d-block" href="https://openclassrooms.com/fr/">OpenClassrooms</a>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6 col-6 mr-auto text-center">
-        <a class="d-block" href="https://openclassrooms.com/fr/">OpenClassrooms</a>
-      </div>
-    </div>
+    </footer>
+    {% endblock %}
 
-  </div>
-</footer>
-{% endblock %}
+    {% block script%}
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'skeleton/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'skeleton/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 
-{% block script%}
-<!-- Bootstrap core JavaScript -->
-<script src="{% static 'skeleton/vendor/jquery/jquery.min.js'%}"></script>
-<script src="{% static 'skeleton/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'skeleton/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+    <script src="{% static 'skeleton/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
 
-<!-- Plugin JavaScript -->
-<script src="{% static 'skeleton/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
-<script src="{% static 'skeleton/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
-
-<!-- Custom scripts for this template -->
-<!-- <script src="{% static 'skeleton/js/creative.min.js'%}"></script> -->
-{% endblock %}
-</body>
-<script>
+    <!-- Custom scripts for this template -->
+    <!-- <script src="{% static 'skeleton/js/creative.min.js'%}"></script> -->
+    {% endblock %}
+  <script>
   //display a placeholder in simple_form_input
   nav_mini_search = document.getElementById("nav-mini-search")
   nav_mini_search.placeholder = "Recherche rapide ..."
-
-</script>
+  </script>
+</body>
 
 </html>

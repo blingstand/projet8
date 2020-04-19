@@ -19,15 +19,16 @@ from django.contrib import admin
 
 
 urlpatterns = [
-	path(r'user/', include(('user.urls', 'user'), namespace='user')),
+    path(r'user/', include(('user.urls', 'user'), namespace='user')),
+	path(r'products/', include(('products.urls', 'products'), namespace='products')),
     path(r'', include(('research.urls', ''))),
     path(r'research/', include(('research.urls', 'research'), namespace='research')),
 	path(r'skeleton/', include(('skeleton.urls', 'skeleton'), namespace='skeleton')),
     path(r'admin/', admin.site.urls),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path(r'__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+# if settings.DEBUG:
+#     import debug_toolbar
+#     urlpatterns = [
+#         path(r'__debug__/', include(debug_toolbar.urls)),
+#     ] + urlpatterns

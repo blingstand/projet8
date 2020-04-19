@@ -184,9 +184,10 @@ class FavoriteView(View):
     """ manages the favorite page"""
     def notify_db(self, profile, prod_name):
         """ adds a given prod to the profile fav list"""
-        product = Product.objects.get(name=prod_name) #it always exists, so don't need : try/except
-        profile.favlist.add(product)
-        profile.save()
+        product = Product.objects.filter(name__icontains=prod_name) #it always exists, so don't need : try/except
+        print(product)
+        # profile.favlist.add(product)
+        # profile.save()
 
     def get(self, request, prod_name=None):
         """ manage the get request for fav page"""

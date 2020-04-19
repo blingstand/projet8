@@ -1,16 +1,19 @@
 /*This css exists to adapt my boostrap theme to customers'desires */
 html{
-
-	font-family: "Open Sans", sans-serif;
+	font-family: "Open Sans", sans-serif !important;
 }
 p{
-	font-family: "Scope One", sans-serif;
+	font-family: "Scope One", sans-serif !important;
 }
 
 /* main css */
+
+	.big_text{
+		font-size: 2.5rem;}
 	.section1{
 		background-color: #c45525;
 		color :  white;
+		padding: 6rem 0;
 	}
 	.section2{
 		background-color: #86ebe6; 
@@ -32,7 +35,7 @@ p{
 
 	}
 	.align-center{
-		display :  flex;
+		display : flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction : row;
@@ -74,16 +77,17 @@ p{
 		font-weight: bold; 
 		text-decoration: underline; 
 	}
-/* css for base.html */
 	nav{
 	  border-bottom: 0.2rem solid white;
 	  border-top: 0.2rem solid white;
 }
+/* css for base.html */
 	#mainNav {
 		box-shadow: none;
-		opacity: 0.8;
+		opacity: 0.9;
 		background-color: #345a61; 
 	}
+		
 		.cont-logo-title{
 			display:  flex; 
 			flex-direction: row; 
@@ -124,6 +128,30 @@ p{
 			position : relative;
 			left : -2em;
 		}
+		@media (max-width: 992px) {
+			#nav-mini-search{
+				width : 90%;
+				height : 2.5em;
+				border-radius : 0;
+				margin :  0 2rem;
+				padding: 0 2em; 
+				text-align : center;
+
+			}
+			#nav-mini-submit{
+				width : 6rem;
+				height : 2.5em;
+				border-radius : 0;
+				position : relative;
+				left : -2em;
+			}
+			.navbar-navitem{
+				flex-direction : row; 
+				align-items: center;
+				justify-content: space-around;
+
+			}
+		}
 		.page-section {
 		  padding: 3rem 0;
 		}
@@ -162,7 +190,8 @@ p{
 	}
 	
 	.mastheadfc{ /*according to clients desires*/	
-		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/fond.jpg");
+		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), 
+		url("../img/fond.jpg");
 		padding-top: 10rem;
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
@@ -325,6 +354,7 @@ p{
 	.result-title{
 		width :  18rem; 
 		background-color: rgba(255, 255, 230, 0.8);
+		margin-top: 5rem; 
 	}
 
 	.cont-img-result{
@@ -373,4 +403,15 @@ p{
 	background-attachment: fixed;
 	background-size: 80rem 37rem;
 	height: 18rem;
+}
+/* Infos*/
+.masthead-infos{
+	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%);
+	padding-top: 10rem;
+	padding-bottom: calc(15rem - 72px);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 68rem 25rem;
+	height: 25rem;
 }

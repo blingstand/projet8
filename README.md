@@ -3,11 +3,12 @@
 
 Ce projet a été créé pour répondre aux exigence du projet 8 de la formation Openclassroom parcours Python. Il s'agit de créer un site web pour recherche un substitut aux produit du quotidien. [Mon site(https://blingpurebeurre.herokuapp.com/)]
 Sur ce site vous pouvez actuellement : 
-    * vous inscrire,
-    * vous connecter/déconnecter,
-    * faire une recherche simple,
-    * ajouter un produit dans vos favoris, 
-    * renseigner un mail
+* vous inscrire,
+* vous connecter/déconnecter,
+* faire une recherche simple,
+* ajouter un produit dans vos favoris, 
+* renseigner un mail
+* vous renseigner sur un produit
 
 
 Développé avec Python 3.8, Django 3.0.3
@@ -37,7 +38,9 @@ Ouvrez le terminal puis tapez
 
 Dans mon projet vous allez avoir besoin d'un super utilisateur. Pour l'exemple je vais créer un 
 compte admin/admin@mail.fr/mdpadmin (pseudo/mail/mot de passe).
-    Pour ce faire : 
+
+Pour ce faire : 
+
         $ python manage.py createsuperuser
         Username: admin # pseudo souhaité et appuyez sur retour.
         Email address: admin@mail.fr # mail souhaité et appuyez sur retour
@@ -51,6 +54,7 @@ compte admin/admin@mail.fr/mdpadmin (pseudo/mail/mot de passe).
 Je suppose que vous avez installé et configuré mon projet. Vous pouvez désormais le lancer en faisant : 
 
     $ python manage.py runserver
+
 le système répondra : 
 
     System check identified no issues (0 silenced).
@@ -76,7 +80,7 @@ Dans cet extrait, vous trouverez les trois commandes que j'ai créé pour peuple
     [products]
     cat #permet de montrer, ajouter ou supprimer une catégorie (et ses produits)
     dropcp #vide les tables
-    pop_db #peuple les tables
+    popcp #peuple les tables
 
 Leur code est disponible [ici](https://github.com/blingstand/projet8/tree/master/products/management/commands).
 
@@ -91,13 +95,13 @@ Un exemple :
      cat / prod >  0  /  0
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  
 
-    $ python manage.py pop_db #attention au tiret entre pop et db 
+    $ python manage.py popcp 
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  
     Cette commande peuple les tables Category et Product de la base.
-    Astuce : Tapez python manage.py pop_db -h pour découvrir les arguments 
+    Astuce : Tapez python manage.py popcp -h pour découvrir les arguments 
     que vous pouvez passer à cette commande
     J'utilise la valeur par défaut de 5 produits/categorie
-    mais cette valeur peut être changée avec python manage.py pop_db --snp <int>
+    mais cette valeur peut être changée avec python manage.py popcp --snp <int>
      *** Récupération des données depuis le site Open Food Fact ***
      *** Insertion des données dans la base ***
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  
@@ -107,7 +111,11 @@ Un exemple :
 
 ## Tests
 
-Pour lancer les tests, c'est très simple tapez 
+J'ai organisé mes tests de la manière suivante. Ils sont tous regroupés dans le dossier [test](https://github.com/blingstand/projet8/tree/master/test). Vous trouverez à l'intérieur un test pour chaque application. Au debut du testxxx.py vous aurez les tests unitaires et ensuite les tests d'intégrations. Seuls les tests de validation se trouvent séparés car j'ai jugé qu'ils n'appartenait non pas à une seule mais à toutes les applications.
+
+Remarque : django-nose est installé sur ce projet ce qui signifie que le niveau de couverture des tests sera consultable. J'ai volontairement laissé le dossier .coverage pour mon correcteur Openclassrooms. 
+
+Pour lancer les tests, c'est très simple tapez : 
 
     $ python manage.py test #lance tous les tests (codés pour le moment)
-    $ python manage.py test user #lance que les tests de l'app user  (codés pour le moment)
+    $ python manage.py test test.test_user #lance que les tests de l'app user  (codés pour le moment)

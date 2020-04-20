@@ -20,7 +20,7 @@
 						<img class="indice" src="{% static 'skeleton/img/' %}{{fav.nutriscore_img}}"  >
 					</div>
 					<div class="cont-img-result" data-toggle="tooltip" data-placement="bottom" title="Cliquez pour plus d'infos" >
-						<a href="{% url 'products:infos'%}/{{fav.name}}" target="_blank" >
+						<a href="{% url 'products:infos'%}/{{fav.name}}" >
 							<img class="img-result" src={{fav.image_url}} alt="image d'un produit en favori">
 						</a>
 					</div>

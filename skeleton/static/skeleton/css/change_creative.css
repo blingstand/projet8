@@ -2,6 +2,7 @@
 html{
 	font-family: "Open Sans", sans-serif !important;
 }
+
 p{
 	font-family: "Scope One", sans-serif !important;
 }
@@ -9,7 +10,8 @@ p{
 /* main css */
 
 	.big_text{
-		font-size: 2.5rem;}
+		font-size: 2.5rem;
+	}
 	.section1{
 		background-color: #c45525;
 		color :  white;
@@ -17,9 +19,11 @@ p{
 	}
 	.section2{
 		background-color: #86ebe6; 
+		padding: 6rem 0;
 	}
 	.section3{
-		background-color:  #e8a75d; 
+		background-color:  #e8a75d;
+		padding: 6rem 0; 
 	}
 	.section1 a, .section2 a, .section3 a{
 		color : #345a61;
@@ -193,14 +197,15 @@ p{
 		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), 
 		url("../img/fond.jpg");
 		padding-top: 10rem;
-		padding-bottom: calc(10rem - 72px);
-		background-position: center;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
+		padding-bottom: calc(10rem - 56px);
+		background-position: center center;
 		background-size: cover;
 	}
 	#title_du_gras{
-		margin : 2rem 0;}
+		margin : 2rem 0;
+		padding: 0 1rem;
+	}
+
 	.contains-simple-search{
 		margin-left : 8em;
 	}
@@ -301,9 +306,6 @@ p{
 		justify-content : space-around;
 	}
 
-	.account{
-		margin-bottom: 1em; 
-	}
 
 /*advancedSearch*/
 

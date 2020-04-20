@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig', 
     # 'debug_toolbar',
 
-    # "django_nose"
+    "django_nose"
 ]
 
 MIDDLEWARE = [
@@ -133,13 +133,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #for django-nose
-# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-# NOSE_ARGS = [
-#     '--with-coverage',
-#     '--cover-tests',
-#     '--cover-package=user',
-#     '--cover-html'
-# ]
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-tests',
+    '--cover-package=user',
+    '--cover-html'
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

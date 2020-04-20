@@ -5,16 +5,17 @@ import urllib
 #inspired by 
 class OpenFoodFact(): 
     """ this class manages the methods to get datas"""
-
     def build_url(self, parameters=None):
+        """builds the url for OFF api """ 
         service='cgi'
         resource_type='search.pl'
         geo_url = 'https://fr.openfoodfacts.org'
         base_url = "/".join([geo_url, service, resource_type])
         extension = urllib.parse.urlencode(parameters)
         base_url = "?".join([base_url, extension])
-        print(base_url)
+
         return base_url
+
     def advanced_search(self, post_query):
         """ manages the parameters to get a json response"""
         post_query['json'] = '1'

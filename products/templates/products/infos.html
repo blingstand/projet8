@@ -1,0 +1,27 @@
+{% extends "skeleton/base.html" %}
+{% load static %}
+{% block content%}
+<header class="masthead-infos align-center" style='background-image: url("{{prod.image_url}}");'>
+	<div class="result-title opac_white_background">
+		<h2 class="text-center text-black mt-2">Information sur le produit </h2>
+		<p class="text-center mt-0 text-black">{{ prod.name }}</p>
+	</div>
+	</div>
+</header>
+<section class="section1 row" id="about">
+	<div class="container">
+		<div class="row">
+			{% if prod is not None%}
+			<div class="col-12 col-md-6 mb-5 align-center"><img src="{% static 'skeleton/img/' %}{{prod.nutriscore_big_img}}"  ></div>
+			<div class="col-12 col-md-6 align-center">
+				<p class="big_text text-center">Repère nutritionnel pour 100g</p>
+
+			</div>
+			<div class="col-12 align-center"> <a class="btn btn-primary-green mt-2 bt-1 text-white" href="{{ prod.url }}">Encore plus d'infos</a> </div>
+			{% endif %}
+		</div>
+	</div>
+	
+
+</section>
+{% endblock %}

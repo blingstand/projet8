@@ -35,7 +35,6 @@ class Command(BaseCommand):
             print("\nJ'utilise la valeur par défaut de 5 produits/categorie"\
                 "\nmais cette valeur peut être changée avec python manage.py pop_db --snp <int>")
         if len(Category.objects.all()) == 0:
-            print(CATEGORIES, type(CATEGORIES))
             get_and_insert(size, CATEGORIES, display_entry)
         else:
             response = input("Votre table Category n'est pas vide ..."\

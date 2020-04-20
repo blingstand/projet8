@@ -8,8 +8,8 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 
 from user.models import Profile
 from products.models import Category, Product
-Category
-print("***\n> test_us")
+
+print("test_us\n", "_ "*20)
 
 class AccountTestCase(LiveServerTestCase):
 

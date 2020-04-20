@@ -9,13 +9,12 @@ class InfosView(View):
         get > loads a connection page
         post > analyses datas in order to try to authenticate
     """
-    def get(self, request, prod_name):
+    def get(self, request, prod_name=None):
         """ manage the get request concerning the connection page """
-        if request.user.is_authenticated:
-            if prod_name:
-                prod = Product.objects.get(name=prod_name)
-                context={
-                    'prod' : prod }
-                return render(request, 'products/infos.html', context)
-            return  redirect('research/index')
-        return render(request, 'user/connection.html', context)
+        if prod_name:
+            print("prod")
+            prod = Product.objects.get(name=prod_name)
+            context={
+                'prod' : prod }
+            return render(request, 'products/infos.html', context)
+        return redirect('research:index')

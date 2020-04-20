@@ -12,7 +12,6 @@ def get_and_insert(size, categories, display_entry=None, add_cat=True):
         categories = [categories]
     try: 
         objet = GetDatas(size+5, categories, criterions) 
-        print("je lance le create dico")
         dico_cat = objet.create_dict_cat()
         print("\n", "*** Insertion des données dans la base ***")
         for cat in categories:  

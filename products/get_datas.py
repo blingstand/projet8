@@ -42,6 +42,9 @@ class GetDatas():
         for prod in my_list: #selects prod from list of products
             try:
                 name = prod["product_name"].lower()
+                if name[:5] == "arroz":
+                    print(f"----------------------------{name}")
+                    exceptions.append(prod)
             except KeyError:
                 exceptions.append(prod)
                 continue
@@ -102,6 +105,7 @@ class GetDatas():
         return list_prod_resp_size
     def create_dict_cat(self):
         """Creates the dict_prod with previous functions  """
+
         dict_prod = {} #create dico
         for cat in self.category:
             list_prod = self._get_list_for_cat(cat)

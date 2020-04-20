@@ -34,7 +34,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container"> 
-      <a class="navbar-brand js-scroll-trigger" href="/"><img id="logo" src="{% static 'skeleton/img/logo.png'%}" alt="logo"> <span class="title-close-to-logo"> Pur Beurre </span></a>
+      <a class="navbar-brand js-scroll-trigger" id="biscuit" href="{% url 'research:index'%}"><img id="logo" src="{% static 'skeleton/img/logo.png'%}" alt="logo"> <span class="title-close-to-logo"> Pur Beurre </span></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -82,38 +82,39 @@
       </div>
     </div>
   </nav>
-    {% endblock %}
-    <!-- this block contains searching app -->
-    {% block content %}{% endblock %}
 
-    {% block footer %}
-    <!-- Footer -->
-    <footer class="py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-6 mr-auto text-center">
-            <a class="d-block" href="{% url 'skeleton:legalNotice'%}">Mentions légales</a>
-          </div>
-          <div class="col-lg-6 col-6 mr-auto text-center">
-            <a class="d-block" href="https://openclassrooms.com/fr/">OpenClassrooms</a>
-          </div>
+  {% endblock %}
+  <!-- this block contains searching app -->
+  {% block content %}{% endblock %}
+
+  {% block footer %}
+  <!-- Footer -->
+  <footer class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-6 mr-auto text-center">
+          <a class="d-block" href="{% url 'skeleton:legalNotice'%}">Mentions légales</a>
+        </div>
+        <div class="col-lg-6 col-6 mr-auto text-center">
+          <a class="d-block" href="https://openclassrooms.com/fr/">OpenClassrooms</a>
         </div>
       </div>
-    </footer>
-    {% endblock %}
+    </div>
+  </footer>
+  {% endblock %}
 
-    {% block script%}
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'skeleton/vendor/jquery/jquery.min.js'%}"></script>
-    <script src="{% static 'skeleton/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  {% block script%}
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'skeleton/vendor/jquery/jquery.min.js'%}"></script>
+  <script src="{% static 'skeleton/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="{% static 'skeleton/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
-    <script src="{% static 'skeleton/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'skeleton/vendor/jquery-easing/jquery.easing.min.js'%}"></script>
+  <script src="{% static 'skeleton/vendor/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
 
-    <!-- Custom scripts for this template -->
-    <!-- <script src="{% static 'skeleton/js/creative.min.js'%}"></script> -->
-    {% endblock %}
+  <!-- Custom scripts for this template -->
+  <!-- <script src="{% static 'skeleton/js/creative.min.js'%}"></script> -->
+  {% endblock %}
   <script>
   //display a placeholder in simple_form_input
   nav_mini_search = document.getElementById("nav-mini-search")

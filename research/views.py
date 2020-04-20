@@ -30,6 +30,12 @@ def make_a_search(get_from_input, wanted, given_category=None):
     if wanted == ["prod", "categories"]:
         return search, prod, categories
     return f"Verifie le paramètre wanted (valeur actuelle : {wanted})"
+
+class titi(View):
+    def get(self, request):
+        return render(request, "research/titi.html") 
+
+
 class ResultsView(View):
     """ manages a HttpResponse in case of get or post method
     request for this url research/advancedSearch"""

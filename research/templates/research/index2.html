@@ -2,66 +2,58 @@
 {% load static %}
 
 {% block content %}
-<body>
 <!-- Mastheadfc -->
 {% block nav%}
-  
-
 <header class="mastheadfc">
-  <div class="container">
-    <div class="row h-100 align-center text-center">
-      <div class="w-100 align-self-end">
-        <h1 class="text-uppercase text-white font-weight-bold m-2 p-1" >Du gras oui mais de bonne qualité ! </h1>
-        <p class="text-white-75 font-weight-light m-2 p-1">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.
-        </p>
-      </div>
-      <div class="W-100 mt-4">
-        <form classe="" action="" method='POST'>
-          {% csrf_token %}
-          <div class="container">
-            <div class="row">
-              <div class="col-10">{{search_form.simple_search}}</div> 
-              <div class="col-2">
-                <input type="submit" class="btn btn-primary" id="simple-form-submit" value="Valider"> 
-              </div>   
-              {% for message in messages %}
-              <div class="col-12 text-center text-white" id="index-msg-error"> {{ message}}</div>
-              {% endfor %}
-              <div class="col-12 text-center text-white mt-2">
-                {% if however%}
-                <p class="w-100 text-center text-white" id="index-however"> {{ however }}</p>
-                {% endif%}
-                {% if few_cat%}
-                <div class="w-100 flex-space-around">
-                  {% for cat in categories%}  
-                  <p>
-                    <a class="btn btn-primary mt-2 bt-1" id="index-cat-{{cat|cut:' '}}" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a>
-                  </p>
-                  {% endfor %}
-                </div>
-                {%else%}
-                <div class="row">
-                  {% for cat in categories%}  
-                  <div class="mb-2 col-lg-4">
-                    <a class="btn btn-primary mt-2 bt-1 index-category" id="index-cat-{{cat|cut:' '}}" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">
-                      {{cat}}
-                    </a>
-                  </div>
-                  {% endfor %}
-                </div>
-                {% endif %}
+  <div class="row h-100 align-items-center justify-content-center text-center">
+    <div class="w-100 align-self-end">
+      <h1 class="text-uppercase text-white font-weight-bold" id="title_du_gras">Du gras oui mais de bonne qualité ! </h1>
+      <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.
+      </p></div>
+    <div class="W-100">
+      <form classe="" action="" method='POST'>
+        {% csrf_token %}
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-10">{{search_form.simple_search}}</div> 
+            <div class="col-lg-2 col-2">
+              <input type="submit" class="btn btn-primary" id="simple-form-submit" value="Valider"> 
+            </div>   
+            {% for message in messages %}
+            <div class="col-12 text-center text-white" id="index-msg-error"> {{ message}}</div>
+            {% endfor %}
+            <div class="col-12 text-center text-white mt-2">
+              {% if however%}
+              <p class="w-100 text-center text-white" id="index-however"> {{ however }}</p>
+              {% endif%}
+              {% if few_cat%}
+              <div class="w-100 flex-space-around">
+                {% for cat in categories%}  
+                <p>
+                  <a class="btn btn-primary mt-2 bt-1" id="index-cat-{{cat|cut:' '}}" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">{{cat}}</a>
+                </p>
+                {% endfor %}
               </div>
+              {%else%}
+              <div class="row">
+                {% for cat in categories%}  
+                <div class="mb-2 col-lg-4">
+                  <a class="btn btn-primary mt-2 bt-1 index-category" id="index-cat-{{cat|cut:' '}}" href=" {%url 'research:results'%}/{{cat}}/{{get_from_input}}">
+                    {{cat}}
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
             </div>
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      </form>
   </div>
 </header>
 {% endblock %}
-
 {% block about %}
-<section class="section1 row" id="about">
+<section class="section1 p-2 row" id="about">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
@@ -73,12 +65,12 @@
         <div class="container">
           <div class="row">
             <div class="offset-2"></div>
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-3">
               <img id="colette" src="{% static 'skeleton/img/colette_tatou.png'%}" alt=""/>
               <p class="text-white text-bold legend">Colette</p>
             </div>
             <div class="offset-2"></div>
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-3">
               <img id="remi" src="{% static 'skeleton/img/ratatouille2.png'%}" alt=""/>
               <p class="text-white text-bold legend">Rémi</p>
             </div>
@@ -92,17 +84,17 @@
 {% endblock %}
 {% block contact %}
 <!-- Contacts Section -->
-<section class="section2 contact-us row" id="services">
+<section class="section2 contact-us p-2 row" id="services">
   <div class="container">
     <h2 class="text-center mt-0">Contactez-nous ! </h2>
     <hr class="divider my-4">
     <div class="row">
-      <div class="col-lg-6 ml-auto text-center mb-5 mb-lg-0">
+      <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
         <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
         <div>00.00.00.00.00</div>
         <p class="text-muted mb-0">Même en travaillant on répond, alors n'hésitez pas!</p>
       </div>
-      <div class="col-lg-6 text-center">
+      <div class="col-lg-4 mr-auto text-center">
         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
         <!-- Make sure to change the email address in anchor text AND the link below! -->
         <a class="d-block" href="mailto:mail@mail.com">mail@mail.com</a>
@@ -121,6 +113,5 @@
   nav_mini_search.textContent = ""
   nav_mini_search.placeholder = "Recherche rapide ..."
 </script>
-</body>
 {% endblock %}
 

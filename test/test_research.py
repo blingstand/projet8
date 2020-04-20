@@ -13,7 +13,7 @@ from products.models import Category, Product
 
 print("test_research\n", "_ "*20)
 #-- unit test_get --
-@skip
+
 class UnitTest(TestCase):
     def setUp(self):
         #a cat
@@ -115,7 +115,7 @@ class UnitTest(TestCase):
         self.assertTrue(len(list_sub), 3) #3 prods
 
 #-- integration test_get -- 
-@skip
+
 class ResultsViewTests(TestCase):
 
     def setUp(self):
@@ -169,13 +169,8 @@ class ResultsViewTests(TestCase):
         self.assertEqual(response.status_code , 302)
         self.assertRedirects(response, reverse('research:index'))
 
-    def test_post_no_res_access_get_no_param(self): 
-        """ Tests whether the function redirects in case of post request"""
-        response = self.client.post(reverse('research:results' ))
-        self.assertEqual(response.status_code , 302)
-        self.assertRedirects(response, reverse('research:index'))
 
-@skip
+
 class IndexViewTests(TestCase):
     
     def setUp(self):

@@ -5,7 +5,7 @@ from products.models import Category, Product
 
 
 def get_and_insert(size, categories, display_entry=None, add_cat=True): 
-    criterions = ("product_name", "packaging", "nutrition_grades", "url", "image_url")
+    criterions = ("product_name", "packaging", "nutrition_grades", "url", "image_url", "image_nutrition_url")
     
     print("\n", "*** Récupération des données depuis le site Open Food Fact ***")
     if not isinstance(categories, list):
@@ -34,7 +34,9 @@ def get_and_insert(size, categories, display_entry=None, add_cat=True):
                             image_url=dico_prod["image_url"],
                             url=dico_prod["url"],
                             nutriscore=dico_prod["nutrition_grades"],
-                            packaging=dico_prod["packaging"])
+                            packaging=dico_prod["packaging"], 
+                            image_nutrition_url=dico_prod["image_nutrition_url"]
+                            )
                             if display_entry == 1:
                                 print("\t", count+1,new_prod, "> created")
                             new_prod.save()

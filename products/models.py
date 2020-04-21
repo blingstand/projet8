@@ -16,6 +16,7 @@ class Product(models.Model):
     nutriscore = models.CharField(max_length=2)
     packaging = models.CharField(max_length=250)
     category = models.ManyToManyField(Category)
+    image_nutrition_url = models.CharField(max_length=200, default="pas de repères nutritionnels")
 
     def __str__(self):
         return self.name

@@ -137,7 +137,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage',
     '--cover-tests',
-    '--cover-package=user',
+    '--cover-package=user, products, research',
     '--cover-html'
 ]
 

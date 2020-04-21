@@ -43,7 +43,6 @@ class GetDatas():
             try:
                 name = prod["product_name"].lower()
                 if name[:5] == "arroz":
-                    print(f"----------------------------{name}")
                     exceptions.append(prod)
             except KeyError:
                 exceptions.append(prod)

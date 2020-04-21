@@ -210,7 +210,8 @@ p{
 		margin-left : 8em;
 	}
 	#simple-form-input{
-		width : 100%;
+		width : 80%;
+		margin-left: 20%;
 		height : 4em;
 		border-radius : 10em 0 0 10em;
 		padding: 0 0 0 4em; 
@@ -238,7 +239,7 @@ p{
 		height : 4rem;
 		border-radius : 10rem;
 		position : relative;
-		left : -4rem;
+		left : -5rem;
 	}
 /*page connexion*/
 	.masthead-connexion{ 	

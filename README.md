@@ -113,7 +113,7 @@ Un exemple :
 
 J'ai organisé mes tests de la manière suivante. Ils sont tous regroupés dans le dossier [test](https://github.com/blingstand/projet8/tree/master/test). Vous trouverez à l'intérieur un test pour chaque application. Au debut du testxxx.py vous aurez les tests unitaires et ensuite les tests d'intégrations. Seuls les tests de validation se trouvent séparés car j'ai jugé qu'ils n'appartenait non pas à une seule mais à toutes les applications.
 
-Remarque : django-nose est installé sur ce projet ce qui signifie que le niveau de couverture des tests sera consultable. J'ai volontairement laissé le dossier .coverage pour mon correcteur Openclassrooms. 
+Remarque : django-nose est installé sur ce projet ce qui signifie que le niveau de couverture des tests sera consultable. J'ai volontairement laissé le dossier cover pour mon correcteur Openclassrooms. 
 
 Pour lancer les tests, c'est très simple tapez : 
 

@@ -3,22 +3,21 @@
 
 {% block content %}
 <body>
-<!-- Mastheadfc -->
-{% block nav%}
+  <!-- Mastheadfc -->
+  {% block nav%}
   
 
-<header class="mastheadfc">
-  <div class="container">
-    <div class="row h-100 align-center text-center">
-      <div class="w-100 align-self-end">
-        <h1 class="text-uppercase text-white font-weight-bold m-2 p-1" >Du gras oui mais de bonne qualité ! </h1>
-        <p class="text-white-75 font-weight-light m-2 p-1">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.
-        </p>
-      </div>
-      <div class="W-100 mt-4">
-        <form classe="" action="" method='POST'>
-          {% csrf_token %}
-          <div class="container">
+  <header class="mastheadfc">
+    <div class="container">
+      <div class="row h-100 align-center text-center">
+        <div class="col-12 align-self-end">
+          <h1 class="text-uppercase text-white font-weight-bold m-2 p-1" >Du gras oui mais de bonne qualité ! </h1>
+          <p class="text-white-75 font-weight-light m-2 p-1">Trouvez un produit de substitution pour ceux que vous consommez tous les jours.
+          </p>
+        </div>
+        <div class="col-12 mt-4">
+          <form classe="" action="" method='POST'>
+            {% csrf_token %}
             <div class="row">
               <div class="col-10">{{search_form.simple_search}}</div> 
               <div class="col-2">
@@ -52,67 +51,66 @@
                 {% endif %}
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-{% endblock %}
+  </header>
+  {% endblock %}
 
-{% block about %}
-<section class="section1 row" id="about">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h2 class="text-white mt-0">Colette et Rémi </h2>
-        <hr class="divider light my-4">
-        <p class="text-white-50 mb-4">Colette Tatou : "Nous aimons tous manger, surtout en France ! Personnellement, une baguette fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent amplement. Comme tout le monde, je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais l'habitude d'acheter par de bons produits du terroir Et souvent pour le même prix !"
-        </p>
-        <p class="text-white-50 mb-4">Remy : "Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader, surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio (dont je raffole) ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait remplacer son Nutella matinal par un aliment plus sain, je savais tout de suite où le trouver. L'idée de Pur Beurre était née !"</p>
-        <div class="container">
-          <div class="row">
-            <div class="offset-2"></div>
-            <div class="col-lg-3 col-12">
-              <img id="colette" src="{% static 'skeleton/img/colette_tatou.png'%}" alt=""/>
-              <p class="text-white text-bold legend">Colette</p>
+  {% block about %}
+  <section class="section1 row" id="about">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="text-white mt-0">Colette et Rémi </h2>
+          <hr class="divider light my-4">
+          <p class="text-white-50 mb-4">Colette Tatou : "Nous aimons tous manger, surtout en France ! Personnellement, une baguette fraîche, du bon fromage de chèvre et un bon vin rouge me suffisent amplement. Comme tout le monde, je fais mes courses au supermarché. Mais petit à petit je me suis rendue compte, surtout lorsque nous avons ouvert le restaurant, que je pouvais remplacer les produits aseptisés que j'avais l'habitude d'acheter par de bons produits du terroir Et souvent pour le même prix !"
+          </p>
+          <p class="text-white-50 mb-4">Remy : "Pour ma part je me rendais déjà dans bien des magasins car j'aime beaucoup me balader, surtout dans les caves et les cuisines. Je connaissais par coeur le contenu des boutiques bio (dont je raffole) ainsi que les ingrédients de tous les aliments vendus. Lorsque Colette m'a demandé si elle pouvait remplacer son Nutella matinal par un aliment plus sain, je savais tout de suite où le trouver. L'idée de Pur Beurre était née !"</p>
+          <div class="container">
+            <div class="row">
+              <div class="offset-2"></div>
+              <div class="col-lg-3 col-12">
+                <img id="colette" src="{% static 'skeleton/img/colette_tatou.png'%}" alt=""/>
+                <p class="text-white text-bold legend">Colette</p>
+              </div>
+              <div class="offset-2"></div>
+              <div class="col-lg-3 col-12">
+                <img id="remi" src="{% static 'skeleton/img/ratatouille2.png'%}" alt=""/>
+                <p class="text-white text-bold legend">Rémi</p>
+              </div>
+              <div class="offset-2"></div>
             </div>
-            <div class="offset-2"></div>
-            <div class="col-lg-3 col-12">
-              <img id="remi" src="{% static 'skeleton/img/ratatouille2.png'%}" alt=""/>
-              <p class="text-white text-bold legend">Rémi</p>
-            </div>
-            <div class="offset-2"></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-{% endblock %}
-{% block contact %}
-<!-- Contacts Section -->
-<section class="section2 contact-us row" id="services">
-  <div class="container">
-    <h2 class="text-center mt-0">Contactez-nous ! </h2>
-    <hr class="divider my-4">
-    <div class="row">
-      <div class="col-lg-6 ml-auto text-center mb-5 mb-lg-0">
-        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-        <div>00.00.00.00.00</div>
-        <p class="text-muted mb-0">Même en travaillant on répond, alors n'hésitez pas!</p>
-      </div>
-      <div class="col-lg-6 text-center">
-        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-        <!-- Make sure to change the email address in anchor text AND the link below! -->
-        <a class="d-block" href="mailto:mail@mail.com">mail@mail.com</a>
-        <p class="text-muted mb-0">Nous lisons nos mails chaque matin en déjeunant.</p>
+  </section>
+  {% endblock %}
+  {% block contact %}
+  <!-- Contacts Section -->
+  <section class="section2 contact-us row" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0">Contactez-nous ! </h2>
+      <hr class="divider my-4">
+      <div class="row">
+        <div class="col-lg-6 ml-auto text-center mb-5 mb-lg-0">
+          <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+          <div>00.00.00.00.00</div>
+          <p class="text-muted mb-0">Même en travaillant on répond, alors n'hésitez pas!</p>
+        </div>
+        <div class="col-lg-6 text-center">
+          <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+          <!-- Make sure to change the email address in anchor text AND the link below! -->
+          <a class="d-block" href="mailto:mail@mail.com">mail@mail.com</a>
+          <p class="text-muted mb-0">Nous lisons nos mails chaque matin en déjeunant.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-{% endblock %}
-<script>
+  </section>
+  {% endblock %}
+  <script>
   //display a placeholder in simple_form_input
   simple_form_input_field = document.getElementById("simple_form_input");
   simple_form_input_field.placeholder = "Entrez un mot pour une recherche rapide ..."

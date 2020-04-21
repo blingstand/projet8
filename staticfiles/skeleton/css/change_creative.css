@@ -1,21 +1,29 @@
 /*This css exists to adapt my boostrap theme to customers'desires */
 html{
-
-	font-family: "Open Sans", sans-serif;
+	font-family: "Open Sans", sans-serif !important;
 }
+
 p{
-	font-family: "Scope One", sans-serif;
+	font-family: "Scope One", sans-serif !important;
 }
 
 /* main css */
+
+	.big_text{
+		font-size: 2.5rem;
+	}
 	.section1{
 		background-color: #c45525;
+		color :  white;
+		padding: 6rem 0;
 	}
 	.section2{
 		background-color: #86ebe6; 
+		padding: 6rem 0;
 	}
 	.section3{
-		background-color:  #e8a75d; 
+		background-color:  #e8a75d;
+		padding: 6rem 0; 
 	}
 	.section1 a, .section2 a, .section3 a{
 		color : #345a61;
@@ -31,11 +39,15 @@ p{
 
 	}
 	.align-center{
-		display :  flex;
+		display : flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction : row;
 	}
-	.opac_white_background{
+	.align-center .nav-item{
+		list-style: none;
+	}
+	.opac-white-background{
 		background-color: rgba(255, 255, 230, 0.5);
 	}
 	.btn-primary-green {
@@ -60,20 +72,38 @@ p{
 		font-style: italic; 
 		font-size :  1rem;
 	}
-
-
-
+	.citation{
+		font-style: italic; 
+		font-size :  1rem;
+		}
+	.text-warning-red{
+		color :  red;
+		font-weight: bold; 
+		text-decoration: underline; 
+	}
+	nav{
+	  border-bottom: 0.2rem solid white;
+	  border-top: 0.2rem solid white;
+}
 /* css for base.html */
 	#mainNav {
 		box-shadow: none;
-		opacity: 0.8;
+		opacity: 0.9;
 		background-color: #345a61; 
 	}
+		
 		.cont-logo-title{
 			display:  flex; 
 			flex-direction: row; 
 			align-items: center;
 			width : 30rem;
+		}
+		@media (max-width: 767.98px) {
+			.cont-logo-title{
+				display :  flex;
+				align-items: center;
+				justify-content: center;
+			}
 		}
 		.title-close-to-logo{
 			font-size: 3rem;
@@ -91,7 +121,7 @@ p{
 			height : 2.5em;
 			border-radius : 10em 0 0 10em;
 			padding-left : 1em; 
-			margin-left: 3em;
+
 			text-align : left;
 		}
 
@@ -101,6 +131,30 @@ p{
 			border-radius : 10em;
 			position : relative;
 			left : -2em;
+		}
+		@media (max-width: 992px) {
+			#nav-mini-search{
+				width : 90%;
+				height : 2.5em;
+				border-radius : 0;
+				margin :  0 2rem;
+				padding: 0 2em; 
+				text-align : center;
+
+			}
+			#nav-mini-submit{
+				width : 6rem;
+				height : 2.5em;
+				border-radius : 0;
+				position : relative;
+				left : -2em;
+			}
+			.navbar-navitem{
+				flex-direction : row; 
+				align-items: center;
+				justify-content: space-around;
+
+			}
 		}
 		.page-section {
 		  padding: 3rem 0;
@@ -140,32 +194,52 @@ p{
 	}
 	
 	.mastheadfc{ /*according to clients desires*/	
-		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/fond.jpg");
+		background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), 
+		url("../img/fond.jpg");
 		padding-top: 10rem;
-		padding-bottom: calc(10rem - 72px);
-		background-position: center;
-		background-repeat: no-repeat;
-		background-attachment: scroll;
+		padding-bottom: calc(10rem - 56px);
+		background-position: center center;
 		background-size: cover;
 	}
-	.contains_simple_search{
+	#title_du_gras{
+		margin : 2rem 0;
+		padding: 0 1rem;
+	}
+
+	.contains-simple-search{
 		margin-left : 8em;
 	}
-	#simple_form_input{
-		width : 100%;
+	#simple-form-input{
+		width : 80%;
+		margin-left: 20%;
 		height : 4em;
 		border-radius : 10em 0 0 10em;
 		padding: 0 0 0 4em; 
-		margin-left: 3em;
 		text-align : center;
 	}
-
-	#simple_form_submit{
-		width : 8em;
-		height : 4em;
-		border-radius : 10em;
+	@media (max-width: 250px) {
+		#simple-form-input{
+			width : 90%;
+			height : 2em;
+			border-radius : 10em;
+			padding: 0 2em; 
+			text-align : center;
+			margin-left: 0;	
+		}
+		#simple-form-submit{
+			width: 14rem;
+			height: 3rem;
+			border-radius: 10rem;
+			position: relative;
+			left: 0;
+		}
+	}
+	#simple-form-submit{
+		width : 8rem;
+		height : 4rem;
+		border-radius : 10rem;
 		position : relative;
-		left : -6em;
+		left : -5rem;
 	}
 /*page connexion*/
 	.masthead-connexion{ 	
@@ -174,7 +248,7 @@ p{
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
 		background-repeat: no-repeat;
-		background-attachment: scroll;
+		background-attachment: fixed;
 		background-size: cover;
 	}
 
@@ -203,7 +277,7 @@ p{
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
 		background-repeat: no-repeat;
-		background-attachment: scroll;
+		background-attachment: fixed;
 		background-size: cover;
 	}
 	.masthead-register{ 	
@@ -212,7 +286,7 @@ p{
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
 		background-repeat: no-repeat;
-		background-attachment: scroll;
+		background-attachment: fixed;
 		background-size: cover;
 	}
 /* account page */
@@ -223,7 +297,7 @@ p{
 		padding-bottom: calc(10rem - 72px);
 		background-position: center;
 		background-repeat: no-repeat;
-		background-attachment: scroll;
+		background-attachment: fixed;
 		background-size: cover;
 	}
 
@@ -233,9 +307,6 @@ p{
 		justify-content : space-around;
 	}
 
-	.account{
-		margin-bottom: 1em; 
-	}
 
 /*advancedSearch*/
 
@@ -246,7 +317,7 @@ p{
 		padding-bottom: calc(10rem - 72px);
 		background-position: top;
 		background-repeat: no-repeat;
-		background-attachment: scroll;
+		background-attachment: fixed;
 		background-size: cover;
 	}
 
@@ -269,7 +340,7 @@ p{
 		padding-bottom: calc(5rem - 72px);
 		background-position: top;
 		background-repeat: no-repeat;
-		background-attachment: scroll;
+		background-attachment: fixed;
 		background-size: cover;
 	}
 	.img-header{
@@ -280,11 +351,13 @@ p{
 		display:  flex;
 		justify-content: center; 
 		align-items: center; 
+		margin-top :  2rem;
 
 	}
 	.result-title{
 		width :  18rem; 
 		background-color: rgba(255, 255, 230, 0.8);
+		margin-top: 5rem; 
 	}
 
 	.cont-img-result{
@@ -332,5 +405,16 @@ p{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 80rem 37rem;
-	height: 28rem;
+	height: 18rem;
+}
+/* Infos*/
+.masthead-infos{
+	background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%);
+	padding-top: 10rem;
+	padding-bottom: calc(15rem - 72px);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 68rem 25rem;
+	height: 25rem;
 }

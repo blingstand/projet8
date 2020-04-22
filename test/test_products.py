@@ -60,7 +60,7 @@ class ProductViewsTest(TestCase):
         self.product1.save()
 
     def test_redirect_when_no_prod(self):
-        """ tests whether access is possible when user is authenticated"""
+        """ tests whether access is impossible when user is authenticated"""
         response = self.client.get(reverse("products:infos"), follow=True)
         print(response.wsgi_request.build_absolute_uri())
         self.assertEqual(response.status_code, 200)
@@ -70,4 +70,3 @@ class ProductViewsTest(TestCase):
         """ tests whether access is possible when user is authenticated"""
         response = self.client.get("/products/infos/Pur jus d'orange sans pulpe")
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Repère nutritionnel pour 100g")

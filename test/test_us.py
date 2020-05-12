@@ -14,8 +14,10 @@ print("test_us\n", "_ "*20)
 class AccountTestCase(LiveServerTestCase):
 
     def test_user_stories(self):
+        firefox_options = webdriver.FirefoxOptions()
+        firefox_options.headless = True
         print("\n\n***\ndébut des test\n***")
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox(firefox_options=firefox_options)
         self.user = User(username="test")
         self.user.set_password("123")
         self.user.save()
@@ -55,6 +57,8 @@ class AccountTestCase(LiveServerTestCase):
         self.product4.category.add(self.category2)
         self.product3.save()
         self.product4.save()
+
+
         #Opening the link we want to test
         register = f"{self.live_server_url}/user/register"
         self.driver.get(register)

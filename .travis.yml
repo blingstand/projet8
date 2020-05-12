@@ -14,6 +14,7 @@ before_install:
   - mkdir geckodriver
   - tar -xzf geckodriver-v0.26.0-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
+  - firefox -v
 
 before_script:
   - pip install -r requirements.txt

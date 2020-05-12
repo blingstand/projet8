@@ -17,8 +17,6 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '#y-ca+0y#ewq-i=1y*5_fnad8@&r$t%7g@u#$lmg@2k_tu8cms'
 
@@ -42,7 +40,7 @@ INSTALLED_APPS = [
     'research.apps.ResearchConfig', 
     'skeleton.apps.SkeletonConfig', 
     'products.apps.ProductsConfig', 
-    "django_nose"
+    # "django_nose"
 ]
 
 MIDDLEWARE = [
@@ -56,6 +54,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 INTERNAL_IPS = ['127.0.0.1']
+
 ROOT_URLCONF = 'pureBeurre.urls'
 
 TEMPLATES = [
@@ -109,13 +108,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #for django-nose
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = [
-    '--with-coverage',
-    '--cover-tests',
-    '--cover-package=user, products, research',
-    '--cover-html'
-]
+# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+# NOSE_ARGS = [
+#     '--with-coverage',
+#     '--cover-tests',
+#     '--cover-package=user, products, research',
+#     '--cover-html'
+# ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -135,6 +134,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'skeleton/static/')]
 
+
+# Static files settings
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+# Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT, 'static'),
+#     )

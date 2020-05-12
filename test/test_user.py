@@ -137,7 +137,6 @@ class AuthenticationViewTests(TestCase):
         }
         self.client.logout()
         response = self.client.post(reverse("user:register"), follow=True)
-        print(dir(response.wsgi_request))
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, reverse("user:connection"))
 
@@ -349,12 +348,9 @@ class FavoriteTests(TestCase):
     def test_favorite_get_access_with_param(self):
         """ test wehter user can acces user/favorite/orange bio"""
         before = len(self.profile.favlist.all())
-        print(f"before : {before}")
-        print(f"profile, user : {self.profile, self.user}")
 
         response = self.client.get("/user/favorite/orange bio")
         after = len(self.profile.favlist.all())
-        print(f"after : {after}")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(before, after-1)
 

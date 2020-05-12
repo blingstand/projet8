@@ -62,7 +62,6 @@ class ProductViewsTest(TestCase):
     def test_redirect_when_no_prod(self):
         """ tests whether access is impossible when user is authenticated"""
         response = self.client.get(reverse("products:infos"), follow=True)
-        print(response.wsgi_request.build_absolute_uri())
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, reverse('research:index'))
 

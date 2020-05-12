@@ -33,4 +33,4 @@ typed-ast==1.4.1
 urllib3==1.25.8
 whitenoise==5.0.1
 wrapt==1.11.2
-
+tchappui-webdrivers==0.2.0

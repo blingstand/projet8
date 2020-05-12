@@ -4270,3 +4270,50 @@ JavaScript error: http://localhost:38107/research/index, line 176: TypeError: si
 JavaScript error: http://localhost:38107/research/index, line 166: TypeError: simple_form_input_field is null
 1589260776890	Marionette	INFO	Stopped listening on port 42919
 JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1589272862364	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileIWiFF8"
+*** You are running in headless mode.
+1589272868739	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1589272870933	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1589272870934	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1589272870935	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1589272870935	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1589272881690	Marionette	INFO	Listening on port 33257
+1589272881763	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xA000D,name=PBackgroundIDBDatabase::Msg_Invalidate) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xA000E,name=PBackgroundIDBDatabase::Msg_CloseAfterInvalidationComplete) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1C0011,name=PBackgroundStorage::Msg_Observe) Channel error: cannot send/recv
+
+JavaScript error: http://localhost:60487/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+JavaScript error: http://localhost:60487/user/myAccount, line 103: TypeError: mail_field is null
+1589272891502	Marionette	INFO	Stopped listening on port 41103
+JavaScript error: http://localhost:60487/research/index, line 178: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:60487/research/index, line 184: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:60487/research/results/jus%20de%20fruits/jus%20d'orange, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:60487/research/index, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:60487/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:60487/research/index, line 166: TypeError: simple_form_input_field is null
+1589272895986	Marionette	INFO	Stopped listening on port 33257
+1589272911193	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefgYFLa"
+*** You are running in headless mode.
+1589272912139	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1589272913701	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1589272913701	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1589272913702	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1589272913702	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1589272916020	Marionette	INFO	Listening on port 44705
+1589272916114	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:39755/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39755/user/myAccount, line 103: TypeError: mail_field is null
+JavaScript error: http://localhost:39755/research/index, line 178: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39755/research/index, line 184: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39755/research/results/jus%20de%20fruits/jus%20d'orange, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:39755/research/index, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:39755/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39755/research/index, line 166: TypeError: simple_form_input_field is null
+1589272925478	Marionette	INFO	Stopped listening on port 44705

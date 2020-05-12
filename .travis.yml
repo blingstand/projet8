@@ -29,7 +29,3 @@ env: DJANGO_SETTINGS_MODULE=pureBeurre.settings.travis
 
 script:
   - ./manage.py test test.test_us
-
-after_success:
-  - echo 'tests réussis, je push sur master'
-  - git push origin master

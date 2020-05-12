@@ -15,7 +15,6 @@ class AccountTestCase(LiveServerTestCase):
 
     def test_user_stories(self):
         print("\n\n***\ndébut des test\n***")
-        #self.driver = webdriver.Firefox('/home/blingstand/Bureau/openclassrooms/projets/projet8/pureBeurre/')
         self.driver = webdriver.Firefox()
         self.user = User(username="test")
         self.user.set_password("123")

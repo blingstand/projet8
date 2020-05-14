@@ -1,8 +1,4 @@
 *.pyc
 __pycache__/
-email_info.py
-p8_1_adress_de_mon_site.txt
-p8_2_demarche_creation.odt
-livrables*
-slide.odp
+pureBeurre/settings/__init__.py
 pureBeurre/settings/production.py

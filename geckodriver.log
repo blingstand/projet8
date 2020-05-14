@@ -4317,3 +4317,21 @@ JavaScript error: http://localhost:39755/research/index, line 157: TypeError: do
 JavaScript error: http://localhost:39755/research/index, line 176: TypeError: simple_form_input_field is null
 JavaScript error: http://localhost:39755/research/index, line 166: TypeError: simple_form_input_field is null
 1589272925478	Marionette	INFO	Stopped listening on port 44705
+1589443422796	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJKfMHK"
+*** You are running in headless mode.
+1589443423532	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1589443424205	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1589443424205	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1589443424205	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1589443424205	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1589443427648	Marionette	INFO	Listening on port 37271
+1589443427713	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:50251/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:50251/user/myAccount, line 103: TypeError: mail_field is null
+JavaScript error: http://localhost:50251/research/index, line 178: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:50251/research/index, line 184: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:50251/research/results/jus%20de%20fruits/jus%20d'orange, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:50251/research/index, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:50251/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:50251/research/index, line 166: TypeError: simple_form_input_field is null
+1589443433902	Marionette	INFO	Stopped listening on port 37271

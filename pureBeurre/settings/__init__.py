@@ -17,18 +17,9 @@ import sentry_sdk
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
-sentry_sdk.init(
-    dsn="https://5086d194ae6846ed847ad9dd66948eb3@o388096.ingest.sentry.io/5224413",
-    integrations=[DjangoIntegration()],
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)
-
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False 
+DEBUG = True 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -99,6 +90,7 @@ DATABASES = {
         'USER': 'blingstand', # attention : remplacez par votre nom d'utilisateur
         'PASSWORD': '',
         'HOST': '',
+        
         'PORT': '5432',
 }}
 
@@ -151,7 +143,6 @@ STATIC_URL = '/static/'
 
 # Static files settings
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # Extra places for collectstatic to find static files.

@@ -17,6 +17,8 @@ from django.conf import settings
 from django.urls import path, include
 from django.contrib import admin
 
+def trigger_error(request):
+    division_by_zero = 1 / 0
 
 urlpatterns = [
     path(r'user/', include(('user.urls', 'user'), namespace='user')),
@@ -25,6 +27,7 @@ urlpatterns = [
     path(r'research/', include(('research.urls', 'research'), namespace='research')),
 	path(r'skeleton/', include(('skeleton.urls', 'skeleton'), namespace='skeleton')),
     path(r'admin/', admin.site.urls),
+    path('sentry-debug/', trigger_error),
 ]
 
 # if settings.DEBUG:

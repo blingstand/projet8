@@ -14,21 +14,17 @@ import os
 import django_heroku
 import sentry_sdk
 
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
-
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '#y-ca+0y#ewq-i=1y*5_fnad8@&r$t%7g@u#$lmg@2k_tu8cms'
 
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1","35.180.64.180"]
 
 LOGIN_URL = 'user/login/'
 # Application definition
@@ -90,7 +86,6 @@ DATABASES = {
         'USER': 'blingstand', # attention : remplacez par votre nom d'utilisateur
         'PASSWORD': '',
         'HOST': '',
-        
         'PORT': '5432',
 }}
 
@@ -137,14 +132,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
-
 
 # Static files settings
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # Extra places for collectstatic to find static files.
 # STATICFILES_DIRS = (
 #     os.path.join(PROJECT_ROOT, 'static'),

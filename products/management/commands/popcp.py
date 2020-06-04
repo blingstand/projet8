@@ -5,27 +5,29 @@
 
 import os
 from django.core.management.base import BaseCommand
-from products.models import Category
+from products.models import Category as c, Product as p
 
 
 from products.utils import get_and_insert
 
-with open("products/cat.txt", "r") as fichier:
-    a = fichier.read()
-base_cat = a.split(", ")
-base_cat = [cat.lower() for cat in base_cat]
-base_cat = sorted(base_cat)
-CATEGORIES = base_cat
+def get_cat():
+    """ get the cat from pureBeurre/products/cat.txt"""
+    with open("products/cat.txt", "r") as fichier:
+        a = fichier.read()
+    base_cat = a.split(", ")
+    base_cat = [cat.lower() for cat in base_cat]
+    base_cat = sorted(base_cat)
+    return base_cat
+
+
 class Command(BaseCommand):
     """ this class manages the parameters you can pass to python manage.py"""
     help = "This cmd populate your tables category or product."
-
+    CATEGORIES = get_cat()
     def add_arguments(self, parser):
         """ manages the args to pass to popcp"""
-        parser.add_argument('-select_number_prod', "--snp", dest="snp", type=int, \
-            default=5, help="select the number of products by category", choices=list(range(3, 21)))
-        parser.add_argument('-display_entry', "--de", dest="de", type=int, default=0,\
-            help="select 1 to display each new entry", choices=[0, 1])
+        parser.add_argument('-number_prod',dest="np", default = 5, type=int, \
+            help="select the number of products by category", choices=list(range(4, 21)))
 
     def _fill_db(self, size, display_entry=0):
         """ manages the filling of the db """
@@ -33,9 +35,12 @@ class Command(BaseCommand):
             print("\n", "Vous avez choisis", size, "produits/categorie.")
         else:
             print("\nJ'utilise la valeur par défaut de 5 produits/categorie"\
-                "\nmais cette valeur peut être changée avec python manage.py pop_db --snp <int>")
-        if len(Category.objects.all()) == 0:
-            get_and_insert(size, CATEGORIES, display_entry)
+                "\nmais cette valeur peut être changée avec python manage.py pop_db <int>")
+        if len(c.objects.all()) == 0:
+            print(size, self.CATEGORIES)
+            get_and_insert(size, self.CATEGORIES)
+            cat, prod = c.objects.all(), p.objects.all()
+            print(f"Résultat : cat / prod > {len(cat)}/{len(prod)}")
         else:
             response = input("Votre table Category n'est pas vide ..."\
                 "\n1 \t>  vider la table,"\
@@ -50,5 +55,5 @@ class Command(BaseCommand):
         print("Cette commande peuple les tables Category et Product de la base."\
             "\nAstuce : Tapez python manage.py pop_db -h pour découvrir les arguments \nque "\
             "vous pouvez passer à cette commande")
-        self._fill_db(options["snp"], options["de"])
+        self._fill_db(options["np"])
         print("\n", "* "*30, "\n")

@@ -3,7 +3,6 @@
 import random, string
 
 #django
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -128,24 +127,28 @@ class MyAccountView(View):
                 user_mail = None
             if my_option == 1: #comparison code
                 if profile_found.code == code:
+                    print("sit code bon")
+                    profile_found.wait_confirmation = False
                     profile_found.mail_confirmed = True
-                    profile_found.save()
                 else:
-                    print({
-                        'mail_confirm_sent' : profile_found.mail_confirm_sent,
-                        'mail_confirmed' : profile_found.mail_confirmed,
-                        'user_mail' : user_mail,
-                    })
-                    messages.error(request, "la confirmation de l'adresse mail a échoué !")
+                    print("sit code mauvais")
+                    profile_found.mail_confirmed = False
+                print({
+                    'wait_confirmation' : profile_found.wait_confirmation,
+                    'mail_confirmed' : profile_found.mail_confirmed,
+                    'user_mail' : user_mail,
+                })
             elif my_option == 2: #new mail
-                print("changeons le mail")
-                profile_found.mail_confirm_sent = False
+                print("sit change mail")
+                profile_found.wait_confirmation = False
                 user_mail = None
-                profile_found.save()
+            else:
+                print("sit check mail")
+            profile_found.save()
             mail_form = MailForm()
             context = {
                 'mail_form' : mail_form,
-                'mail_confirm_sent' : profile_found.mail_confirm_sent,
+                'wait_confirmation' : profile_found.wait_confirmation,
                 'mail_confirmed' : profile_found.mail_confirmed,
                 'user_mail' : user_mail,
             }
@@ -162,9 +165,17 @@ class MyAccountView(View):
             # notify base that mail has been sent
             user_found, profile_found = get_user_and_profile(request)
             user_found.email = mail
+            profile_found.mail_confirmed = False
+            profile_found.wait_confirmation = True
             user_found.save()
             mail_agent.notify_db_mav(user_found, profile_found, code, mail)
-            return redirect("user:myAccount")
+            context = {
+                'mail_form' : mail_form,
+                'wait_confirmation' : profile_found.wait_confirmation,
+                'mail_confirmed' : profile_found.mail_confirmed,
+                'user_mail' : user_found.email,
+            }
+            return render(request, "user/myAccount.html", context)
         return HttpResponse("Le formulaire n'est pas valide")
 
 class FavoriteView(View):

@@ -8,19 +8,19 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-from django.core.mail import send_mail
+
 from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 
 #from other app import
-
 from products.models import Product
 
 #from app import
 from .form import UserForm, MailForm
 from .models import Profile
+from .utils import MailAgent, notify_db_fv
 
 
 #usefull function for myAccount and Favorite class
@@ -31,6 +31,7 @@ def get_user_and_profile(request):
     profile_found = Profile.objects.filter(user=ufpk)[0]
     return user_found, profile_found
 
+mail_agent = MailAgent()
 
 class RegisterView(View):
     """ This class deals with registration
@@ -115,23 +116,6 @@ class MyAccountView(View):
         get() can load the same page but this one can change according to the context
         context will depend on parameters in the request
     """
-    def _send_confirm_mail(self, mail, code):
-        """ sends a code by mail to confirm mail adress before adding in base """
-        subject = "Confirmation de votre mail "
-        message = f"Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{code}"\
-        " pour confirmer votre mail"
-        from_email = settings.EMAIL_HOST_USER
-        to_list = [mail]
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
-
-
-    def notify_db(self, user, profile, code, mail):
-        """ notifies the db that a code in a confirm mail has been send """
-        profile.mail_confirm_sent = True
-        profile.code = code
-        profile.save()
-        user.email = mail
-        user.save()
 
     def get(self, request, my_option = 0, code = ""):
         """ manages the get request for myAccount page """
@@ -174,29 +158,24 @@ class MyAccountView(View):
         if mail_form.is_valid():
             mail = mail_form.cleaned_data['mail'] #gets the mail
             code = "".join([random.choice(string.digits) for _ in range(24)])
-            self._send_confirm_mail(mail, code)
+            mail_agent.send_confirm_mail(mail, code)
             # notify base that mail has been sent
             user_found, profile_found = get_user_and_profile(request)
             user_found.email = mail
             user_found.save()
-            self.notify_db(user_found, profile_found, code, mail)
+            mail_agent.notify_db_mav(user_found, profile_found, code, mail)
             return redirect("user:myAccount")
         return HttpResponse("Le formulaire n'est pas valide")
 
 class FavoriteView(View):
     """ manages the favorite page"""
-    def notify_db(self, profile, prod_name):
-        """ adds a given prod to the profile fav list"""
-        product = Product.objects.get(name=prod_name) #it always exists, so don't need : try/except
-        profile.favlist.add(product)
-        profile.save()
 
     def get(self, request, prod_name=None):
         """ manage the get request for fav page"""
         if request.user.is_authenticated:
             profile_found = get_user_and_profile(request)[1]
             if prod_name is not None:
-                self.notify_db(profile_found, prod_name)
+                notify_db_fv(profile_found, prod_name)
             fav_list = [fav for fav in profile_found.favlist.all()]
             context = {"fav_list" : fav_list}
             return render(request, 'user/favorite.html', context)

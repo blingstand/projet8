@@ -14,12 +14,12 @@
               <p class="text-center" id="id_mail_communicated"> Tu m'as communiqué ce mail : {{user_mail}}</p>
         
             {% else %}
-              {% if wait_confirmation%}
+              {% if wait_confirmation %}
                 <!-- wait confirmation -->
                 <p>J'ai envoyé un mail à cette adresse {{user_mail}}. <br>J'attends la confirmation</p>
               {% else %}
               <!-- bad confirmation -->
-                <p>Ce n'est pas la confirmation attendue :/</p>
+                <p>Tentative de confirmation échouée, n'hésite pas à changer ton mail si besoin</p>
               {% endif %}
             {% endif %}
             <p class="text-right"><a href="{% url 'user:myAccount'%}/2">Redonner un mail</a></p>

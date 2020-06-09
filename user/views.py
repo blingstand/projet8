@@ -6,29 +6,15 @@ import random, string
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-
-
-from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 
-#from other app import
-from products.models import Product
-
 #from app import
 from .form import UserForm, MailForm
 from .models import Profile
-from .utils import MailAgent, notify_db_fv
+from .utils import MailAgent, notify_db_fv, get_user_and_profile, add_new_user
 
-
-#usefull function for myAccount and Favorite class
-def get_user_and_profile(request):
-    """ return the session user and the profile he belongs """
-    user_found = request.user
-    ufpk = user_found.pk #user_found_primary_key = ufpk
-    profile_found = Profile.objects.filter(user=ufpk)[0]
-    return user_found, profile_found
 
 mail_agent = MailAgent()
 
@@ -37,22 +23,6 @@ class RegisterView(View):
         get > loads a registration page
         post > analyses datas to try to create a new user and profile
     """
-
-    def add_new_user(self, name, password):
-        """
-        Tries to add a new user in base and return Boolean and message
-            True = Success / False = Fail
-        """
-        try:
-            new_user = User(username=name)
-            new_user.set_password(password)
-            new_user.save()
-
-            new_profile = Profile(user=new_user)
-            new_profile.save()
-            return True, f"Félicitation vous venez de créer : {name} !"
-        except IntegrityError:
-            return False, "Cet utilisateur existe déjà !"
 
     def get(self, request):
         """ manages the get request for the register page """
@@ -71,7 +41,7 @@ class RegisterView(View):
         us_form = UserForm(request.POST)
         if us_form.is_valid():
             name, password = us_form.cleaned_data['username'], us_form.cleaned_data['password']
-            success, message = self.add_new_user(name, password)
+            success, message = add_new_user(name, password)
             messages.info(request, message)
             if success:
                 return redirect('user:connection')
@@ -126,26 +96,28 @@ class MyAccountView(View):
             except:
                 user_mail = None
             if my_option == 1: #comparison code
+                profile_found.wait_confirmation = False
                 if profile_found.code == code:
                     print("sit code bon")
-                    profile_found.wait_confirmation = False
                     profile_found.mail_confirmed = True
                 else:
                     print("sit code mauvais")
                     profile_found.mail_confirmed = False
-                print({
-                    'wait_confirmation' : profile_found.wait_confirmation,
-                    'mail_confirmed' : profile_found.mail_confirmed,
-                    'user_mail' : user_mail,
-                })
+
+                
             elif my_option == 2: #new mail
                 print("sit change mail")
-                profile_found.wait_confirmation = False
+                profile_found.wait_confirmation = True
                 user_mail = None
             else:
                 print("sit check mail")
             profile_found.save()
             mail_form = MailForm()
+            print({
+                    'wait_confirmation' : profile_found.wait_confirmation,
+                    'mail_confirmed' : profile_found.mail_confirmed,
+                    'user_mail' : user_mail,
+                })
             context = {
                 'mail_form' : mail_form,
                 'wait_confirmation' : profile_found.wait_confirmation,
@@ -160,7 +132,6 @@ class MyAccountView(View):
         mail_form = MailForm(request.POST)
         if mail_form.is_valid():
             mail = mail_form.cleaned_data['mail'] #gets the mail
-            code = "".join([random.choice(string.digits) for _ in range(24)])
             mail_agent.send_confirm_mail(mail, code)
             # notify base that mail has been sent
             user_found, profile_found = get_user_and_profile(request)
@@ -188,6 +159,7 @@ class FavoriteView(View):
             if prod_name is not None:
                 notify_db_fv(profile_found, prod_name)
             fav_list = [fav for fav in profile_found.favlist.all()]
+            print(fav_list)
             context = {"fav_list" : fav_list}
             return render(request, 'user/favorite.html', context)
         return redirect('user:connection')

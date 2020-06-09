@@ -2,62 +2,63 @@
 
 {% block content %}
 <header class="masthead-account h-100 align-center">
-	
-	<div class="container ">
-		<div class="row">
-			<div class="col-lg-3"></div>
-			<div class="col-lg-6 opac-white-background">
-				<h2 class="text-center mt-4 account">Bienvenue {{request.user.username}} ! </h2>
-				{% if user_mail %}
-				<p class="text-center" id="id_mail_communicated"> Tu m'as communiqué ce mail : {{user_mail}}</p>
-				{% else %}
-				<h4 class="text-center mt-0 account">Il semblerait que je n'ai pas ton mail ... </h4>
-				<form class="white-bg" action="" method='POST' id="mail_form">
-					{% csrf_token %}
-					<div class="form-row mt-4 ">
-						<div class="col-lg-1"></div>
-						<div class="col-lg-4"><p>{{ mail_form.mail.label}}</p>	</div>
-						<div class="col-lg-4"><p>{{ mail_form.mail}}</p><p id="check_mail"></p></div>
-						<div class="col-lg-3"></div>		
-					</div>
-					
-					<div class="right-input mt-4 mb-4">
-						<div >
-							<input type="submit" id="id_submit" class="btn btn-primary account" value="Envoyer les infos complémentaires">
-						</div>
-					</div>
-				</form>
-				{% endif%}
-			</div>
-			<div class="col-lg-3"></div>
-		</div>
-	</div>
+  
+  <div class="container ">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6 opac-white-background">
+        <h2 class="text-center mt-4 account">Bienvenue {{request.user.username}} ! </h2>
+        {% if user_mail %}
+        <p class="text-center" id="id_mail_communicated"> Tu m'as communiqué ce mail : {{user_mail}}</p>
+        <p><a href="{% url 'user:myAccount'%}/2">Modifier le mail fourni</a></p>
+        {% else %}
+        <h4 class="text-center mt-0 account">J'aurais besoin de ton mail ... </h4>
+        <form class="white-bg" action="" method='POST' id="mail_form">
+          {% csrf_token %}
+          <div class="form-row mt-4 ">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4"><p>{{ mail_form.mail.label}}</p>  </div>
+            <div class="col-lg-4"><p>{{ mail_form.mail}}</p><p id="check_mail"></p></div>
+            <div class="col-lg-3"></div>    
+          </div>
+          
+          <div class="right-input mt-4 mb-4">
+            <div >
+              <input type="submit" id="id_submit" class="btn btn-primary account" value="Envoyer les infos complémentaires">
+            </div>
+          </div>
+        </form>
+        {% endif%}
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+  </div>
 </div>
 </header>
 <script>
 
-		//improve form
-		let mail_field = document.getElementById('id_mail')
-		mail_field.placeholder='(Facultatif) > utilisateur@domaine.fr';
-		mail_field.style.width='19em';
-		const regex_mail = /^[\w.+-]{1,64}@[a-zA-Z\d-]{3,252}\.[a-zA-Z\.]{2,6}/;
-		const check_mail_field = document.getElementById('check_mail')
+    //improve form
+    let mail_field = document.getElementById('id_mail')
+    mail_field.placeholder='(Facultatif) > utilisateur@domaine.fr';
+    mail_field.style.width='19em';
+    const regex_mail = /^[\w.+-]{1,64}@[a-zA-Z\d-]{3,252}\.[a-zA-Z\.]{2,6}/;
+    const check_mail_field = document.getElementById('check_mail')
 
-		const form = document.getElementById("mail_form");
-		form.addEventListener("submit", function (e) {
-			//check the mail
-			let validiteCourriel = "";
-			if (regex_mail.test(mail_field.value) == false) {
-		        // Le courriel saisi ne contient pas le caractère @
-		        validiteCourriel = "vérifie ton mail";
-		        mail_field.style.border = "2px red solid";
-		        check_mail_field.style.color = "red";
-		        check_mail_field.textContent = validiteCourriel; 
-		        
-		        e.preventDefault()
-		    }
-		})
+    const form = document.getElementById("mail_form");
+    form.addEventListener("submit", function (e) {
+      //check the mail
+      let validiteCourriel = "";
+      if (regex_mail.test(mail_field.value) == false) {
+            // Le courriel saisi ne contient pas le caractère @
+            validiteCourriel = "vérifie ton mail";
+            mail_field.style.border = "2px red solid";
+            check_mail_field.style.color = "red";
+            check_mail_field.textContent = validiteCourriel; 
+            
+            e.preventDefault()
+        }
+    })
 
 
-	</script>
-	{% endblock %}
+  </script>
+  {% endblock %}

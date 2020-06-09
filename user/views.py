@@ -1,14 +1,14 @@
 """ this script manages the views """
-#global
-# import random, string
+# global
+import random, string
 
 #django
-# from django.conf import settings
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
-# from django.core.mail import send_mail
+from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -30,6 +30,8 @@ def get_user_and_profile(request):
     ufpk = user_found.pk #user_found_primary_key = ufpk
     profile_found = Profile.objects.filter(user=ufpk)[0]
     return user_found, profile_found
+
+
 class RegisterView(View):
     """ This class deals with registration
         get > loads a registration page
@@ -76,7 +78,6 @@ class RegisterView(View):
             return redirect('user:register')
         return HttpResponse("Problème dans le formulaire !")
 
-
 class ConnectionView(View):
     """ This class deals with login
         get > loads a connection page
@@ -114,69 +115,71 @@ class MyAccountView(View):
         get() can load the same page but this one can change according to the context
         context will depend on parameters in the request
     """
-    # def _send_confirm_mail(self, mail, code):
-    #     """ sends a code by mail to confirm mail adress before adding in base """
-    #     subject = "Confirmation de votre mail "
-    #     message = f"Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{code}"\
-    #     " pour confirmer votre mail"
-    #     from_email = settings.EMAIL_HOST_USER
-    #     to_list = [mail]
-    #     send_mail(subject, message, from_email, to_list, fail_silently=True)
+    def _send_confirm_mail(self, mail, code):
+        """ sends a code by mail to confirm mail adress before adding in base """
+        subject = "Confirmation de votre mail "
+        message = f"Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{code}"\
+        " pour confirmer votre mail"
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [mail]
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
 
 
-    # def notify_db(self, user, profile, code, mail):
-    #     """ notifies the db that a code in a confirm mail has been send """
-    #     profile.mail_confirm_sent = True
-    #     profile.code = code
-    #     profile.save()
-    #     user.email = mail
-    #     user.save()
+    def notify_db(self, user, profile, code, mail):
+        """ notifies the db that a code in a confirm mail has been send """
+        profile.mail_confirm_sent = True
+        profile.code = code
+        profile.save()
+        user.email = mail
+        user.save()
 
-    def get(self, request):
+    def get(self, request, my_option = 0, code = ""):
         """ manages the get request for myAccount page """
         if request.user.is_authenticated:
-            user = get_user_and_profile(request)[0]
+            user, profile_found = get_user_and_profile(request)
             try:
                 user_mail = user.email
 
             except:
                 user_mail = None
-            # if my_option == 1: #comparison code
-            #     if profile_found.code == code:
-            #         profile_found.mail_confirmed = True
-            #         profile_found.save()
-            #     else:
-            #         print({
-            #     'mail_confirm_sent' : profile_found.mail_confirm_sent,
-            #     'mail_confirmed' : profile_found.mail_confirmed,
-            #     'user_mail' : user_mail,
-            # })
-            #         messages.error(request, "la confirmation de l'adresse mail a échoué !")
-            # elif my_option == 2: #new mail
-            #     profile_found.mail_confirm_sent = False
-            #     profile_found.save()
+            if my_option == 1: #comparison code
+                if profile_found.code == code:
+                    profile_found.mail_confirmed = True
+                    profile_found.save()
+                else:
+                    print({
+                        'mail_confirm_sent' : profile_found.mail_confirm_sent,
+                        'mail_confirmed' : profile_found.mail_confirmed,
+                        'user_mail' : user_mail,
+                    })
+                    messages.error(request, "la confirmation de l'adresse mail a échoué !")
+            elif my_option == 2: #new mail
+                print("changeons le mail")
+                profile_found.mail_confirm_sent = False
+                user_mail = None
+                profile_found.save()
             mail_form = MailForm()
             context = {
                 'mail_form' : mail_form,
-                # 'mail_confirm_sent' : profile_found.mail_confirm_sent,
-                # 'mail_confirmed' : profile_found.mail_confirmed,
+                'mail_confirm_sent' : profile_found.mail_confirm_sent,
+                'mail_confirmed' : profile_found.mail_confirmed,
                 'user_mail' : user_mail,
             }
             return render(request, "user/myAccount.html", context)
         return redirect('user:connection')
 
-    def post(self, request):
+    def post(self, request, my_option = 0, code = ""):
         """ manages post request for mail form concerning the myAccount page """
         mail_form = MailForm(request.POST)
         if mail_form.is_valid():
             mail = mail_form.cleaned_data['mail'] #gets the mail
-            # code = "".join([random.choice(string.digits) for _ in range(24)])
-            # self._send_confirm_mail(mail, code)
+            code = "".join([random.choice(string.digits) for _ in range(24)])
+            self._send_confirm_mail(mail, code)
             # notify base that mail has been sent
-            user_found = get_user_and_profile(request)[0]
+            user_found, profile_found = get_user_and_profile(request)
             user_found.email = mail
             user_found.save()
-            # self.notify_db(user_found, profile_found, code, mail)
+            self.notify_db(user_found, profile_found, code, mail)
             return redirect("user:myAccount")
         return HttpResponse("Le formulaire n'est pas valide")
 

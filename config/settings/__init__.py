@@ -14,6 +14,8 @@ import os
 import django_heroku
 import sentry_sdk
 
+import config.mail
+
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True 
@@ -141,3 +143,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # STATICFILES_DIRS = (
 #     os.path.join(PROJECT_ROOT, 'static'),
 #     )
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'djangomailbling@gmail.com'
+EMAIL_HOST_PASSWORD = 'kcuqkgbfytubpcqf'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'p10django <noreply@p10django.com>'

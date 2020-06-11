@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from unittest import mock, skip
+from unittest import skip
 from products.models import Category, Product
 
 print("test_product\n", "_ "*20)

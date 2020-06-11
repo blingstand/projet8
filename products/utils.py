@@ -48,7 +48,7 @@ def create_prod(new_prod, dico_prod, pmc_cat, count, nb_entry, report, create_re
         )
         if create_report == 1:
             print("\t", count+1,new_prod)
-            report += f"\t {count+1} {new_prod}\n"
+            report += f"\t {count+1} {new_prod} \n"
         new_prod.save()
     elif len(new_prod) == 1:
         new_prod = new_prod[0]
@@ -65,20 +65,21 @@ def delete_table_cat_prod(querryset_cat, querryset_prod):
 def get_and_insert(size, categories, create_report=0): 
     """ populate the cat and prod tables"""
     criterions = ("product_name", "packaging", "nutrition_grades", "url", "image_url", "image_nutrition_url")
-    report = '- - - '
     
     date = datetime.datetime.today().strftime('%d-%m-%Y %H:%M:%S')
-    report = f'Dernière mise à jour : le {date}\n'
-    report += "*** Récupération des données depuis le site Open Food Fact ***\n"
+    report = f'Rapport de mise à jour du {date}\n'
     # if not isinstance(categories, list):
     #     categories = list(categories)
     try: 
         print("1/ récupération des données")
+        report += "1/ récupération des données,\n"
         #get a dict like dict[cat]=(prod)
         dico_cat = get_dico_cat(size, categories, criterions)
         print("2/ données récupérées")
+        report += "2/ données récupérées,\n"
         count_cat = 1 
         print("3/ début de l'insertion")
+        report += "3/ début de l'insertion,\n"
         for name_cat in categories:  
             list_dico_prod = dico_cat[name_cat]
             pmc_cat, report = create_cat(name_cat, count_cat, report, 1)# mod_cat = <class 'products.models.Category'>
@@ -91,7 +92,7 @@ def get_and_insert(size, categories, create_report=0):
                         new_prod = Product.objects.filter(name=dico_prod["product_name"])
                         nb_entry, report= create_prod(new_prod, dico_prod, pmc_cat, count, nb_entry, report, 1)
                     except Exception as e:
-                        print("1", e)
+                        print("ERROR", e)
                         debug = Product.objects.filter(name = dico_prod["product_name"])
                         report += "\n- - "*20
                         report += "\nProblème ici : {} | {}".format(\
@@ -102,4 +103,5 @@ def get_and_insert(size, categories, create_report=0):
         raise e
         report += f"\n{e}"
     print("4/ fin de l'insertion.")
+    report += "4/ fin de l'insertion."
     return report

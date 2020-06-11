@@ -355,7 +355,3 @@ class FavoriteTests(TestCase):
         response = self.client.get("user/favorite/orange bio")
         after = len(self.profile.favlist.all())
         self.assertTrue(before + 1, after)
-
-
-
-        

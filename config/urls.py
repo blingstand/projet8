@@ -21,12 +21,12 @@ def trigger_error(request):
     division_by_zero = 1 / 0
 
 urlpatterns = [
-    path(r'user/', include(('user.urls', 'user'), namespace='user')),
-	path(r'products/', include(('products.urls', 'products'), namespace='products')),
-    path(r'', include(('research.urls', ''))),
-    path(r'research/', include(('research.urls', 'research'), namespace='research')),
-	path(r'skeleton/', include(('skeleton.urls', 'skeleton'), namespace='skeleton')),
-    path(r'admin/', admin.site.urls),
+    path(r'p10/user/', include(('user.urls', 'user'), namespace='user')),
+    path(r'p10/products/', include(('products.urls', 'products'), namespace='products')),
+    path(r'p10/', include(('research.urls', ''))),
+    path(r'p10/research/', include(('research.urls', 'research'), namespace='research')),
+    path(r'p10/skeleton/', include(('skeleton.urls', 'skeleton'), namespace='skeleton')),
+    path(r'p10/admin/', admin.site.urls),
     path('sentry-debug/', trigger_error),
 ]
 

@@ -1,4 +1,4 @@
-from unittest import mock, skip
+from unittest import mock
 
 #from django
 from django.contrib.messages import get_messages
@@ -17,7 +17,7 @@ print("test_user\n", "_ "*20)
 
 
 #-- unit test --
-@skip
+
 class UnitTest(TestCase):
     def setUp(self):
         self.user = User(username="test")
@@ -79,7 +79,7 @@ class UnitTest(TestCase):
         self.assertRedirects(response, reverse("research:index"))
 
 #-- integration test -- 
-@skip
+
 class AuthenticationViewTests(TestCase):
 
     def setUp(self): 
@@ -229,7 +229,7 @@ class MyAccountViewTests(TestCase):
         
         self.my_mock = mock.Mock()
         self.my_mock.user = self.user
-    @skip
+    
     def test_myacc_get_access_page_when_user_not_authenticated(self):
         """ user connected can not access myAccount page"""
         self.client.logout()
@@ -247,7 +247,7 @@ class MyAccountViewTests(TestCase):
         """ Tests whether the function will display an error 
         message if the code is not correct 111 != 123"""
         
-        self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
+        self.user.email, self.profile.mail_confirm_sent = "testmail.fr", True
         self.profile.code = "123"
         self.user.save()
         self.profile.save()
@@ -257,13 +257,13 @@ class MyAccountViewTests(TestCase):
     
     def test_myacc_get_access_page_sit_good_code(self): 
         """ Tests whether the function will display confirmation message if code is correct 123 = 123"""
-        self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
+        self.user.email, self.profile.mail_confirm_sent = "testmail.fr", True
         self.profile.code = "123"
         self.user.save()
         self.profile.save()
         response = self.client.get(reverse("user:myAccount", args=[1, "123"]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Tu m'as communiqué ce mail : test@mail.fr")
+        self.assertContains(response, "Tu m'as communiqué ce mail : testmail.fr")
 
     
     def test_myacc_get_access_page_sit_change_mail(self):
@@ -271,14 +271,14 @@ class MyAccountViewTests(TestCase):
             User has given a first mail and can change it because a new email 
             form appears
         """ 
-        self.user.email, self.profile.mail_confirm_sent = "test@mail.fr", True
+        self.user.email, self.profile.mail_confirm_sent = "testmail.fr", True
         self.user.save()
         self.profile.save()
         response = self.client.get(reverse("user:myAccount", args=[2]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "J'aurais besoin de ton mail ...")
 
-    @skip
+    
     def test_myacc_post_form_is_not_valid(self):
         """ Tests whether the function displays an error msg if form is not valid """
         self.mock_form.is_valid.return_value = False
@@ -286,7 +286,7 @@ class MyAccountViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Le formulaire n'est pas valide")
     
-    @skip
+    
     def test_myacc_post_form_is_valid(self):
         """ Tests whether the function displays an """
         self.mock_form.is_valid.return_value = True
@@ -297,7 +297,7 @@ class MyAccountViewTests(TestCase):
         # self.assertContains(response, f"Mail de confirmation envoyé à cette adresse {mail}, j'attends ta réponse")
         self.assertEqual(response.wsgi_request.user.email, "a new mail")
 
-@skip
+
 class FavoriteTests(TestCase):
 
     def setUp(self): 

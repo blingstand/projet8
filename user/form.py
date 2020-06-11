@@ -10,7 +10,7 @@ class MailForm(forms.Form):
 	mail = forms.EmailField(			
 		label="Mon mail", 
 		max_length=100, 
-		widget=forms.TextInput(attrs={'class': 'account_i'}))
+		widget=forms.TextInput(attrs={'class': 'account_i text-center'}))
 
 class AddFavorite(forms.Form): 
 	fav = forms.MultipleChoiceField(	

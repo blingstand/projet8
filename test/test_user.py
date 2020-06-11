@@ -41,7 +41,7 @@ class UnitTest(TestCase):
         #create a mock request
         my_mock = mock.Mock()
         my_mock.user = self.user
-        u, p = v.get_user_and_profile(my_mock)
+        u, p = get_user_and_profile(my_mock)
         self.assertTrue(u, self.user)
         self.assertTrue(p, self.profile)
         my_mock = None
@@ -355,7 +355,3 @@ class FavoriteTests(TestCase):
         response = self.client.get("user/favorite/orange bio")
         after = len(self.profile.favlist.all())
         self.assertTrue(before + 1, after)
-
-
-
-        

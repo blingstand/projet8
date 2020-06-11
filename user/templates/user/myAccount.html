@@ -28,11 +28,12 @@
         <h4 class="text-center mt-0 account">J'aurais besoin de ton mail ... </h4>
         <form class="white-bg" action="" method='POST' id="mail_form">
           {% csrf_token %}
-          <div class="form-row mt-4 ">
-            <div class="col-lg-1"></div>
-            <div class="col-lg-4"><p>{{ mail_form.mail.label}}</p>  </div>
-            <div class="col-lg-4"><p>{{ mail_form.mail}}</p><p id="check_mail"></p></div>
-            <div class="col-lg-3"></div>    
+          <div class="form-row mt-4 justify-content-around">
+            <div class="col-lg-3"><p>{{ mail_form.mail.label}}</p>  </div>
+            <div class="col-lg-9">
+              <p>{{ mail_form.mail}}</p>
+              <p id="check_mail"></p> <!-- for js feedback -->
+            </div>  
           </div>
           
           <div class="right-input mt-4 mb-4">
@@ -52,7 +53,7 @@
 
     //improve form
     let mail_field = document.getElementById('id_mail')
-    mail_field.placeholder='(Facultatif) > utilisateur@domaine.fr';
+    mail_field.placeholder='utilisateur@domaine.fr';
     mail_field.style.width='19em';
     const regex_mail = /^[\w.+-]{1,64}@[a-zA-Z\d-]{3,252}\.[a-zA-Z\.]{2,6}/;
     const check_mail_field = document.getElementById('check_mail')

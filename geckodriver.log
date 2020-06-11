@@ -4373,3 +4373,44 @@ JavaScript error: http://localhost:42179/research/index, line 157: TypeError: do
 JavaScript error: http://localhost:42179/research/index, line 176: TypeError: simple_form_input_field is null
 JavaScript error: http://localhost:42179/research/index, line 166: TypeError: simple_form_input_field is null
 1591716021354	Marionette	INFO	Stopped listening on port 40969
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0xA000E,name=PBackgroundIDBDatabase::Msg_CloseAfterInvalidationComplete) Channel error: cannot send/recv
+
+1591721755067	Marionette	INFO	Stopped listening on port 38689
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1591784509928	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFdd6fa"
+1591784519637	Marionette	INFO	Listening on port 35231
+1591784519698	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:51717/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51717/research/index, line 178: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51717/research/index, line 184: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51717/research/results/jus%20de%20fruits/jus%20d'orange, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:51717/research/index, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:51717/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:51717/research/index, line 166: TypeError: simple_form_input_field is null
+1591784528678	Marionette	INFO	Stopped listening on port 35231
+1591859146681	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilet3HhK3"
+1591859169820	Marionette	INFO	Listening on port 35687
+1591859169880	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 203: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: http://localhost:39867/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39867/research/index, line 178: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39867/research/index, line 184: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39867/research/results/jus%20de%20fruits/jus%20d'orange, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:39867/research/index, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:39867/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:39867/research/index, line 166: TypeError: simple_form_input_field is null
+1591859180094	Marionette	INFO	Stopped listening on port 35687
+1591881071339	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6dJ3yG"
+1591881087028	Marionette	INFO	Listening on port 43033
+1591881087152	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:54853/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:54853/research/index, line 178: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:54853/research/index, line 184: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:54853/research/results/jus%20de%20fruits/jus%20d'orange, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:54853/research/index, line 157: TypeError: document.getElementById(...) is null
+JavaScript error: http://localhost:54853/research/index, line 176: TypeError: simple_form_input_field is null
+JavaScript error: http://localhost:54853/research/index, line 166: TypeError: simple_form_input_field is null
+1591881097460	Marionette	INFO	Stopped listening on port 43033

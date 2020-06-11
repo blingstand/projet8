@@ -1,3 +1,7 @@
+# global
+import random, string
+
+#django
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
@@ -39,9 +43,8 @@ def get_user_and_profile(request):
 
 class MailAgent():
 
-    def send_confirm_mail(self, mail):
+    def send_confirm_mail(self, mail, code):
         """ sends a code by mail to confirm mail adress before adding in base """
-        code = "".join([random.choice(string.digits) for _ in range(24)])
         subject = "Confirmation de votre mail "
         message = f"Cliquez sur ce lien http://127.0.0.1:8000/user/myAccount/1/{code}"\
         " pour confirmer votre mail"

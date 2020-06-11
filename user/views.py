@@ -90,6 +90,7 @@ class MyAccountView(View):
         """ manages the get request for myAccount page """
         if request.user.is_authenticated:
             user, profile_found = get_user_and_profile(request)
+            profile_found.wait_confirmation = True
             try:
                 user_mail = user.email
 
@@ -131,6 +132,8 @@ class MyAccountView(View):
         """ manages post request for mail form concerning the myAccount page """
         mail_form = MailForm(request.POST)
         if mail_form.is_valid():
+            code = "".join([random.choice(string.digits) for _ in range(24)])
+            print(f'le code est {code}')
             mail = mail_form.cleaned_data['mail'] #gets the mail
             mail_agent.send_confirm_mail(mail, code)
             # notify base that mail has been sent

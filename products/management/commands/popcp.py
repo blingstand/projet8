@@ -26,7 +26,7 @@ class Command(BaseCommand):
     CATEGORIES = get_cat()
     def add_arguments(self, parser):
         """ manages the args to pass to popcp"""
-        parser.add_argument('-number_prod',dest="np", default = 5, type=int, \
+        parser.add_argument('number_prod', default = 5, type=int, \
             help="select the number of products by category", choices=list(range(4, 21)))
 
     def _fill_db(self, size, display_entry=0):
@@ -55,5 +55,5 @@ class Command(BaseCommand):
         print("Cette commande peuple les tables Category et Product de la base."\
             "\nAstuce : Tapez python manage.py pop_db -h pour découvrir les arguments \nque "\
             "vous pouvez passer à cette commande")
-        self._fill_db(options["np"])
+        self._fill_db(options["number_prod"])
         print("\n", "* "*30, "\n")

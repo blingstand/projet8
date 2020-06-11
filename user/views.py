@@ -135,7 +135,7 @@ class MyAccountView(View):
             code = "".join([random.choice(string.digits) for _ in range(24)])
             print(f'le code est {code}')
             mail = mail_form.cleaned_data['mail'] #gets the mail
-            mail_agent.send_confirm_mail(mail, code)
+            mail_agent.send_confirm_mail(mail, code, request)
             # notify base that mail has been sent
             user_found, profile_found = get_user_and_profile(request)
             user_found.email = mail

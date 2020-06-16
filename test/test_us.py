@@ -9,58 +9,22 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 from user.models import Profile
 from products.models import Category, Product
 
+from .utils import popdatabase, create_user_and_profile
 print("test_us\n", "_ "*20)
 
 class AccountTestCase(LiveServerTestCase):
 
     def test_user_stories(self):
         firefox_options = webdriver.FirefoxOptions()
-        #firefox_options.headless = True
+        firefox_options.headless = True
         print("\n\n***\ndébut des test\n***")
         self.driver = webdriver.Firefox(firefox_options=firefox_options)
-        self.user = User(username="test")
-        self.user.set_password("123")
-        self.user.save()
-        self.category = Category(name="jus de fruits")
-        self.category.save()
-        self.product1 = Product(
-            name="Pur jus d'orange sans pulpe", 
-            image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
-            url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 
-            nutriscore="b", packaging="osef")
-        self.product2 = Product(
-            name="Jus d'orange - Solevita - 1 L", 
-            image_url="https://static.openfoodfacts.org/images/products/20245900/front_fr.148.full.jpg",
-            url="https://fr.openfoodfacts.org/produit/20245900/jus-d-orange-solevita", 
-            nutriscore="c", packaging="osef")
-        self.product1.save()
-        self.product2.save()
-        self.product1.category.add(self.category)
-        self.product2.category.add(self.category)
-        self.product1.save()
-        self.product2.save()
-        self.category2 = Category(name="compote")
-        self.category2.save()
-        self.product3 = Product(
-            name="Pomme pur fruit pressé", 
-            image_url="https://static.openfoodfacts.org/images/products/20376451/front_fr.136.full.jpg",
-            url="https://fr.openfoodfacts.org/produit/20376451/pomme-pur-fruit-presse-solevita", 
-            nutriscore="c", packaging="osef")
-        self.product4 = Product(
-            name="Pom'Potes pomme", 
-            image_url="https://static.openfoodfacts.org/images/products/10217603/front_fr.64.full.jpg",
-            url="https://fr.openfoodfacts.org/produit/10217603/pom-potes-pomme", 
-            nutriscore="c", packaging="osef")
-        self.product3.save()
-        self.product4.save()
-        self.product3.category.add(self.category)
-        self.product4.category.add(self.category2)
-        self.product3.save()
-        self.product4.save()
+        self.user, self.profile = create_user_and_profile("test", "test")
+        popdatabase()
 
 
         #Opening the link we want to test
-        register = f"{self.live_server_url}/user/register"
+        register = f"{self.live_server_url}/p10/user/register"
         self.driver.get(register)
 
         assert self.driver.current_url == register
@@ -71,7 +35,7 @@ class AccountTestCase(LiveServerTestCase):
         submit = self.driver.find_element_by_id('id_submit')
         #fill form and confirm
         username.send_keys('test1')
-        password.send_keys('123')
+        password.send_keys('test')
         submit.send_keys(Keys.RETURN)
         #find th feedback element
         wait(self.driver, 10).until(lambda driver: driver.current_url != register)
@@ -80,7 +44,7 @@ class AccountTestCase(LiveServerTestCase):
         assert "Félicitation vous venez de créer : test1 !" == feedback.text
         print("> création nouvel utilisateur ok\n")
 
-        connection = f"{self.live_server_url}/user/connection"
+        connection = f"{self.live_server_url}/p10/user/connection"
         assert self.driver.current_url == connection
         print("-- chargement page connexion ok")
 
@@ -88,20 +52,19 @@ class AccountTestCase(LiveServerTestCase):
         password = self.driver.find_element_by_id('id_password')
         submit = self.driver.find_element_by_id('id_submit')
         username.send_keys('test')
-        password.send_keys('123')
+        password.send_keys('test')
         submit.send_keys(Keys.RETURN)
-        index = f"{self.live_server_url}/research/index"
+        index = f"{self.live_server_url}/p10/research/index"
         wait(self.driver, 10).until(lambda driver: driver.current_url != connection)
         print("> connexion du nouvel utilisateur ok\n")
         
         assert self.driver.current_url == index
         print("-- chargement page index ok")
         
-        self.profile = Profile(user=self.user)
-        self.profile.save()
+        
         logo_my_account = self.driver.find_element_by_id("id_my_account_logo")
         logo_my_account.click()
-        my_account = f"{self.live_server_url}/user/myAccount"
+        my_account = f"{self.live_server_url}/p10/user/myAccount"
         wait(self.driver, 10).until(lambda driver: driver.current_url != index)
         print("> click sur icône mon compte ok\n")
 
@@ -120,7 +83,7 @@ class AccountTestCase(LiveServerTestCase):
 
         mini_search = self.driver.find_element_by_id('nav-mini-search')
         mini_submit = self.driver.find_element_by_id('nav-mini-submit')
-        mini_search.send_keys("123")
+        mini_search.send_keys("test")
         mini_submit.send_keys(Keys.RETURN)
         wait(self.driver, 10).until(lambda driver: self.driver.current_url != my_account)
 
@@ -130,7 +93,7 @@ class AccountTestCase(LiveServerTestCase):
         index_msg_error = self.driver.find_element_by_id('index-msg-error')
 
         assert index_msg_error.text[:16] == "Pas de résultats"
-        print("> pas de resultats pour la recherche '123'\n")
+        print("> pas de resultats pour la recherche 'test'\n")
 
         assert self.driver.current_url == index
         print("-- toujours sur la page index")
@@ -146,7 +109,7 @@ class AccountTestCase(LiveServerTestCase):
         category.click()
         wait(self.driver, 10).until(lambda driver: self.driver.current_url != index)
         print("> je clique sur le bouton jus de fruit.\n")
-        search1 = f"{self.live_server_url}/research/results/jus%20de%20fruits/jus%20d'orange"
+        search1 = f"{self.live_server_url}/p10/research/results/jus%20de%20fruits/jus%20d'orange"
         
         assert self.driver.current_url == search1
         print("-- chargement de la page des résultats ok")
@@ -156,7 +119,7 @@ class AccountTestCase(LiveServerTestCase):
 
         wait(self.driver, 10).until(lambda driver: self.driver.current_url != search1)
         print("> ajout d'un produit au favoris\n")
-        add_favorite = f"{self.live_server_url}/user/favorite/Jus%20d'orange%20-%20Solevita%20-%201%20L"
+        add_favorite = f"{self.live_server_url}/p10/user/favorite/Jus%20d'orange%20-%20Solevita%20-%201%20L"
 
         assert self.driver.current_url == add_favorite
         print("-- chargement de la page favoris")
@@ -178,7 +141,7 @@ class AccountTestCase(LiveServerTestCase):
         add_favorite_button2.click()
         print("> ajout d'un produit au favoris ok \n")
 
-        search2 = f"{self.live_server_url}/user/favorite/Pur%20jus%20d'orange%20sans%20pulpe"
+        search2 = f"{self.live_server_url}/p10/user/favorite/Pur%20jus%20d'orange%20sans%20pulpe"
         assert self.driver.current_url == search2
         favorites = self.driver.find_elements_by_class_name("cont-img-result")
         print(f"==> Il y a {len(favorites)} produit(s) ajouté(s) aux favoris")
@@ -196,7 +159,7 @@ class AccountTestCase(LiveServerTestCase):
         print("> click sur l'icône carrote\n")
 
 
-        favorite = f"{self.live_server_url}/user/favorite"
+        favorite = f"{self.live_server_url}/p10/user/favorite"
         assert self.driver.current_url == favorite
         print("-- chargement de la page favoris ok ")
 

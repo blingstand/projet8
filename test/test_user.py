@@ -1,4 +1,4 @@
-from unittest import mock
+from unittest import mock, skip
 
 #from django
 from django.contrib.messages import get_messages
@@ -13,19 +13,15 @@ from user.form import UserForm, MailForm
 from user.models import Profile
 from user.utils import MailAgent, notify_db_fv, get_user_and_profile, add_new_user
 
+#from app
+from .utils import create_user_and_profile, create_x_cats, create_x_prods
 print("test_user\n", "_ "*20)
 
 
 #-- unit test --
-
 class UnitTest(TestCase):
     def setUp(self):
-        self.user = User(username="test")
-        self.profile = Profile(user=self.user)
-        self.user.set_password("test")
-        self.user.pk = 1
-        self.user.save()
-        self.profile.save()
+        self.user, self.profile = create_user_and_profile("test", "test")
         self.logged_in = self.client.login(username="test", password="test")
         self.category = Category(name="jus de fruits")
         self.category.save()
@@ -88,14 +84,10 @@ class AuthenticationViewTests(TestCase):
         mock_form_class = patcher.start()
         self.mock_form = mock_form_class.return_value
 
-        #creates user
-        self.user = User.objects.create(username='new_user')
-        self.user.set_password('new_psw')
-        self.user.save()
-        #connectes user
-        self.logged_in = self.client.login(username='new_user', password='new_psw')
 
-    #registration page
+        self.user, self.profile = create_user_and_profile("test", "test")
+        self.logged_in = self.client.login(username='test', password='test')
+
   
     def test_regis_get_access_page_when_user_connected(self):
         """
@@ -113,7 +105,8 @@ class AuthenticationViewTests(TestCase):
         #loads page
         response = self.client.get(reverse("user:register"), follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.wsgi_request.build_absolute_uri(), 'http://testserver/user/register')
+        self.assertEqual(response.wsgi_request.build_absolute_uri(), 
+            'http://testserver/p10/user/register')
 
   
     def test_regis_post_form_invalid(self):
@@ -140,7 +133,7 @@ class AuthenticationViewTests(TestCase):
         self.client.logout()
         self.mock_form.is_valid.return_value = True
         self.mock_form.cleaned_data = {
-            "username": "new_user",
+            "username": "test",
             "password": "new_password"
         }
         #response create a new user but this ever exists
@@ -174,13 +167,13 @@ class AuthenticationViewTests(TestCase):
     def test_conn_post_us_form_valid(self):
         self.mock_form.is_valid.return_value = True
         self.mock_form.cleaned_data = {
-            "username": "new_user",
-            "password": "new_psw"
+            "username": "test",
+            "password": "test"
         }
         #tests connection is possible
         self.assertTrue(self.client.login(
-            username="new_user",
-            password="new_psw"))
+            username="test",
+            password="test"))
         self.client.logout()
         response = self.client.post(reverse("user:connection"), follow=True)
         self.assertEqual(response.status_code, 200)
@@ -219,13 +212,8 @@ class MyAccountViewTests(TestCase):
         mock_form_class = patcher2.start()
         self.mock_form = mock_form_class.return_value  
 
-        self.user = User(username="test")
-        self.profile = Profile(user=self.user)
-        self.user.set_password("test")
-        self.user.pk = 1
-        self.user.save()
-        self.profile.save()
-        self.logged_in = self.client.login(username="test", password="test")
+        self.user, self.profile = create_user_and_profile("test", "test")
+        self.logged_in = self.client.login(username='test', password='test')
         
         self.my_mock = mock.Mock()
         self.my_mock.user = self.user
@@ -239,7 +227,7 @@ class MyAccountViewTests(TestCase):
 
     def test_myacc_get_access_page(self):
         """ user connected can access myAccount page"""
-        response = self.client.get("/user/myAccount", follow=True)
+        response = self.client.get(reverse('user:myAccount'), follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "J'aurais besoin de ton mail ...")        
     
@@ -301,32 +289,11 @@ class MyAccountViewTests(TestCase):
 class FavoriteTests(TestCase):
 
     def setUp(self): 
-        self.user = User(username="test")
-        self.profile = Profile(user=self.user)
-        self.user.set_password("test")
-        self.user.pk = 1
-        self.user.save()
-        self.profile.save()
-        self.logged_in = self.client.login(username="test", password="test")
+        self.user, self.profile = create_user_and_profile("test", "test")
+        self.logged_in = self.client.login(username='test', password='test')
         
-        self.category = Category(name="jus de fruits")
-        self.category.save()
-        self.product1 = Product(
-            name="Pur jus d'orange sans pulpe", 
-            image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
-            url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 
-            nutriscore=3, packaging="carton")
-        self.product2 = Product(
-            name="orange bio", 
-            image_url="fake url",
-            url="fake url", 
-            nutriscore=5, packaging="bouteille plastique")
-        self.product1.save()
-        self.product2.save()
-        self.product1.category.add(self.category)
-        self.product2.category.add(self.category)
-        self.product1.save()
-        self.product2.save()
+        self.category = create_x_cats(1)[0]
+        self.product = create_x_prods(1, self.category)
     
     def test_favorite_get_access_no_param_no_connected(self):
         self.client.logout()
@@ -342,7 +309,7 @@ class FavoriteTests(TestCase):
         """ test wehter user can acces user/favorite/orange bio"""
         before = len(self.profile.favlist.all())
 
-        response = self.client.get("/user/favorite/orange bio")
+        response = self.client.get("/p10/user/favorite/test_prod1")
         after = len(self.profile.favlist.all())
         self.assertEqual(response.status_code, 200)
         self.assertEqual(before, after-1)
@@ -352,6 +319,6 @@ class FavoriteTests(TestCase):
     def test_favorite_add_db(self):
         """ test wether a product can be add user favorite page"""
         before = len(self.profile.favlist.all())
-        response = self.client.get("user/favorite/orange bio")
+        response = self.client.get("/p10/user/favorite/test_prod1")
         after = len(self.profile.favlist.all())
         self.assertTrue(before + 1, after)

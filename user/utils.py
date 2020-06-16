@@ -55,7 +55,7 @@ class MailAgent():
         " pour confirmer votre mail"
         from_email = settings.EMAIL_HOST_USER
         to_list = [mail]
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        send_mail(subject, message, from_email, to_list, fail_silently=False)
 
 
     def notify_db_mav(self, user, profile, code, mail):

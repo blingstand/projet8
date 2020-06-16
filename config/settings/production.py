@@ -17,6 +17,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+EMAIL_HOST_USER = 'djangomailbling@gmail.com'
+EMAIL_HOST_PASSWORD = 'mcvttboexpiiyuao'
 
 sentry_sdk.init(
     dsn="https://05e89a4df1b24054b90c8fff6ea1a85f@o388096.ingest.sentry.io/5240594",

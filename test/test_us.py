@@ -15,7 +15,7 @@ class AccountTestCase(LiveServerTestCase):
 
     def test_user_stories(self):
         firefox_options = webdriver.FirefoxOptions()
-        #firefox_options.headless = True
+        firefox_options.headless = True
         print("\n\n***\ndébut des test\n***")
         self.driver = webdriver.Firefox(firefox_options=firefox_options)
         self.user = User(username="test")

@@ -67,5 +67,5 @@ class ProductViewsTest(TestCase):
 
     def test_display_page_when_prod_arg(self):
         """ tests whether access is possible when user is authenticated"""
-        response = self.client.get("/products/infos/Pur jus d'orange sans pulpe")
+        response = self.client.get("/p10/products/infos/Pur jus d'orange sans pulpe")
         self.assertEqual(response.status_code, 200)

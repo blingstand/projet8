@@ -1,59 +1,39 @@
+
+#global
+from unittest import mock, skip
+
+#django
 from django.contrib.messages import get_messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.test import TestCase
 from django.urls import reverse
 
-from unittest import mock, skip
-
+#other apps
 from research.form import SearchForm, AdvancedSearchForm
 import research.views as v
 import research.searcher as s
 from products.models import Category, Product
 
+#app
+from .utils import create_user_and_profile, create_x_cats, create_x_prods
 print("test_research\n", "_ "*20)
 #-- unit test_get --
 
 class UnitTest(TestCase):
     def setUp(self):
-        #a cat
-        self.category = Category(name="jus de fruits")
-        self.category.save()
-        #a product
-        self.product1 = Product(
-            name="Pur jus d'orange sans pulpe", 
-            image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
-            url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 
-            nutriscore=3, packaging="carton")
-        self.product2 = Product(
-            name="Jus d'orange pas bon pas bio pas cher", 
-            image_url="fake url",
-            url="fake url", 
-            nutriscore=5, packaging="osef")
-        self.product1.save()
-        self.product2.save()
-        self.product1.category.add(self.category)
-        self.product2.category.add(self.category)
-        self.product1.save()
-        self.product2.save()
-        self.category2 = Category(name="compote")
-        self.category2.save()
-        self.product3 = Product(
-            name="Pomme pomme jus", 
-            image_url="fake url",
-            url="fake url", 
-            nutriscore=5, packaging="osef")
-        self.product4 = Product(
-            name="Poppom à la pomme", 
-            image_url="fake url",
-            url="fake url", 
-            nutriscore=5, packaging="osef")
-        self.product3.save()
-        self.product4.save()
-        self.product3.category.add(self.category)
-        self.product4.category.add(self.category2)
-        self.product3.save()
-        self.product4.save()
+        #cat1 : 3 prods / cat2 : 1 prod
+        self.cat1, self.cat2 = create_x_cats(2)
+        self.prod1, self.prod2, self.prod3, self.prod4 = create_x_prods(4, self.cat1)
+        self.prod4.category.add(self.cat2)
+
+        self.prod1.name = "Pur jus d'orange sans pulpe"
+        self.prod2.name = "Jus d'orange pas bon pas bio pas cher"
+        self.prod3.name, self.prod4.name = "Pomme pomme jus", "Poppom à la pomme"
+        self.cat1.name, self.cat2.name = "jus de fruits", "compote"
+
+        [elem.save() for elem in [self.prod1, self.prod2, self.prod3, self.prod4]]
+        [elem.save() for elem in [self.cat1, self.cat2]]
         
     def test_get_make_a_search(self):
         """ Tests whether the function returns the wanted value after 
@@ -111,7 +91,7 @@ class UnitTest(TestCase):
     def test_get_Search_list_sub(self):
         """ Tests whether function returns a dictionary full of substitute sorted by nutriscore """
         search = s.Search("pomme")
-        list_sub = search.list_sub(category=self.category)
+        list_sub = search.list_sub(category=self.cat1)
         self.assertTrue(len(list_sub), 3) #3 prods
 
 #-- integration test_get -- 
@@ -123,43 +103,19 @@ class ResultsViewTests(TestCase):
         self.addCleanup(patcher.stop)
         mock_form_class = patcher.start()
         self.mock_form = mock_form_class.return_value
-        #a category 
-        self.category = Category(name="jus de fruits")
-        self.category.save()
-        #2 products
-        self.product1 = Product(
-            name="Pur jus d'orange sans pulpe", 
-            image_url="https://static.openfoodfacts.org/images/products/350/211/000/9449/front_fr.80.400.jpg",
-            url="https://world.openfoodfacts.org/product/3502110009449/pur-jus-d-orange-sans-pulpe-tropicana", 
-            nutriscore=3, packaging="carton")
-        self.product2 = Product(
-            name="Jus d'orange pas bon pas bio pas cher", 
-            image_url="fake url",
-            url="fake url", 
-            nutriscore=5, packaging="osef")
-        self.product1.save()
-        self.product2.save()
-        self.product1.category.add(self.category)
-        self.product2.category.add(self.category)
-        self.product1.save()
-        self.product2.save()
+        
+        #cat1 : 2 prods 
+        self.cat1 = create_x_cats(1)[0]
+        self.prod1, self.prod2 = create_x_prods(2, self.cat1)
+        self.prod1.name = "Pur jus d'orange sans pulpe"
+        self.prod2.name = "Jus d'orange pas bon pas bio pas cher"
+        [elem.save() for elem in [self.prod1, self.prod2]]
 
 
-    def tearDown(self):
-        self.category.delete()
-        self.product1.delete()
-        self.product2.delete()
-
-
-    def test_get_res_access_get_with_params(self):
-        """ Tests whether the function returns a web page """
-        response = self.client.get("/results/jus de fruits/Pur jus d'orange")
-        self.assertEqual(response.status_code , 200)
-        self.assertContains(response, "Résultats")
 
     def test_get_no_res_access_wrong_params(self):
         """ Tests whether the function redirects if params are wrong"""
-        response = self.client.get("/results/aaa/aaa")
+        response = self.client.get("/p10/results/aaa/aaa")
         self.assertEqual(response.status_code , 302)
         self.assertRedirects(response, reverse('research:index'))
 
@@ -205,7 +161,7 @@ class IndexViewTests(TestCase):
 
     def test_get_access_page(self):
         """ Tests whether the function returns a web page """
-        response = self.client.get('http://127.0.0.1:8000/index')
+        response = self.client.get('http://127.0.0.1:8000/p10/index')
         self.assertEqual(response.status_code, 200)
         
     def test_index_post_form_is_not_valid(self):

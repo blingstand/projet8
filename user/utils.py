@@ -47,9 +47,7 @@ class MailAgent():
         """ sends a code by mail to confirm mail adress before adding in base """
         subject = "Confirmation de votre mail "
         url = request.build_absolute_uri()
-        print(type(url))
-        print(f'{url}/1/{code}')
-        print(f'{url[:-2]}/1/{code}')
+
         
         message = f"Cliquez sur ce lien {url[:-2]}/1/{code}"\
         " pour confirmer votre mail"

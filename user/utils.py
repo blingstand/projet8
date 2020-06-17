@@ -47,9 +47,12 @@ class MailAgent():
         """ sends a code by mail to confirm mail adress before adding in base """
         subject = "Confirmation de votre mail "
         url = request.build_absolute_uri()
-
-        
-        message = f"Cliquez sur ce lien {url[:-2]}/1/{code}"\
+        print(f"**\n{url}, \nmy part is : {url[-2:]}")
+        if url[-2:] == "/2":
+            url=url[:-2]
+        #EMAIL_HOST_USER = 'djangomailbling@gmail.com'
+        # EMAIL_HOST_PASSWORD = 'mcvttboexpiiyuao'
+        message = f"Cliquez sur ce lien {url}/1/{code}"\
         " pour confirmer votre mail"
         from_email = settings.EMAIL_HOST_USER
         to_list = [mail]

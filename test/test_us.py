@@ -1,24 +1,30 @@
+#global
+import os
+from unittest import skip
+#django
 from django.contrib.auth.models import User
 from django.test import LiveServerTestCase
-from unittest import skip
-
+#selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait as wait
-
+#others app
 from user.models import Profile
 from products.models import Category, Product
-
+#current app
 from .utils import popdatabase, create_user_and_profile
 print("test_us\n", "_ "*20)
 
 class AccountTestCase(LiveServerTestCase):
 
     def test_user_stories(self):
-        firefox_options = webdriver.FirefoxOptions()
-        firefox_options.headless = True
-        print("\n\n***\ndébut des test\n***")
-        self.driver = webdriver.Firefox(firefox_options=firefox_options)
+        #self.driver = webdriver.Firefox()
+        if os.environ["DJANGO_SETTINGS_MODULE"]=="config.settings.production": 
+            print("mode production")
+            firefox_options = webdriver.FirefoxOptions()
+            firefox_options.headless = True
+            print("\n\n***\ndébut des test\n***")
+            self.driver = webdriver.Firefox(firefox_options=firefox_options,executable_path="/home/blingstand/p10/env/bin/geckodriver")
         self.user, self.profile = create_user_and_profile("test", "test")
         popdatabase()
 

@@ -3,7 +3,7 @@
 # -*- coding: utf8 -*-
 
 
-import os
+import os, datetime
 from django.core.management.base import BaseCommand
 from products.models import Category, Product
 
@@ -33,15 +33,19 @@ class Command(BaseCommand):
         print("début de la mise à jour de la base ...")
         print("* * * ")
         delete_table_cat_prod(querryset_cat, querryset_prod)
-        repport = get_and_insert(number_prod_in_cat1, tup_name_cat)
+        report = get_and_insert(number_prod_in_cat1, tup_name_cat)
+        date = datetime.datetime.today().strftime('%d-%m-%Y %H:%M:%S')
+        report += f'\n\n> Rapport de mise à jour du {date}\n'
+
         print("* * * ")
         print("fin de la mise à jour de la base.")
         querryset_cat2 = Category.objects.all()
         number_prod_in_cat2 = get_number_prod(querryset_cat2)
         print(f"vérification que tout se soit bien passé : {number_prod_in_cat2 == number_prod_in_cat1}")
-        with open("update.txt", "w") as fichier:
-            fichier.write(repport)
+        with open(f"{BASE_DIR}/update.txt", "w") as fichier:
+            fichier.write(report)
         print(f"retrouvez le rapport de mise à jour ici : {BASE_DIR}/update.txt")
+
             
 
 

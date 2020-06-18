@@ -1,6 +1,5 @@
 *.pyc
 __pycache__/
-pureBeurre/settings/__init__.py
 pureBeurre/settings/production.py
 livrables.zip
 livrables/

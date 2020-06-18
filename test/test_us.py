@@ -1,28 +1,43 @@
+#global
+import os
+from unittest import skip
+#django
 from django.contrib.auth.models import User
 from django.test import LiveServerTestCase
-from unittest import skip
-
+#selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait as wait
-
+#others app
 from user.models import Profile
 from products.models import Category, Product
-
+#current app
 from .utils import popdatabase, create_user_and_profile
 print("test_us\n", "_ "*20)
 
 class AccountTestCase(LiveServerTestCase):
 
     def test_user_stories(self):
-        firefox_options = webdriver.FirefoxOptions()
-        firefox_options.headless = True
-        print("\n\n***\ndébut des test\n***")
-        self.driver = webdriver.Firefox(firefox_options=firefox_options)
+        environment = os.environ["DJANGO_SETTINGS_MODULE"]
+        production = "config.settings.production"
+        travis = "config.settings.travis"
+        print(environment, environment in (production,travis))
+        if environment in (production,travis) : 
+            print("on est pas en local ...")
+            firefox_options = webdriver.FirefoxOptions()
+            firefox_options.headless = True
+            if environment == travis:
+                print("car on est avec travis")
+                self.driver = webdriver.Firefox(firefox_options=firefox_options)
+            elif environment == production:
+                print('car on est en prod')
+                self.driver = webdriver.Firefox(firefox_options=firefox_options,executable_path="/home/blingstand/p10/env/bin/geckodriver")
+            else:
+                self.driver = webdriver.Firefox()
         self.user, self.profile = create_user_and_profile("test", "test")
         popdatabase()
 
-
+        print("\n\n***\ndébut des test\n***")
         #Opening the link we want to test
         register = f"{self.live_server_url}/p10/user/register"
         self.driver.get(register)

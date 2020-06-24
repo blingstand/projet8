@@ -8,3 +8,6 @@ staticfiles/
 config/settings/production.py
 geckodriver.log
 update.sh
+config/settings/top_secret.py
+geckodriver.log
+config/staticfiles/

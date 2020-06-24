@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 import sentry_sdk
+if os.environ["DJANGO_SETTINGS_MODULE"] != "config.settings.production":
+    from config.settings.top_secret import *
+    EMAIL_HOST_USER = email_user
+    EMAIL_HOST_PASSWORD = email_psw
 
-import config.mail
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -148,7 +151,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 #     os.path.join(PROJECT_ROOT, 'static'),
 #     )
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.outlook.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'p10django <noreply@p10django.com>'

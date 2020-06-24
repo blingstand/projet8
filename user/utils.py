@@ -6,6 +6,9 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.db import IntegrityError
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 
 #from current app
 from .models import Profile
@@ -50,13 +53,12 @@ class MailAgent():
         print(f"**\n{url}, \nmy part is : {url[-2:]}")
         if url[-2:] == "/2":
             url=url[:-2]
-        #EMAIL_HOST_USER = 'djangomailbling@gmail.com'
-        # EMAIL_HOST_PASSWORD = 'mcvttboexpiiyuao'
-        message = f"Cliquez sur ce lien {url}/1/{code}"\
-        " pour confirmer votre mail"
+        context = {'mail' : mail, 'url' : f"{url}/1/{code}"}
+        html_message = render_to_string('user/mail_template.html', context)
+        plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
         to_list = [mail]
-        send_mail(subject, message, from_email, to_list, fail_silently=False)
+        send_mail(subject, plain_message, from_email, to_list, html_message=html_message, fail_silently=False)
 
 
     def notify_db_mav(self, user, profile, code, mail):

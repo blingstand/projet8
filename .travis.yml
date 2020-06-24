@@ -25,7 +25,7 @@ before_script:
 services:
   - postgresql
 
-env: DJANGO_SETTINGS_MODULE=pureBeurre.settings.travis
+env: DJANGO_SETTINGS_MODULE=config.settings.travis
 
 script:
   - ./manage.py test test.test_us

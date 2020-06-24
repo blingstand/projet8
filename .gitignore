@@ -1,8 +1,10 @@
 *.pyc
 __pycache__/
-pureBeurre/settings/production.py
 livrables.zip
 livrables/
 slide.odp
 update.txt
 staticfiles/
+config/settings/production.py
+geckodriver.log
+update.sh

@@ -3,10 +3,9 @@ language: python
 python:
   - '3.6'
 
-# safelist
 branches:
   only:
-    - master
+    - staging 
 addons:
   firefox: latest
 

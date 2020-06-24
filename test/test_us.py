@@ -13,7 +13,7 @@ from user.models import Profile
 from products.models import Category, Product
 #current app
 from .utils import popdatabase, create_user_and_profile
-print("test_us\n", "_ "*20)
+
 
 class AccountTestCase(LiveServerTestCase):
 
@@ -32,8 +32,9 @@ class AccountTestCase(LiveServerTestCase):
             elif environment == production:
                 print('car on est en prod')
                 self.driver = webdriver.Firefox(firefox_options=firefox_options,executable_path="/home/blingstand/p10/env/bin/geckodriver")
-            else:
-                self.driver = webdriver.Firefox()
+        else:
+            print("on est en local")
+            self.driver = webdriver.Firefox()
         self.user, self.profile = create_user_and_profile("test", "test")
         popdatabase()
 

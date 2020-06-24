@@ -13,9 +13,25 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 import sentry_sdk
+environment = os.environ["DJANGO_SETTINGS_MODULE"]
+production = "config.settings.production"
+travis = "config.settings.travis"
+if os.environ["DJANGO_SETTINGS_MODULE"] not in (production, travis):
+    from config.settings.top_secret import *
+    EMAIL_HOST = 'smtp.outlook.com'
+    EMAIL_HOST_USER = email_user
+    EMAIL_HOST_PASSWORD = email_psw
+elif os.environ["DJANGO_SETTINGS_MODULE"] == travis:
+    EMAIL_HOST={os.environ["EMAIL_HOST"]}
+    EMAIL_HOST_USER={os.environ["EMAIL_HOST_USER"]}
+    EMAIL_HOST_PASSWORD={os.environ["EMAIL_HOST_PASSWORD"]}
 
-from config.settings.top_secret import *
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = 'p10django <noreply@p10django.com>'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -42,7 +58,7 @@ INSTALLED_APPS = [
     'research.apps.ResearchConfig', 
     'skeleton.apps.SkeletonConfig', 
     'products.apps.ProductsConfig', 
-    # "django_nose"
+    "django_nose"
 ]
 
 MIDDLEWARE = [
@@ -110,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #for django-nose
-# TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 # NOSE_ARGS = [
 #     '--with-coverage',
 #     '--cover-tests',
@@ -148,12 +164,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # STATICFILES_DIRS = (
 #     os.path.join(PROJECT_ROOT, 'static'),
 #     )
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.outlook.com'
 
-
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = email_user
-EMAIL_HOST_PASSWORD = email_psw
-DEFAULT_FROM_EMAIL = 'p10django <noreply@p10django.com>'

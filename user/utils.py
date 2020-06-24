@@ -50,7 +50,6 @@ class MailAgent():
         """ sends a code by mail to confirm mail adress before adding in base """
         subject = "Confirmation de votre mail "
         url = request.build_absolute_uri()
-        print(f"**\n{url}, \nmy part is : {url[-2:]}")
         if url[-2:] == "/2":
             url=url[:-2]
         context = {'mail' : mail, 'url' : f"{url}/1/{code}"}
@@ -58,7 +57,8 @@ class MailAgent():
         plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
         to_list = [mail]
-        send_mail(subject, plain_message, from_email, to_list, html_message=html_message, fail_silently=False)
+        send_mail(subject, plain_message, from_email, to_list, \
+            html_message=html_message, fail_silently=False)
 
 
     def notify_db_mav(self, user, profile, code, mail):

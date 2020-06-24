@@ -11,7 +11,7 @@
         {% if user_mail %}
             {% if mail_confirmed %}
               <!-- good confirmation -->
-              <p class="text-center" id="id_mail_communicated"> Tu m'as communiqué ce mail : {{user_mail}}</p>
+              <p class="text-center" id="id_mail_communicated"> Félicitation tu m'as confirmé ce mail : {{user_mail}}</p>
         
             {% else %}
               {% if wait_confirmation %}
@@ -30,8 +30,7 @@
           {% csrf_token %}
           <div class="form-row mt-4 justify-content-around">
             <div class="col-lg-3"><p>{{ mail_form.mail.label}}</p>  </div>
-            <div class="col-lg-9">
-              <p>{{ mail_form.mail}}</p>
+            <div class="col-lg-9"><p>{{ mail_form.mail}}</p>
               <p id="check_mail"></p> <!-- for js feedback -->
             </div>  
           </div>

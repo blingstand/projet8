@@ -251,9 +251,8 @@ class MyAccountViewTests(TestCase):
         self.profile.save()
         response = self.client.get(reverse("user:myAccount", args=[1, "123"]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Tu m'as communiqué ce mail : testmail.fr")
+        self.assertContains(response, "Félicitation tu m'as confirmé ce mail : testmail.fr")
 
-    
     def test_myacc_get_access_page_sit_change_mail(self):
         """ user can access myAcount with url : ".../user/myAccount/2
             User has given a first mail and can change it because a new email 
@@ -266,7 +265,6 @@ class MyAccountViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "J'aurais besoin de ton mail ...")
 
-    
     def test_myacc_post_form_is_not_valid(self):
         """ Tests whether the function displays an error msg if form is not valid """
         self.mock_form.is_valid.return_value = False

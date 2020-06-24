@@ -6,7 +6,7 @@ python:
 # safelist
 branches:
   only:
-    - master
+    - staging
 addons:
   firefox: latest
 

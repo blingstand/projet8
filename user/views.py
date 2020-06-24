@@ -91,11 +91,9 @@ class MyAccountView(View):
         if request.user.is_authenticated:
             user, profile_found = get_user_and_profile(request)
             profile_found.wait_confirmation = True
-            try:
-                user_mail = user.email
-
-            except:
-                user_mail = None
+            
+            user_mail = user.email
+          
             if my_option == 1: #comparison code
                 profile_found.wait_confirmation = False
                 if profile_found.code == code:
@@ -133,7 +131,6 @@ class MyAccountView(View):
         mail_form = MailForm(request.POST)
         if mail_form.is_valid():
             code = "".join([random.choice(string.digits) for _ in range(24)])
-            print(f'le code est {code}')
             mail = mail_form.cleaned_data['mail'] #gets the mail
             mail_agent.send_confirm_mail(mail, code, request)
             # notify base that mail has been sent

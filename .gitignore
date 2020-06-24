@@ -8,3 +8,4 @@ update.txt
 config/settings/top_secret.py
 geckodriver.log
 config/staticfiles/
+cover/

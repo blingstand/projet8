@@ -5,6 +5,6 @@ livrables.zip
 livrables/
 slide.odp
 update.txt
-staticfiles/
 config/settings/top_secret.py
 geckodriver.log
+config/staticfiles/

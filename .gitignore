@@ -6,3 +6,5 @@ livrables.zip
 livrables/
 slide.odp
 update.txt
+config/settings/top_secret.py
+config/staticfiles/
